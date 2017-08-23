@@ -1,0 +1,89 @@
+#+STARTUP: showall align
+#+AUTHOR: Manoel Vilela
+#+DATE: <2017-08-21 Mon 14:00>
+#+TITLE: Funções, ponteiros e alocação dinâmica
+
+* Sumário                                                             :TOC_3:
+:PROPERTIES:
+:CUSTOM_ID: toc-org
+:END:
+- [[#resumo][Resumo]]
+- [[#alocações-de-matrizes-e-suas-representações-na-memória][Alocações de Matrizes e suas representações na Memória]]
+
+* Resumo
+
+Nesta aula deu-se uma introdução de vários conceitos básicos para a disciplina de
+estrutura de dados. Dentre eles, sobre especificamente a linguagem C, foi abordada
+de maneira sucinta e breve os seguintes tópicos:
+
+1) Funções/Procedimentos
+2) Manipulação de Ponteiros
+3) Passagem por valor
+4) Passagem por referência
+5) Vetores como ponteiros
+6) Vetores e sua natureza contígua
+7) Notação de ponteiros e vetores
+8) Matrizes como vetores contíguos
+9) Alocação dinâmica com malloc
+10) Uso restrito de malloc (pode falhar às vezes)
+11) Comparação de memória alocada dinamicamente e estática
+12) Estilos de armazenamento de matrizes: vetor contínuo e ponteiro de ponteiros
+
+O professor tem o nome de Jarbas e ele é bem expressivo. Foi uma boa aula e intriga bastante
+os alunos a pensarem, perguntarem. Além disso tem uma boa notação e linguagem pra explicação.
+
+
+Não tenho certeza se vale a pena explorar os conceitos dado nessa aula aqui nesse resumo, já
+que é muito básico e eu conheço todos. Embora, de fato, achei um pouco de novidade na parte
+de estilo de armazenamento de matrizes. Não esperava que pudesse representar uma matriz como
+um vetor contínuo com um hack sobre fatiamentos baseado em suas dimensões.
+Vou deixar um TODO aqui apenas pra eu descrever isso posteriormente.
+
+
+* DONE Alocações de Matrizes e suas representações na Memória
+  CLOSED: [2017-08-22 Tue 21:31] SCHEDULED: <2017-08-22 Tue>
+
+Os tipos de alocações de matrizes e sua representações na memória podem ser feitas
+através de:
+
+1. Matriz como um vetor contíguo
+2. Matriz como um vetor de ponteiros
+
+Para o caso 1., esta é a maneira como a alocação estática de matrizes é feita através
+da sintaxe de declaração:
+
+#+BEGIN_SRC c
+int matrix[3][4];
+#+END_SRC
+
+É possível alocar memória dinamicamente dessa maneira:
+
+#+BEGIN_SRC c
+int n, m;
+int *matrix = (int) malloc(sizeof(int)*n*m));
+
+#+END_SRC
+
+
+No entanto, durante o acesso dos índices [n][m] uma tradução
+do compilador é feita, no caso estático, através de:
+
+
+~matrix[i][j] -> matrix[i*m + j]~
+
+
+O que podemos ver que uma matriz nada é mais, nesse caso, que um
+fatiamento de um vetor em passos de ~m~, que para nossa informação
+é o número de colunas.
+
+No entanto fazendo alocação dinâmica, eu preciso fazer essa
+tradução manualmente, pois na declaração do tipo o compilador
+não sabe que na verdade o que declaro como vetor é na verdade
+uma matriz. Tudo é uma questão de como abstrair esses dados.
+
+Para o caso 2., temos algo um pouco mais sofisticado trabalhando
+com ponteiros de ponteiros. Essas notas vou deixar para o arquivo
+seguinte, [[aula-1.org]].
+
+Uma implementação dos conceitos referentes aqui, sobre tipos
+de alocação para matrizes, está escrito no arquivo [[file:src/matrix.c]]
