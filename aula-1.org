@@ -1,0 +1,115 @@
+#+STARTUP: showall align
+#+OPTIONS: todo:nil tasks:all tags:nil
+#+AUTHOR: Manoel Vilela
+#+DATE: <2017-08-22 Tue 22:16>
+#+TITLE: Matrizes e Tipos Estruturados
+#+EXCLUDE_TAGS: TOC_3
+
+* Sumário                                                             :TOC_3:
+:PROPERTIES:
+:CUSTOM_ID: toc-org
+:END:
+- [[#resumo][Resumo]]
+- [[#struct-notações-e-armazenamento][Struct, notações e armazenamento]]
+- [[#typedef][Typedef]]
+- [[#comentar-sobre-exemplos][Comentar sobre exemplos]]
+
+* Resumo
+
+Nessa aula terminamos de ver os tipos de alocação de matrizes e também foi comentado
+através de uma pergunta que fiz sobre as implicações de uso, tal como eficiência.
+No caso da alocação de uma matriz por ponteiros a resolução de referência é dupla, pois
+é necessário primeiro pegar o endereço da linha e depois com o índice da coluna
+o valor da posição (i,j). Por outro lado, na alocação de matriz por vetor é única,
+pois após a transformação dos índices, estamos nada mais que acessando um elemento de um único vetor.
+Isso pode ser relevante em sistemas críticos.
+
+
+Na outra parte da aula, tivemos introdução a "Tipos Estruturados de Dados". Ou, simplesmente,
+TAD (Tipos Abstratos de Dados), inglês chamado de Abstract Data Types. Tipos estruturados
+nada mais são que tipos compostos por tipos primitivos da linguagem. Por exemplo,
+o mais idiota de todos:
+
+#+BEGIN_SRC c
+struct Ponto {
+   int x;
+   int y;
+};
+
+#+END_SRC
+
+
+Os tópicos que foram dados se resume a:
+
+1. Criar estruturas em C através da keyword ~struct~;
+2. A notação de ponto para estruturas;
+3. Notação de seta para ponteiros de estruturas;
+4. Como um ~struct~ é armazenada em memória;
+5. Uso de ~typedef~ pra criar /aliases/ para tipos.
+6. Exemplos variados dos tópicos acima.
+
+
+* Struct, notações e armazenamento
+
+Uma estrutura é um dado composto por um ou mais dados primitivos (ou outras estruturas),
+onde pode se armazenar diferente tipos de dados num mesmo bloco de memória (contígua).
+
+Como demonstrado anteriormente com o exemplo do ~struct Ponto~, dois membros são declarados
+como ~x~ e ~y~. Estruturas são semelhantes a vetores no sentido de armazenamento, esses membros
+são armazenados lado a lado e o acesso de futuros membros são determinados pelo seu tipo.
+
+Necessariamente, o endereço de uma estrutura é o endereço do seu primeiro membro (nesse caso ~x~). O
+que ocorria de maneira semelhante com os vetores. Para o acesso dos seus membros é usado a notação
+de ponto, como segue o exemplo:
+
+#+BEGIN_SRC c
+  int main(void) {
+    struct Ponto p;
+    p.x = 10;
+    p.y = 20;
+
+  }
+#+END_SRC
+
+A ordem de acesso é determinística por conta que a ordem da declaração dos membros no /struct/ importa.
+A partir do tamanho que cada tipo armazenará, o compilador determina a quantidade de passos necessário a ser
+feito pra chegar ao endereço do próximo membro.
+
+Como fim de apenas uma simple facilidade, isto é, um açúcar sintático, é provida uma sintaxe alternativa
+para a manipulação de estrutura de ponteiros.
+De forma equivalente ~(*pp).x~ é igual a ~pp->x~, sendo ~pp~ uma variável do tipo ~struct *Ponto~.
+
+* Typedef
+
+Typedef é criado como uma forma de /alias/ para tipos já definidos.
+
+#+BEGIN_SRC c
+  typedef int StudentId;
+
+  typedef struct {
+      int x;
+      int y;
+  } Ponto;
+
+#+END_SRC
+
+O struct anônimo acima é uma maneira mais simples de definir um novo tipo. No entanto, o usuário
+ainda se quiser poderá declarar a estrutura separadamente, assim como também declarar junto e passar o nome da estrutura
+ou não.
+
+#+BEGIN_SRC c
+  struct Ponto {
+      int x;
+      int y;
+  };
+
+  typedef struct Ponto Ponto;
+
+  typedef struct _Ponto {
+      int x;
+      int y;
+  } _Ponto;
+#+END_SRC
+
+* TODO Comentar sobre exemplos
+  SCHEDULED: <2017-08-25 Fri>
