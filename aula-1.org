@@ -2,8 +2,10 @@
 #+OPTIONS: todo:nil tasks:all tags:nil
 #+AUTHOR: Manoel Vilela
 #+DATE: <2017-08-22 Tue 22:16>
-#+TITLE: Matrizes e Tipos Estruturados
+#+TITLE: Estrutura de Dados @@latex:\\@@ 01 - Matrizes e Tipos Estruturados
 #+EXCLUDE_TAGS: TOC_3
+#+LANGUAGE: bt-br
+#+LATEX_HEADER: \usepackage[]{babel}
 
 * Sumário                                                             :TOC_3:
 :PROPERTIES:

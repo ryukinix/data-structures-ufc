@@ -1,7 +1,11 @@
 #+STARTUP: showall align
+#+OPTIONS: tasks:all tags:nil todo:nil
 #+AUTHOR: Manoel Vilela
 #+DATE: <2017-08-21 Mon 14:00>
-#+TITLE: Funções, ponteiros e alocação dinâmica
+#+TITLE: Estrutura de Dados @@latex:\\@@ 00 - Funções, ponteiros e alocação dinâmica
+#+EXCLUDE_TAGS: TOC_3
+#+LANGUAGE: bt-br
+#+LATEX_HEADER: \usepackage[]{babel}
 
 * Sumário                                                             :TOC_3:
 :PROPERTIES:
