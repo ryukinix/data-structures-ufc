@@ -1,0 +1,13 @@
+#+STARTUP: showall align
+#+AUTHOR: Manoel Vilela
+#+DATE: 2017.2
+#+TITLE: Estrutura de Dados
+
+* Description
+
+Este repositório é onde se encontra as principais notas sobre
+alguns conceitos e exercícios propostos em sala de aula da disciplina
+Estrutura de Dados, ministrada pelo professor Jarbas na UFC - Sobral, 2017.2
+
+Eventuais trabalhos ou tarefas mais complexas serão destinados a repositórios
+individuais.
