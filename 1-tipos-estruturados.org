@@ -115,3 +115,5 @@ ou não.
 
 * TODO Comentar sobre exemplos
   SCHEDULED: <2017-08-25 Fri>
+
+Estarei escrevendo alguns exemplos dado em sala no arquivo [[file:src/struct.c]]
