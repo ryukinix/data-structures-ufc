@@ -16,6 +16,13 @@
 - [[#struct-notações-e-armazenamento][Struct, notações e armazenamento]]
 - [[#typedef][Typedef]]
 - [[#estrutura-círculo][Estrutura Círculo]]
+- [[#vetor-de-estruturas][Vetor de Estruturas]]
+  - [[#armazenamento-como-vetor-de-estruturas][Armazenamento como Vetor de Estruturas]]
+    - [[#estático][Estático]]
+    - [[#dinâmico][Dinâmico]]
+  - [[#armazenamento-como-vetor-de-ponteiro-de-estruturas][Armazenamento como Vetor de Ponteiro de Estruturas]]
+    - [[#estático-1][Estático]]
+    - [[#dinâmico-1][Dinâmico]]
 
 * Resumo
 
@@ -170,3 +177,190 @@ Da qual a primeira representa um ponto no plano euclidiano e a segunda um círcu
 métodos são =float distance(Point *px, Point *py)= e =int point_inside(Circle *c, Point *p)=. Para
 mais informações, por favor, olhe as definições no código fonte de cada estrutura (=point.c= e =circle.c=).
 O código é legível e documentado.
+
+
+* DONE Vetor de Estruturas
+  CLOSED: [2017-08-29 Tue 13:44] SCHEDULED: <2017-08-29 Tue>
+
+Vetores de estruturas podem ser alocados de diferente maneiras,
+cada um com seus benefícios. Entre elas temos:
+
+1. Armazenamento como vetor de estruturas.
+2. Armazenamento como vetor de ponteiro de estruturas.
+
+Nossa estrutura base para comparação será:
+
+#+NAME: estrutura:aluno
+#+CAPTION: Estrutura Aluno definido em aluno.h.
+#+BEGIN_SRC c
+  typedef struct {
+      char nome[81];
+      float ira;
+  } Aluno;
+#+END_SRC
+
+** Armazenamento como Vetor de Estruturas
+
+Temos a eficiência no acesso, mas não pode ser
+liberado uma vez que é alocado. Além do mais,
+essa estrutura que não pode ser liberada pode ocupar
+grande memória.
+
+Nesse caso, como sempre a estrutura estará viva na memória,
+é conveniente usar um método para identificação das estruturas
+que de fato possuem valores e estão sendo usadas. Recomenda-se
+usar a /flag/ =#define FREE -1= para o membro /ira/ na inicialização
+de cada estrutura. Esse passo é inferido nos códigos de exemplo e será
+detalhado na implementação.
+
+*** Estático
+
+No caso estático a memória uma vez alocada,
+não é possível liberá-la em tempo de execução. Além disso
+você precisa saber /a priori/ o tamanho a ser alocado.
+
+#+NAME: vetores-de-estruturas:estatico
+#+CAPTION: Exemplo de alocação estática com vetores de estruturas.
+#+BEGIN_SRC c
+  #include <stdio.h>
+  #include "aluno.h"
+
+  int main(void) {
+      Aluno alunos[80]; /* alocação na stack, não pode desalocar */
+      /* programa principal */
+      /* ... */
+
+      return 0;
+  }
+
+#+END_SRC
+
+*** Dinâmico
+
+Pode escolher o tamanho, mas uma vez alocada o programador só tem duas opções:
+- fazer realocação do vetor se quiser aumentar ou liberar
+- liberar toda memória
+
+
+#+NAME: vetor-de-estruturas:dinamico
+#+CAPTION: Exemplo de alocação dinâmica com vetores de estruturas.
+#+BEGIN_SRC c
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include "aluno.h"
+
+  int main(void) {
+      Aluno *alunos;
+      int n;
+      scanf("%d", &n);
+      alunos = (Aluno*) malloc(sizeof(Aluno)*n); /* alocação na heap */
+      /* programa principal */
+      /* ... */
+      /* liberação da memória */
+      free(alunos);
+      alunos = NULL;
+
+      return 0;
+  }
+#+END_SRC
+
+** Armazenamento como Vetor de Ponteiro de Estruturas
+
+Nesse caso a eficiência em memória é maior, pois até no caso estático
+só armazenamos ponteiros de estruturas invés das estruturas por si.
+Vista que o ponteiro de uma estrutura é muito menor que a estrutura em si
+(seja qual ela for). Por outro lado, como cada acesso terá que ser feito
+uma dupla /dereference/ é usualmente um pouco mais lento que o método descrito
+anteriormente.
+
+No entanto, numa comparação geral, o ganho de eficiência de memória é muito maior
+que a perda de desempenho no acesso. Então esse é o método mais recomendado.
+
+*** Estático
+
+Para o caso estático devemos saber quantas estruturas queremos alocar
+em tempo de compilação. Mas cada estrutura individual somente é alocada quando necessário.
+
+Interessante observar que apenas o vetor de ponteiros é estático e não pode ser liberado.
+Mas as células individuais são alocadas dinamicamente e podem ser desalocadas em tempo de execução.
+
+No final ainda sempre ficará na memória na /stack/ o vetor de ponteiros,
+mas em comparação com o modelo anterior, isto é muito mais econômico, visto que um ponteiro de uma estrutura
+é menor que a estrutura em si.
+
+#+NAME: vetor-de-ponteiro-de-estrutura:estatico
+#+CAPTION: Exemplo de alocação estática com vetor de ponteiros de estruturas
+#+BEGIN_SRC c
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include "aluno.h"
+
+  #define MAX 80
+
+  void aloca_aluno(Aluno** aluno) {
+      *aluno = (Aluno *) malloc(sizeof(Aluno)); // alocação na heap
+  }
+
+  int main(void) {
+      Aluno* alunos[MAX]; // alocação na stack, não pode desalocar
+      int i;
+      /* inicializar com NULL */
+      for(i = 0; i < MAX; i++) {
+          alunos[i] = NULL;
+      }
+      /* quando necessário aloca */
+      aloca_aluno(&alunos); /* aloca o primeiro */
+
+      /* programa principal */
+
+      /* libera no final somente as celulas que foram alocadas */
+      for(i = 0; i < MAX; i++) {
+          if (alunos[i] != NULL) {
+               free(alunos[i]);
+          }
+      }
+
+      return 0;
+  }
+#+END_SRC
+
+*** Dinâmico
+
+Esse é o caso mais flexível de todos em memória. Podemos escolher em tempo de execução o tamanho da memória alocada e
+podemos alocar somente quando necessário a estrutura através do vetor de ponteiros de estruturas.
+
+#+NAME: vetor-de-ponteiro-de-estrutura:dinamico
+#+CAPTION: Exemplo de alocação dinâmica com vetor de ponteiros de estruturas
+#+BEGIN_SRC c
+  #include <stdio.h>
+  #include <stdlib.h>
+  #include "aluno.h"
+
+  #define MAX 80
+
+  void aloca_aluno(Aluno** aluno) {
+      *aluno = (Aluno *) malloc(sizeof(Aluno)); // alocação na heap
+  }
+
+  int main(void) {
+      Aluno **alunos; // alocação na stack, não pode desalocar
+      int i;
+      /* inicializar com NULL */
+      for(i = 0; i < MAX; i++) {
+          alunos[i] = NULL;
+      }
+      /* quando necessário aloca */
+      aloca_aluno(&alunos); /* aloca o primeiro */
+
+      /* programa principal */
+
+      /* libera no final somente as celulas que foram alocadas */
+      for(i = 0; i < MAX; i++) {
+          if (alunos[i] != NULL) {
+               free(alunos[i]);
+          }
+      }
+
+      return 0;
+  }
+#+END_SRC
