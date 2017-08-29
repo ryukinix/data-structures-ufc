@@ -10,14 +10,11 @@
 #include "point.h"
 
 /**
- * @description: A structure to represent a circle
- *
- * @member center: a 2D point to represent a center of the circle
- * @member r: a radius to represent the size of the circle
+ * @brief A structure to represent a circle
  */
 typedef struct {
-    Point center;
-    float r;
+    Point center; /**< center of the circle as 2D point */
+    float r;      /**< radius length of the circle */
 } Circle;
 
 int point_inside(Circle *c, Point *p);

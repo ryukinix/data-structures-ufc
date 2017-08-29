@@ -8,12 +8,13 @@
 #include "point.h"
 
 /**
- * @description: check if the external point `p` is inside of circle `c`
- *               to this be true, the distance of the point from the center
- *               should be lesser than the size of radius.
+ * @brief check if the external point `p` is inside of circle `c`
+ * 
+ * To this be true, the distance of the point from the center
+ * should be lesser than the size of radius.
  *
- * @param c: a pointer to Circle structure
- * @param p: a pointer to a Point to check if inside of the Circle
+ * @param c a pointer to Circle structure
+ * @param p a pointer to a Point to check if inside of the Circle
  */
 int point_inside(Circle *c, Point *p) {
     float d = distance(&c->center, p);
@@ -21,10 +22,10 @@ int point_inside(Circle *c, Point *p) {
 }
 
 /**
- * @description: create a new Circle structure based on its parameters
+ * @brief create a new Circle structure based on its parameters
  *
- * @param center: a Point structure which represents the center of the circle
- * @param r: the radio of the circle;
+ * @param center a Point structure which represents the center of the circle
+ * @param r the radio of the circle;
  */
 Circle new_circle(Point center, float r) {
     Circle c;
@@ -35,9 +36,9 @@ Circle new_circle(Point center, float r) {
 
 
 /**
- * @description: read a new Circle from stdin
+ * @brief read a new Circle from stdin
  *
- * @returns: a new circle structure
+ * @return a new circle structure
  */
 Circle read_circle() {
     float r;

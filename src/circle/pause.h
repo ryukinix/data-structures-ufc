@@ -15,12 +15,13 @@
 
 #include <stdio.h>
 
+/** @brief remove all the endlines from stdin */
 void clean_stdin() {
     char c;
     while((c = getchar()) != '\n' && c != EOF);
 }
 
-/* Cross-platform pause: works on windows and linux */
+/** @brief Cross-platform pause: works on windows and linux */
 void pause() {
     clean_stdin();
     printf("Press enter to continue...");

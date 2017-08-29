@@ -7,14 +7,11 @@
 #define POINT_H
 
 /**
- * @description: simple implementation of a two dimensional vector of plane
- *
- * @member x: a real number (abscissa)
- * @member y: another real number (coordenante)
+ * @brief simple implementation of a two dimensional vector of plane
  */
 typedef struct {
-    float x;
-    float y;
+    float x; /**< a real number (abscissa)*/
+    float y; /**< y another real number (coordenante) */
 } Point;
 
 float distance(Point *px, Point *py);
