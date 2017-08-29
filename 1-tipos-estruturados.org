@@ -5,6 +5,7 @@
 #+TITLE: Estrutura de Dados @@latex:\\@@ 01 - Matrizes e Tipos Estruturados
 #+EXCLUDE_TAGS: TOC_3
 #+LANGUAGE: bt-br
+#+LATEX_HEADER: \usepackage{indentfirst}
 #+LATEX_HEADER: \usepackage[]{babel}
 
 * Sumário                                                             :TOC_3:
@@ -113,7 +114,54 @@ ou não.
   } _Ponto;
 #+END_SRC
 
-* TODO Comentar sobre exemplos
-  SCHEDULED: <2017-08-25 Fri>
+* DONE Comentar sobre exemplos
+  CLOSED: [2017-08-28 Mon 21:25] SCHEDULED: <2017-08-25 Fri>
 
-Estarei escrevendo alguns exemplos dado em sala no arquivo [[file:src/struct.c]]
+Estarei escrevendo alguns exemplos dado em sala no arquivo [[file:src/circle/main.c][Circle]].
+
+
+Em geral eu defini os arquivos as estruturas:
+
+- Point
+- Circle
+
+Alguns métodos adicionais foram feitos pra facilitar a estrutura, como
+=new_point()=, =new_circle()=, =read_point()= e =read_circle()=.
+
+A estrutura de arquivos é dada como:
+
+#+BEGIN_EXAMPLE
+src/circle
+    => Makefile
+    => circle.c
+    => circle.h
+    => point.c
+    => point.h
+    => pause.h
+    => main.c
+#+END_EXAMPLE
+
+Em geral os /headers/ (arquivos terminados com =.h=) contém apenas declarações das estruturas
+e de seus métodos. Adicionalmente, o cabeçalho =pause.h= possui algumas definições para ser fácil
+de importado. Eu escrevi esse cabeçalho para possuir um método portável de chamar uma função pause,
+já que às vezes pode ser necessário no Windows.
+
+
+As principais estruturas são:
+
+
+#+BEGIN_SRC c
+  typedef struct {
+      float x;
+      float y;
+  } Point;
+
+
+  typedef struct {
+      Point center;
+      float r
+  } Circle;
+
+#+END_SRC
+
+Da qual a primeira representa um ponto no plano euclidiano e a segunda um círculo.
