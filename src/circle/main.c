@@ -6,7 +6,7 @@
 #include <stdio.h>
 #include "point.h"
 #include "circle.h"
-#include "pause.h"
+#include "../console/pause.h"
 
 int main(void) {
     Circle c = read_circle();
