@@ -12,7 +12,7 @@
 :CUSTOM_ID: toc-org
 :END:
 - [[#resumo][Resumo]]
-- [[#alocações-de-matrizes-e-suas-representações-na-memória][Alocações de Matrizes e suas representações na Memória]]
+- [[#tipos-de-alocações-de-matrizes][Tipos de alocações de Matrizes]]
 
 * Resumo
 
@@ -44,7 +44,7 @@ um vetor contínuo com um hack sobre fatiamentos baseado em suas dimensões.
 Vou deixar um TODO aqui apenas pra eu descrever isso posteriormente.
 
 
-* DONE Alocações de Matrizes e suas representações na Memória
+* DONE Tipos de alocações de Matrizes
   CLOSED: [2017-08-22 Tue 21:31] SCHEDULED: <2017-08-22 Tue>
 
 Os tipos de alocações de matrizes e sua representações na memória podem ser feitas
@@ -87,7 +87,7 @@ uma matriz. Tudo é uma questão de como abstrair esses dados.
 
 Para o caso 2., temos algo um pouco mais sofisticado trabalhando
 com ponteiros de ponteiros. Essas notas vou deixar para o arquivo
-seguinte, [[aula-1.org]].
+seguinte, [[1-tipos-estruturados.org]].
 
 Uma implementação dos conceitos referentes aqui, sobre tipos
 de alocação para matrizes, está escrito no arquivo [[file:src/matrix.c]]
