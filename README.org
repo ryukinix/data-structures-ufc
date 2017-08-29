@@ -9,5 +9,10 @@ Este repositório é onde se encontra as principais notas sobre
 alguns conceitos e exercícios propostos em sala de aula da disciplina
 Estrutura de Dados, ministrada pelo professor Jarbas na UFC - Sobral, 2017.2
 
+* Mapa do Repositório
+
+1. [[file:0-funcoes-ponteiros-vetores-matrizes.org][Funcões, Ponteiros, Vetores e Matrizes]]
+2. [[file:1-tipos-estruturados.org][Tipos Estrutrados]]
+
 * Autor
 Manoel Vilela
