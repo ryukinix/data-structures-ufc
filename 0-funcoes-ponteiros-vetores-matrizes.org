@@ -69,15 +69,11 @@ int *matrix = (int) malloc(sizeof(int)*n*m));
 #+END_SRC
 
 
-No entanto, durante o acesso dos índices [n][m] uma tradução
-do compilador é feita, no caso estático, através de:
+No entanto, durante o acesso dos índices =[n][m]= uma tradução
+do compilador é feita, no caso estático, através de: ~matrix[i][j] -> matrix[i*m + j]~.
 
-
-~matrix[i][j] -> matrix[i*m + j]~
-
-
-O que podemos ver que uma matriz nada é mais, nesse caso, que um
-fatiamento de um vetor em passos de ~m~, que para nossa informação
+O que pode-se ver que uma matriz é, nesse caso, um
+fatiamento de um vetor em passos de ~m~ — que para nossa informação
 é o número de colunas.
 
 No entanto fazendo alocação dinâmica, eu preciso fazer essa
