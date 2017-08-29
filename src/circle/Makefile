@@ -1,9 +1,15 @@
-CC=gcc
-CFLAGS=-lm -Wall
-SOURCES=circle.c main.c point.c
-TARGET=main.exe
+ifeq ($(OS),Windows_NT)
+	EXTENSION := exe
+else
+	EXTENSION := out
+endif
 
-all: compile run
+CC=gcc
+CFLAGS=-lm -Wall -g
+SOURCES=circle.c main.c point.c
+TARGET=main.$(EXTENSION)
+
+all: compile
 
 compile:
 	@echo Compiling source...
