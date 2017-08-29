@@ -15,7 +15,7 @@
 - [[#resumo][Resumo]]
 - [[#struct-notações-e-armazenamento][Struct, notações e armazenamento]]
 - [[#typedef][Typedef]]
-- [[#comentar-sobre-exemplos][Comentar sobre exemplos]]
+- [[#estrutura-círculo][Estrutura Círculo]]
 
 * Resumo
 
@@ -114,7 +114,7 @@ ou não.
   } _Ponto;
 #+END_SRC
 
-* DONE Comentar sobre exemplos
+* DONE Estrutura Círculo
   CLOSED: [2017-08-28 Mon 21:25] SCHEDULED: <2017-08-25 Fri>
 
 Estarei escrevendo alguns exemplos dado em sala no arquivo [[file:src/circle/main.c][Circle]].
@@ -144,10 +144,11 @@ src/circle
 Em geral os /headers/ (arquivos terminados com =.h=) contém apenas declarações das estruturas
 e de seus métodos. Adicionalmente, o cabeçalho =pause.h= possui algumas definições para ser fácil
 de importado. Eu escrevi esse cabeçalho para possuir um método portável de chamar uma função pause,
-já que às vezes pode ser necessário no Windows.
+já que isto possa às vezes ser necessário quando executado no Windows — pois é uma prática
+comum nesse sistema o usuário apenas clicar no executável e abrir um terminal que fecha após terminar o programa.
 
 
-As principais estruturas são:
+As principais estruturas definidas respectivamente em =point.h= e =circle.h= são:
 
 
 #+BEGIN_SRC c
@@ -164,4 +165,7 @@ As principais estruturas são:
 
 #+END_SRC
 
-Da qual a primeira representa um ponto no plano euclidiano e a segunda um círculo.
+Da qual a primeira representa um ponto no plano euclidiano e a segunda um círculo. Os seus principais
+métodos são =float distance(Point *px, Point *py)= e =int point_inside(Circle *c, Point *p)=. Para
+mais informações, por favor, olhe as definições no código fonte de cada estrutura (=point.c= e =circle.c=).
+O código é legível e documentado.
