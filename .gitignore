@@ -1,3 +1,5 @@
 *.pdf
 *.exe
 *.out
+*.tex
+*_minted*/
