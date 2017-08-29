@@ -23,15 +23,15 @@ Nessa aula terminamos de ver os tipos de alocação de matrizes e também foi co
 através de uma pergunta que fiz sobre as implicações de uso, tal como eficiência.
 No caso da alocação de uma matriz por ponteiros a resolução de referência é dupla, pois
 é necessário primeiro pegar o endereço da linha e depois com o índice da coluna
-o valor da posição (i,j). Por outro lado, na alocação de matriz por vetor é única,
+o valor da posição (i,j). Por outro lado, na alocação de matriz por vetor o acesso é único,
 pois após a transformação dos índices, estamos nada mais que acessando um elemento de um único vetor.
-Isso pode ser relevante em sistemas críticos.
+Isso pode ser relevante em sistemas críticos que há uma frequência de acesso das estruturas muito alto.
 
 
 Na outra parte da aula, tivemos introdução a "Tipos Estruturados de Dados". Ou, simplesmente,
-TAD (Tipos Abstratos de Dados), inglês chamado de Abstract Data Types. Tipos estruturados
-nada mais são que tipos compostos por tipos primitivos da linguagem. Por exemplo,
-o mais idiota de todos:
+TAD (Tipos Abstratos de Dados) — em inglês conhecido como /Abstract Data Types/. Tipos estruturados
+nada mais são que tipos compostos por tipos primitivos da linguagem ou outros tipos estruturados já definidos. Por exemplo,
+um muito simples é o ponto euclidiano:
 
 #+BEGIN_SRC c
 struct Ponto {
@@ -115,9 +115,9 @@ ou não.
 #+END_SRC
 
 * DONE Estrutura Círculo
-  CLOSED: [2017-08-28 Mon 21:25] SCHEDULED: <2017-08-25 Fri>
+  CLOSED: [2017-08-29 Tue 00:54] SCHEDULED: <2017-08-25 Fri>
 
-Estarei escrevendo alguns exemplos dado em sala no arquivo [[file:src/circle/main.c][Circle]].
+Estarei escrevendo alguns exemplos dado em sala no diretório [[file:src/circle/]].
 
 
 Em geral eu defini os arquivos as estruturas:
@@ -143,9 +143,10 @@ src/circle
 
 Em geral os /headers/ (arquivos terminados com =.h=) contém apenas declarações das estruturas
 e de seus métodos. Adicionalmente, o cabeçalho =pause.h= possui algumas definições para ser fácil
-de importado. Eu escrevi esse cabeçalho para possuir um método portável de chamar uma função pause,
+de importado. Eu escrevi esse cabeçalho para possuir um método portável de chamar uma função /pause/,
 já que isto possa às vezes ser necessário quando executado no Windows — pois é uma prática
-comum nesse sistema o usuário apenas clicar no executável e abrir um terminal que fecha após terminar o programa.
+comum nesse sistema o usuário apenas clicar no executável, então abrir uma janela de terminal que fecha após o program ser
+finalizado (necessitando pausar a aplicação pra observar a saída).
 
 
 As principais estruturas definidas respectivamente em =point.h= e =circle.h= são:
