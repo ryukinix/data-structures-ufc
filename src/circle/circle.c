@@ -9,7 +9,7 @@
 
 /**
  * @brief check if the external point `p` is inside of circle `c`
- * 
+ *
  * To this be true, the distance of the point from the center
  * should be lesser than the size of radius.
  *
