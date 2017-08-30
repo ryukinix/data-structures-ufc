@@ -1,0 +1,70 @@
+#+STARTUP: showall align
+#+OPTIONS: todo:nil tasks:all tags:nil
+#+AUTHOR: Manoel Vilela
+#+TITLE: Estrutura de Dados @@latex:\\@@ 02 - Tipos Abstratos de Dados
+#+DATE: <2017-08-29 Tue 20:16>
+#+EXCLUDE_TAGS: TOC_3
+#+LANGUAGE: bt-br
+#+LATEX_HEADER: \usepackage[]{babel}
+#+LATEX_HEADER: \usepackage{indentfirst}
+
+* Sumário                                                             :TOC_3:
+:PROPERTIES:
+:CUSTOM_ID: toc-org
+:END:
+- [[#resumo][Resumo]]
+- [[#exemplos-de-tipos-abstratos-de-dados][Exemplos de Tipos Abstratos de Dados]]
+  - [[#point][Point]]
+  - [[#circle][Circle]]
+  - [[#matrix][Matrix]]
+- [[#referências][Referências]]
+
+* Resumo
+
+Na aula de hoje foi comentado sobre a ideia mais primitiva que se conhece sobre
+orientação a objetos, antes mesmo desse paradigma ser famoso como hoje. Encapsulamento via
+Tipos Abstratos de Dados.
+
+A ideia principal é criar uma estrutura e seus métodos que a manipulam de forma isolada e encapsulada.
+Para uma estrutura chamada ~Ponto~ por exemplo, é possível definir um arquivo ~ponto.h~ que recebe
+todas suas declarações e um arquivo ~ponto.c~ que definirá essas declarações, seja da estrutura e seus métodos.
+
+Usualmente o arquivo ~ponto.h~ serve para ser incluso em outro arquivo que usará essa estrutura,
+geralmente um outro programa por exemplo ~main.c~ então passar informações que essas funções deverão
+ser ligadas no processo de /linking/ para então gerar um binário.
+
+De uma maneira geral, o processo de compilação para projetos estruturados com TAD, compila-se todos códigos
+objetos com ~gcc -c ponto.c main.c~ gerando arquivos ~ponto.o~ e ~main.o~ então se faz a ligação deles com
+o comando ~gcc -o main.out ponto.o main.o~.
+
+A principal ideia de uma estrutura dessa é o poder de encapsular implementações e reduzir a complexidade de código
+disponível para o programador numa determinada camada, criando interfaces para manipular estruturas em níveis sucessivos
+de abstração.
+
+Houve um tópico adicional no final da aula sobre complexidade de algoritmos, mas isso vou deixar para outro arquivo.
+
+* TODO Exemplos de Tipos Abstratos de Dados
+  SCHEDULED: <2017-08-31 Thu>
+
+Estarei descrevendo nos próximos tópicos três implementações de TAD:
+
+- Point
+- Circle
+- Matrix
+
+** TODO Point
+
+<definir assinaturas>
+
+** TODO Circle
+
+<definir assinatura>
+
+** TODO Matrix
+
+<definir assinaturas>
+
+
+* Referências
+
+- CELES; WALDEMAR, 2004, Introdução a Estrutura de Dados, Capitulo 9, p.123
