@@ -1,0 +1,49 @@
+#+STARTUP: showall align
+#+OPTIONS: todo:nil tasks:all tags:nil
+#+AUTHOR: Manoel Vilela
+#+TITLE: Estrutura de Dados @@latex:\\@@ 03 - Complexidade
+#+DATE: <2017-08-29 Tue 21:37>
+#+EXCLUDE_TAGS: TOC_3
+#+LANGUAGE: bt-br
+#+LATEX_HEADER: \usepackage[]{babel}
+#+LATEX_HEADER: \usepackage{indentfirst}
+
+* Sumário                                                             :TOC_3:
+:PROPERTIES:
+:CUSTOM_ID: toc-org
+:END:
+- [[#descrição][Descrição]]
+- [[#análises][Análises]]
+  - [[#insertion-sort][Insertion Sort]]
+  - [[#merge-sort][Merge Sort]]
+  - [[#prime-checker][Prime Checker]]
+- [[#p-vs-np][P vs NP]]
+
+* Descrição
+
+No final da aula de hoje foi dada uma intuição sobre o que é complexidade de algoritmo e porque
+sua importância em análise para caracterizar o tempo de execução de diferentes classes tipos de algoritmos.
+
+Durante a exposição do tema, o professor representou a análise através da dissecção do algoritmo de ordenação
+por inserção, também conhecido como /Insertion Sort/. Como bem se sabe, o que caracteriza a solução assintótica
+de uma complexidade é seu polinômio de maior grau ou entidade de maior complexidade usando a notação
+Big-O. Dizemos que Big-O é uma limitação por cima (upper bound) do comportamento de uma função.
+
+Dessa maneira, por exemplo um algoritmo \(O(n)\) possuí complexidade linear (acesso em uma lista encadeada),
+\(O(n^2)\) possui complexidade quadrática (/Insertion Sort/ pior caso) e \(O(nlog_2(n))\) possui complexidade
+logarítmica (/Merge Sort/ pior caso).
+
+
+* TODO Análises
+  SCHEDULED: <2017-09-01 Fri>
+
+Nas próximas seções irei elucidar como é feito a análise de alguns algoritmos de ordenação, tal como
+na sua implicação no tempo de execução.
+
+** TODO Insertion Sort
+
+** TODO Merge Sort
+
+** TODO Prime Checker
+
+* TODO P vs NP
