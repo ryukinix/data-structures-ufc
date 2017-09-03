@@ -6,6 +6,8 @@
 #+EXCLUDE_TAGS: TOC_3
 #+LANGUAGE: bt-br
 #+LATEX_HEADER: \usepackage[]{babel}
+#+LATEX_HEADER: \renewcommand\listingscaption{Código}
+
 
 * Sumário                                                             :TOC_3:
 :PROPERTIES:

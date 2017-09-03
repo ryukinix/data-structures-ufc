@@ -7,6 +7,7 @@
 #+LANGUAGE: bt-br
 #+LATEX_HEADER: \usepackage{indentfirst}
 #+LATEX_HEADER: \usepackage[]{babel}
+#+LATEX_HEADER: \renewcommand\listingscaption{Código}
 
 * Sumário                                                             :TOC_3:
 :PROPERTIES:
@@ -58,7 +59,6 @@ Os tópicos que foram dados se resume a:
 5. Uso de ~typedef~ pra criar /aliases/ para tipos.
 6. Exemplos variados dos tópicos acima.
 
-
 * Struct, notações e armazenamento
 
 Uma estrutura é um dado composto por um ou mais dados primitivos (ou outras estruturas),
@@ -93,6 +93,8 @@ De forma equivalente ~(*pp).x~ é igual a ~pp->x~, sendo ~pp~ uma variável do t
 
 Typedef é criado como uma forma de /alias/ para tipos já definidos.
 
+#+NAME: typedef:exemplo1
+#+CAPTION: Exemplos de definição de estruturas e tipos em C.
 #+BEGIN_SRC c
   typedef int StudentId;
 
@@ -107,6 +109,8 @@ O struct anônimo acima é uma maneira mais simples de definir um novo tipo. No 
 ainda se quiser poderá declarar a estrutura separadamente, assim como também declarar junto e passar o nome da estrutura
 ou não.
 
+#+NAME: typedef:exemplo2
+#+CAPTION: Exemplos alternativos de declaração de tipos e estruturas em C.
 #+BEGIN_SRC c
   struct Ponto {
       int x;
@@ -178,7 +182,6 @@ métodos são =float distance(Point *px, Point *py)= e =int point_inside(Circle 
 mais informações, por favor, olhe as definições no código fonte de cada estrutura (=point.c= e =circle.c=).
 O código é legível e documentado.
 
-
 * DONE Vetor de Estruturas
   CLOSED: [2017-08-29 Tue 13:44] SCHEDULED: <2017-08-29 Tue>
 
@@ -198,7 +201,6 @@ Nossa estrutura base para comparação será:
       float ira;
   } Aluno;
 #+END_SRC
-
 ** Armazenamento como Vetor de Estruturas
 
 Temos a eficiência no acesso, mas não pode ser
@@ -327,7 +329,8 @@ mas em comparação com o modelo anterior, isto é muito mais econômico, visto 
 *** Dinâmico
 
 Esse é o caso mais flexível de todos em memória. Podemos escolher em tempo de execução o tamanho da memória alocada e
-podemos alocar somente quando necessário a estrutura através do vetor de ponteiros de estruturas.
+podemos alocar somente quando necessário a estrutura através do vetor de ponteiros de estruturas. Além disso tudo,
+podemos liberar a memória quando for necessário.
 
 #+NAME: vetor-de-ponteiro-de-estrutura:dinamico
 #+CAPTION: Exemplo de alocação dinâmica com vetor de ponteiros de estruturas
