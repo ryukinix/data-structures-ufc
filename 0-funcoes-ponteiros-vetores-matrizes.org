@@ -64,7 +64,7 @@ int matrix[3][4];
 
 #+BEGIN_SRC c
 int n, m;
-int *matrix = (int) malloc(sizeof(int)*n*m));
+int *matrix = (int*) malloc(sizeof(int)*n*m));
 
 #+END_SRC
 
