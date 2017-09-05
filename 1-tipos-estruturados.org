@@ -349,8 +349,8 @@ Além disso tudo, podemos liberar a memória quando for necessário.
       printf("Digite a quantidade dealunos a serem alocados: ")
       scanf("%d", &n);
 
-      /* aloca os primeiros ponteiros */
-      aloca_ponteiros_alunos(&alunos); /* aloca o primeiro */
+      /* aloca o vetor de ponteiros */
+      aloca_ponteiros_alunos(&alunos);
 
       /* inicializar com NULL */
       for(i = 0; i < MAX; i++) {
