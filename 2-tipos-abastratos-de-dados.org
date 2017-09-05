@@ -14,9 +14,9 @@
 :CUSTOM_ID: toc-org
 :END:
 - [[#resumo][Resumo]]
-- [[#in-progress-exemplos-de-tipos-abstratos-de-dados][IN-PROGRESS Exemplos de Tipos Abstratos de Dados]]
+- [[#exemplos-de-tipos-abstratos-de-dados][Exemplos de Tipos Abstratos de Dados]]
   - [[#point][Point]]
-  - [[#in-progress-circle][IN-PROGRESS Circle]]
+  - [[#circle][Circle]]
   - [[#matrix][Matrix]]
 - [[#referências][Referências]]
 
@@ -44,8 +44,8 @@ de abstração.
 
 Houve um tópico adicional no final da aula sobre complexidade de algoritmos, mas isso vou deixar para outro arquivo.
 
-* IN-PROGRESS Exemplos de Tipos Abstratos de Dados
-  SCHEDULED: <2017-08-31 Thu>
+* DONE Exemplos de Tipos Abstratos de Dados
+  CLOSED: [2017-09-05 Tue 06:58] SCHEDULED: <2017-08-31 Thu>
 
 Estarei descrevendo nos próximos tópicos três implementações de TAD:
 
@@ -100,7 +100,8 @@ Os métodos necessários para manipular um ponto é definido como:
 A implementação é totalmente escondida e provida pelo arquivo =point.c=.
 É possível encontrá-lo em [[src/tad/point/point.c][point.c]]
 
-** IN-PROGRESS Circle
+** DONE Circle
+   CLOSED: [2017-09-05 Tue 06:33]
 
 A implementação do /Circle/ é através do uso da TAD /Point/.
 Os métodos relacionados a essa TAD é descrito como:
@@ -149,10 +150,101 @@ Foram omitidos nessa amostra as declarações dos seguintes métodos:
 
 Já que estes métodos são apenas açúcar sintático para os métodos circle_get
 e circle_set.
-** TODO Matrix
+** DONE Matrix
+   CLOSED: [2017-09-05 Tue 06:58]
 
-<definir assinaturas>
+Um tipo abstrato /matrix/ pode ser definido independente
+da estrutura de acesso, com suas implementações variadas internamente.
+Um tipo de interfaceamento durante o encapsulamento pode ser provida
+pelo seguinte cabeçalho:
 
+#+NAME: matrix:header
+#+CAPTION: Cabeçalho da TAD matrix definida em matrix.h
+#+BEGIN_SRC c
+  typedef struct matrix Matrix;
+
+  /**
+   ,* @brief Create a new matrix
+   ,* @return the address of the created matrix
+   ,*/
+  Matrix* matrix_create(int m, int n);
+
+
+  /**
+   ,* @brief Free memory of the matrix
+   ,*/
+  void matrix_free(Matrix* matrix);
+
+
+  /**
+   ,* @brief Get a value on position (i,j) of the matrix
+   ,*/
+  float matrix_get(Matrix *matrix, int i, int j);
+
+
+  /**
+   ,* @brief Set a value on position(i,j) of the matrix
+   ,*/
+  void matrix_set(Matrix *matrix, int i, int j, float v);
+
+
+  /**
+   ,* @brief Get the number of lines of the matrix
+   ,*/
+  int matrix_lines (Matrix *matrix);
+
+
+  /**
+   ,* @brief Get the number of columns of the matrix
+   ,* @return the number of columns
+   ,*/
+  int matrix_columns(Matrix *matrix);
+#+END_SRC
+
+As possíveis representações dessa estrutura internamente, podem ser feita
+de duas maneiras assim como foi comentado no [[file:0-funcoes-ponteiros-vetores-matrizes.org][módulo 0]] desse seriado de notas.
+
+Na qual as possíveis definições para =struct matrix= são:
+
+#+NAME: matrix:matrix-vector
+#+CAPTION: Definição de uma matriz através de um vetor linear.
+#+BEGIN_SRC c
+  struct matrix {
+      int lines;
+      int columns;
+      float *v;
+  };
+#+END_SRC
+
+#+NAME: matrix:matrix-pointer
+#+CAPTION: Definição de uma matriz através de um vetor de ponteiros.
+#+BEGIN_SRC c
+  struct matrix {
+      int lines;
+      int columns;
+      float **v;
+  };
+#+END_SRC
+
+Cada definição deve ser separada por outro código-fonte que gerará um código-objeto
+específico. Para cada um desses arquivos, deve ser implementado todas as funções
+definidas no cabeçalho de interfaceamento da TAD. Um exemplo disso foi escrito
+em [[file:src/tad/matrix][src/tad/matrix]].
+
+Bom, adicionalmente foi escrito o módulo =matrix-utils= para cálculo do valor
+máximo de uma matriz e também uma forma elegante da impressão dessa mesma matriz.
+
+#+NAME: matrix:print
+#+BEGIN_EXAMPLE
++-------------------------------------------------------+
+|  0.00  1.00  2.00  3.00  4.00  5.00  6.00  7.00  8.00 |
+|  9.00 10.00 11.00 12.00 13.00 14.00 15.00 16.00 17.00 |
+| 18.00 19.00 20.00 21.00 22.00 23.00 24.00 25.00 26.00 |
+| 27.00 28.00 29.00 30.00 31.00 32.00 33.00 34.00 35.00 |
++-------------------------------------------------------+
+#+END_EXAMPLE
+
+Procedimento =matrix_print(Matrix *matrix)= aplicado para uma matrix =(9, 4)=.
 
 * Referências
 
