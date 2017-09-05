@@ -10,7 +10,7 @@ TARGET = main
 CIRCLE = circle/circle.o
 MATRIX_POINTER = matrix/matrix-pointer.o
 MATRIX_VECTOR = matrix/matrix-vector.o
-MATRIX_PRINT = matrix/matrix_print.o
+MATRIX_UTILS = matrix/matrix-utils.o
 MATRIX = $(MATRIX_POINTER)
 POINT = point/point.o
 
@@ -18,7 +18,7 @@ OBJS = main.o
 OBJS += $(POINT)
 OBJS += $(CIRCLE)
 OBJS += $(MATRIX)
-OBJS += $(MATRIX_PRINT)
+OBJS += $(MATRIX_UTILS)
 
 all: compile link
 

@@ -14,7 +14,7 @@
 #include "point/point.h"
 #include "circle/circle.h"
 #include "matrix/matrix.h"
-#include "matrix/matrix_print.h"
+#include "matrix/matrix-utils.h"
 
 void test_matrix(void) {
     puts(":: Testing matrix ADT");

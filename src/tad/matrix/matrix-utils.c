@@ -14,7 +14,7 @@
 #include <stdio.h>
 #include <math.h>
 #include "matrix.h"
-#include "matrix_print.h"
+#include "matrix-utils.h"
 
 // repeat the character `c` `n` times
 void repeat_printf(char c, int n) {
@@ -27,6 +27,23 @@ void border(int length) {
     printf("+");
     repeat_printf('-', length - 2);
     printf("+\n");
+}
+
+float matrix_max(Matrix *matrix) {
+    float max = matrix_get(matrix, 0, 0);
+    int m = matrix_lines(matrix);
+    int n = matrix_columns(matrix);
+
+    for(int i = 0; i < m; i++) {
+        for(int j = 0; j < n; j++) {
+            float v = matrix_get(matrix, i, j);
+            if (v > max) {
+                max = v;
+            }
+        }
+    }
+    return max;
+
 }
 
 void matrix_print(Matrix* matrix) {

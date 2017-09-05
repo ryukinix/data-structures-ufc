@@ -66,21 +66,3 @@ int matrix_lines(Matrix *matrix) {
 int matrix_columns(Matrix *matrix) {
     return matrix->columns;
 }
-
-
-float matrix_max(Matrix *matrix) {
-    float max = matrix_get(matrix, 0, 0);
-    int m = matrix->lines;
-    int n = matrix->columns;
-
-    for(int i = 0; i < m; i++) {
-        for(int j = 0; j < n; j++) {
-            float v = matrix_get(matrix, i, j);
-            if (v > max) {
-                max = v;
-            }
-        }
-    }
-    return max;
-
-}

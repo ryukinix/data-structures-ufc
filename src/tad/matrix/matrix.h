@@ -67,11 +67,4 @@ int matrix_lines (Matrix *matrix);
 int matrix_columns(Matrix *matrix);
 
 
-/**
- * @brief Get the max value on the matrix
- * @param matrix the matrix pointer
- * @return the max value
- */
-float matrix_max(Matrix *matrix);
-
 #endif
