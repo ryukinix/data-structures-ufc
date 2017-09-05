@@ -14,6 +14,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include "student.h"
+#include "../utils/check_alloc.h"
 
 #define STUDENT_EMPTY -1
 
@@ -67,10 +68,7 @@ int main(void) {
 
     // memory alloc
     students = (Student *) malloc(sizeof(Student)*n);
-    if (students == NULL) {
-        printf("Not enough memory available.");
-        exit(1);
-    }
+    check_alloc(students);
 
     // main program
     init(students, n);

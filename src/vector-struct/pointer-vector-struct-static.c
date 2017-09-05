@@ -14,6 +14,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include "student.h"
+#include "../utils/check_alloc.h"
 
 #define MAX 2
 
@@ -41,6 +42,7 @@ void update_student(int i, Student **students) {
     float ira = -1;
     if (students[i] == NULL) {
         students[i] = student_new();
+        check_alloc(students[i]);
     }
 
     printf("Name: ");
