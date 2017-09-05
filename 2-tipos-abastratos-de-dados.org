@@ -14,9 +14,9 @@
 :CUSTOM_ID: toc-org
 :END:
 - [[#resumo][Resumo]]
-- [[#exemplos-de-tipos-abstratos-de-dados][Exemplos de Tipos Abstratos de Dados]]
+- [[#in-progress-exemplos-de-tipos-abstratos-de-dados][IN-PROGRESS Exemplos de Tipos Abstratos de Dados]]
   - [[#point][Point]]
-  - [[#circle][Circle]]
+  - [[#in-progress-circle][IN-PROGRESS Circle]]
   - [[#matrix][Matrix]]
 - [[#referências][Referências]]
 
@@ -44,7 +44,7 @@ de abstração.
 
 Houve um tópico adicional no final da aula sobre complexidade de algoritmos, mas isso vou deixar para outro arquivo.
 
-* TODO Exemplos de Tipos Abstratos de Dados
+* IN-PROGRESS Exemplos de Tipos Abstratos de Dados
   SCHEDULED: <2017-08-31 Thu>
 
 Estarei descrevendo nos próximos tópicos três implementações de TAD:
@@ -53,14 +53,102 @@ Estarei descrevendo nos próximos tópicos três implementações de TAD:
 - Circle
 - Matrix
 
-** TODO Point
+** DONE Point
+   CLOSED: [2017-09-05 Tue 00:13]
 
-<definir assinaturas>
+Os métodos necessários para manipular um ponto é definido como:
 
-** TODO Circle
+#+NAME: point:header
+#+CAPTION: Cabeçalho da TAD Point definido em point.h.
+#+BEGIN_SRC c
+  /**
+   ,* @brief struct Point as 2D space pointer
+   ,*/
+  typedef struct point Point;
 
-<definir assinatura>
+  /**
+   ,* @brief create a new Point and set x an y
+   ,*
+   ,* @return the address of the allocated point
+   ,*/
+  Point* point_create(float x, float y);
 
+  /**
+   ,* @brief free memory for the Point p
+   ,* @param p Point to be free
+   ,*/
+  void point_free(Point *p);
+
+  /**
+   ,* @brief Set the values of p.x and p.y
+   ,*/
+  void point_set(Point *p, float x, float y);
+
+  /**
+   ,* @brief Get the values of p.x and p.y through the pointers *x and *y
+   ,*/
+  void point_get(Point *p, float *x, float *y);
+
+  /**
+   ,* @brief calculate the euclidean distance between two points
+   ,*
+   ,* @return the distance of *px and *py as a float number
+   ,*/
+  float point_distance(Point *px, Point *py);
+#+END_SRC
+
+A implementação é totalmente escondida e provida pelo arquivo =point.c=.
+É possível encontrá-lo em [[src/tad/point/point.c][point.c]]
+
+** IN-PROGRESS Circle
+
+A implementação do /Circle/ é através do uso da TAD /Point/.
+Os métodos relacionados a essa TAD é descrito como:
+
+#+NAME: circle:header
+#+CAPTION: Cabeçalho da TAD Circle definido em circle.h
+#+BEGIN_SRC c
+  /**
+   ,* @brief define a Circle structure
+   ,*/
+  typedef struct circle Circle;
+
+  /**
+   ,* @brief allocate a new circle on memory based on its parameters
+   ,*/
+  Circle* circle_create(Point *center, float radius);
+
+  /**
+   ,* @brief free memory allocated by the circle c
+   ,*/
+  void circle_free(Circle *c);
+
+  /**
+   ,* @brief Set the values of center and radius of structure
+   ,*/
+  void circle_set(Circle *c, Point *center, float radius);
+
+  /**
+   ,* @brief Get the its internal attributes through the pointers passed
+   ,*/
+  void circle_get(Circle *c, Point *center, float *radius);
+
+  /**
+   ,* @brief Check if the pointer /p point is inside of the circle
+   ,*/
+  int circle_point_inside(Circle *c, Point *point);
+#+END_SRC
+
+Ou seja, temos estes 5 métodos relacionado a manipulação do dado /Circle/.
+Foram omitidos nessa amostra as declarações dos seguintes métodos:
+
+- =circle_set_radius=
+- =circle_set_center=
+- =circle_get_radius=
+- =circle_get_center=
+
+Já que estes métodos são apenas açúcar sintático para os métodos circle_get
+e circle_set.
 ** TODO Matrix
 
 <definir assinaturas>
