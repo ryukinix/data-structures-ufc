@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "point.h"
+#include "../../utils/check_alloc.h"
 
 struct point {
     float x;
@@ -22,6 +23,7 @@ struct point {
 
 Point* point_create(float x, float y) {
     Point* p = (Point *) malloc(sizeof(Point));
+    check_alloc(p);
     p->x = x;
     p->y = y;
     return p;
@@ -52,7 +54,8 @@ float point_get_y(Point *p) {
 }
 
 void point_copy(Point *origin, Point *destination) {
-    destination = origin;
+    destination->x = origin->x;
+    destination->y = origin->y;
 }
 
 float point_distance(Point *px, Point *py) {

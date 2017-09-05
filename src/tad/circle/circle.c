@@ -12,6 +12,7 @@
 
 #include <stdlib.h>
 #include "circle.h"
+#include "../../utils/check_alloc.h"
 
 struct circle {
     Point* center; /**< the center point of circle */
@@ -21,6 +22,7 @@ struct circle {
 
 Circle* circle_create(Point *center, float radius) {
     Circle* c = (Circle *) malloc(sizeof(Circle));
+    check_alloc(c);
     c->center = center;
     c->radius = radius;
     return c;
