@@ -1,50 +1,55 @@
+# this is a obscure makefile, be careful.
+
 ifeq ($(OS),Windows_NT)
 	EXTENSION := exe
 else
 	EXTENSION := out
 endif
 
-CXX = gcc
-LFLAGS = -lm -Wall -o
+# definitions
+CC = gcc
+LFLAGS = -std=c99 -pedantic -lm -Wall
 POINTER_VECTOR_STRUCT_DYNAMIC = pointer-vector-struct-dynamic
 POINTER_VECTOR_STRUCT_STATIC = pointer-vector-struct-static
 VECTOR_STRUCT_STATIC = vector-struct-static
 VECTOR_STRUCT_DYNAMIC = vector-struct-dynamic
 
-all: compile-all
+# all binary files
+TARGETS  = $(POINTER_VECTOR_STRUCT_DYNAMIC:=.$(EXTENSION))
+TARGETS += $(POINTER_VECTOR_STRUCT_STATIC:=.$(EXTENSION))
+TARGETS += $(VECTOR_STRUCT_STATIC:=.$(EXTENSION))
+TARGETS += $(VECTOR_STRUCT_DYNAMIC:=.$(EXTENSION))
 
-compile-all: compile-pointer-vector-struct-dynamic \
-             compile-pointer-vector-struct-static \
-             compile-vector-struct-static \
-             compile-vector-struct-dynamic
+all: compile
 
+compile: $(TARGETS)
 
-compile-pointer-vector-struct-dynamic:
-	$(CXX) $(LFLAGS) $(POINTER_VECTOR_STRUCT_DYNAMIC).$(EXTENSION) $(POINTER_VECTOR_STRUCT_DYNAMIC).c
+$(POINTER_VECTOR_STRUCT_DYNAMIC:=.$(EXTENSION)): $(POINTER_VECTOR_STRUCT_DYNAMIC).c
+$(POINTER_VECTOR_STRUCT_STATIC:=.$(EXTENSION)): $(POINTER_VECTOR_STRUCT_STATIC).c
+$(VECTOR_STRUCT_STATIC:=.$(EXTENSION)): $(VECTOR_STRUCT_STATIC).c
+$(VECTOR_STRUCT_DYNAMIC:=.$(EXTENSION)): $(VECTOR_STRUCT_DYNAMIC).c
 
-compile-pointer-vector-struct-static:
-	$(CXX) $(LFLAGS) $(POINTER_VECTOR_STRUCT_STATIC).$(EXTENSION) $(POINTER_VECTOR_STRUCT_STATIC).c
+# NOTE:
+# $@ is the target name
+# $? is pre-requisites
 
-compile-vector-struct-static:
-	$(CXX) $(LFLAGS) $(VECTOR_STRUCT_STATIC).$(EXTENSION) $(VECTOR_STRUCT_STATIC).c
+$(TARGETS):
+	$(CC) $(LFLAGS) -o $@ $?
 
-compile-vector-struct-dynamic:
-	$(CXX) $(LFLAGS) $(VECTOR_STRUCT_DYNAMIC).$(EXTENSION) $(VECTOR_STRUCT_DYNAMIC).c
+run-vector-struct-static: $(VECTOR_STRUCT_STATIC:=.$(EXTENSION))
+	./$?
 
+run-vector-struct-dynamic: $(VECTOR_STRUCT_DYNAMIC:=.$(EXTENSION))
+	./$?
 
-run-vector-struct-static:
-	./$(VECTOR_STRUCT_STATIC).$(EXTENSION)
+run-pointer-vector-struct-dynamic: $(POINTER_VECTOR_STRUCT_DYNAMIC:=.$(EXTENSION))
+	./$?
 
-run-vector-struct-dynamic:
-	./$(VECTOR_STRUCT_DYNAMIC).$(EXTENSION)
+run-pointer-vector-struct-static: $(POINTER_VECTOR_STRUCT_STATIC:=.$(EXTENSION))
+	./$?
 
-run-pointer-vector-struct-dynamic:
-	./$(POINTER_VECTOR_STRUCT_DYNAMIC).$(EXTENSION)
-
-run-pointer-vector-struct-static:
-	./$(POINTER_VECTOR_STRUCT_STATIC).$(EXTENSION)
 
 clean:
-	rm -v *.out
+	rm -rv *.$(EXTENSION)
 
-.PHONY: clean cancer
+.PHONY: clean
