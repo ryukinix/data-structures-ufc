@@ -3,3 +3,4 @@
 *.out
 *.tex
 *_minted*/
+*.o
