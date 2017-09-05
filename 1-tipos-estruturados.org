@@ -328,9 +328,9 @@ mas em comparação com o modelo anterior, isto é muito mais econômico, visto 
 
 *** Dinâmico
 
-Esse é o caso mais flexível de todos em memória. Podemos escolher em tempo de execução o tamanho da memória alocada e
-podemos alocar somente quando necessário a estrutura através do vetor de ponteiros de estruturas. Além disso tudo,
-podemos liberar a memória quando for necessário.
+Esse é o caso mais flexível de todos em memória. Podemos escolher em tempo de execução o tamanho da memória
+necessária a ser alocada, de forma econômica e podemos alocar somente quando necessário a estrutura através do vetor de ponteiros de estruturas.
+Além disso tudo, podemos liberar a memória quando for necessário.
 
 #+NAME: vetor-de-ponteiro-de-estrutura:dinamico
 #+CAPTION: Exemplo de alocação dinâmica com vetor de ponteiros de estruturas
@@ -339,23 +339,28 @@ podemos liberar a memória quando for necessário.
   #include <stdlib.h>
   #include "aluno.h"
 
-  #define MAX 80
-
-  void aloca_aluno(Aluno** aluno) {
-      *aluno = (Aluno *) malloc(sizeof(Aluno)); // alocação na heap
+  Aluno** aloca_ponteiros_aluno(int n) {
+      return (Aluno **) malloc(sizeof(Aluno*) * n); // alocação na heap
   }
 
   int main(void) {
       Aluno **alunos; // alocação na stack, não pode desalocar
-      int i;
+      int n;
+      printf("Digite a quantidade dealunos a serem alocados: ")
+      scanf("%d", &n);
+
+      /* aloca os primeiros ponteiros */
+      aloca_ponteiros_alunos(&alunos); /* aloca o primeiro */
+
       /* inicializar com NULL */
       for(i = 0; i < MAX; i++) {
           alunos[i] = NULL;
       }
-      /* quando necessário aloca */
-      aloca_aluno(&alunos); /* aloca o primeiro */
 
       /* programa principal */
+      /* ... /*
+      /* fim do programa principal */
+
 
       /* libera no final somente as celulas que foram alocadas */
       for(i = 0; i < MAX; i++) {
