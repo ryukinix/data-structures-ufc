@@ -1,5 +1,5 @@
-CXX = gcc
-LFLAGS = -pedantic -lm -Wall -Wextra
+CC = gcc
+LFLAGS = -g -pedantic -lm -Wall -Wextra
 TARGET = circle
 OBJ = $(TARGET).o
 SRC = $(TARGET).c
@@ -9,7 +9,7 @@ all: compile
 compile: $(OBJ)
 
 $(OBJ): $(SRC)
-	$(CXX) -c $(LFLAGS) -o $@ $?
+	$(CC) -c $(LFLAGS) -o $@ $?
 
 clean:
 	rm -fv *.o
