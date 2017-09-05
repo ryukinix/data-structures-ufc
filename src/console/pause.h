@@ -16,7 +16,7 @@
 #include <stdio.h>
 
 /**
- * @brief remove all the endlines from stdin
+ * @brief remove all the garbage from stdin
  */
 void clean_stdin() {
     char c;
