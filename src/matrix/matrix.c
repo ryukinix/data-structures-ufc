@@ -34,22 +34,15 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
+#include "../utils/check_alloc.h"
 
-
-// void pointer é bruxaria
-void check_memory_allocation(void *pointer) {
-    if (pointer == NULL) {
-        printf("Não foi possível alocar memória! Tiau!\n");
-        exit(1);
-    }
-}
 
 // aloca uma matrix como um vetor contínuo
 // @return: um ponteiro simples
 int* alloc_vector_matrix(int n, int m) {
     int *matrix;
     matrix = (int *) malloc(sizeof(int) * n * m);
-    check_memory_allocation(matrix);
+    check_alloc(matrix);
     return matrix;
 }
 
@@ -59,10 +52,10 @@ int** alloc_pointer_matrix(int n, int m) {
     int **matrix;
 
     matrix = (int **) malloc(n * sizeof(int*)); // coleção de ponteiros de ponteiros;
-    check_memory_allocation(matrix);
+    check_alloc(matrix);
     for(int i = 0; i < n; i++) {
         matrix[i] = (int *) malloc(sizeof(int) * m);
-        check_memory_allocation(matrix[i]);
+        check_alloc(matrix[i]);
     }
 
     return matrix;
