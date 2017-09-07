@@ -13,6 +13,7 @@
 #include <stdlib.h>
 #include <assert.h>
 #include "matrix.h"
+#include "../../utils/check_alloc.h"
 
 struct matrix {
     int lines;
@@ -22,13 +23,16 @@ struct matrix {
 
 Matrix* matrix_create(int m, int n) {
     Matrix *matrix = (Matrix *) malloc(sizeof(Matrix));
+    check_alloc(matrix);
     matrix->lines = m;
     matrix->columns = n;
 
     matrix->v = (float**) malloc(sizeof(float*) * matrix->lines);
+    check_alloc(matrix->v);
 
     for(int i = 0; i < matrix->lines; i++) {
         matrix->v[i] = (float*) calloc(matrix->columns, sizeof(float));
+        check_alloc(matrix->v[i]);
     }
 
     return matrix;
