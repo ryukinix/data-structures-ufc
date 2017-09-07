@@ -23,9 +23,9 @@ OBJS += $(MATRIX_UTILS)
 all: compile link
 
 deps:
-	$(MAKE) -C point
-	$(MAKE) -C circle
-	$(MAKE) -C matrix
+	@$(MAKE) -C point
+	@$(MAKE) -C circle
+	@$(MAKE) -C matrix
 
 compile:
 	$(CC) -c -o $(TARGET).o $(TARGET).c
@@ -37,9 +37,9 @@ clean:
 	rm -rfv *.out *.o
 
 clean-all: clean
-	${MAKE} clean -C point
-	${MAKE} clean -C circle
-	${MAKE} clean -C matrix
+	@${MAKE} clean -C point
+	@${MAKE} clean -C circle
+	@${MAKE} clean -C matrix
 
 run: link
 	./$(TARGET).$(EXTENSION)
