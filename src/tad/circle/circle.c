@@ -29,6 +29,7 @@ Circle* circle_create(Point *center, float radius) {
 }
 
 void circle_free(Circle *c) {
+    free(c->center);
     free(c);
 }
 

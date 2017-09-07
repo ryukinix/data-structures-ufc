@@ -46,6 +46,9 @@ void test_circle_and_point() {
         puts("Fails.");
     }
 
+    circle_free(circle);
+    point_free(external);
+    point_free(internal);
 }
 
 int main(void) {
