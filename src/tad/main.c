@@ -16,6 +16,14 @@
 #include "matrix/matrix.h"
 #include "matrix/matrix-utils.h"
 
+void assert_test(int result_expression) {
+    if (result_expression) {
+        puts("Ok.");
+    } else {
+        puts("Fails.");
+    }
+}
+
 void test_matrix(void) {
     puts(":: Testing matrix ADT");
     Matrix *matrix = matrix_create(4, 9);
@@ -34,18 +42,10 @@ void test_circle_and_point() {
     Point *external = point_create(100, 200);
     Point *internal = point_create(4, 5);
 
-    if (circle_point_inside(circle, internal)) {
-        puts("Ok.");
-    } else {
-        puts("Fails.");
-    }
+    assert_test(circle_point_inside(circle, internal));
+    assert_test(!circle_point_inside(circle, external));
 
-    if (!circle_point_inside(circle, external)) {
-        puts("Ok.");
-    } else {
-        puts("Fails.");
-    }
-
+    // free memory
     circle_free(circle);
     point_free(external);
     point_free(internal);
