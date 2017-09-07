@@ -23,7 +23,7 @@
 /**
  * @brief if on windows use the horrible conion.h, otherwise use ANSI escapes
  */
-void clear() {
+static inline void clear() {
     clrscr();
 }
 

@@ -18,7 +18,7 @@
 /**
  * @brief remove all the garbage from stdin
  */
-void clean_stdin() {
+static inline void clean_stdin() {
     char c;
     while((c = getchar()) != '\n' && c != EOF);
 }
@@ -26,7 +26,7 @@ void clean_stdin() {
 /**
  * @brief Cross-platform pause: works on windows and linux
  */
-void pause() {
+static inline void pause() {
     clean_stdin();
     printf("Press enter to continue...");
     getchar();
