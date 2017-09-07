@@ -5,6 +5,7 @@ OBJ = $(TARGET).o
 SRC = $(TARGET).c
 
 all: compile
+	@echo > /dev/null
 
 compile: $(OBJ)
 
@@ -14,4 +15,4 @@ $(OBJ): $(SRC)
 clean:
 	rm -fv *.o
 
-.PHONY: clean
+.PHONY: clean all

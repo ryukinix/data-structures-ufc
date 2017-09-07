@@ -14,34 +14,41 @@ MATRIX_UTILS = matrix/matrix-utils.o
 MATRIX = $(MATRIX_POINTER)
 POINT = point/point.o
 
-OBJS = main.o
 OBJS += $(POINT)
 OBJS += $(CIRCLE)
 OBJS += $(MATRIX)
 OBJS += $(MATRIX_UTILS)
+OBJS += $(TARGET).o
 
-all: compile link
+
+all: generate-binary
+	@echo > /dev/null
 
 deps:
-	@$(MAKE) -C point
-	@$(MAKE) -C circle
-	@$(MAKE) -C matrix
+	@+$(MAKE) --no-print-directory -C point
+	@+$(MAKE) --no-print-directory -C circle
+	@+$(MAKE) --no-print-directory -C matrix
 
-compile:
+$(TARGET).o: $(TARGET).c
 	$(CC) -c -o $(TARGET).o $(TARGET).c
 
-link: compile deps
-	$(CC) $(LFLAGS) $(OBJS) -o $(TARGET).$(EXTENSION)
+$(TARGET:=.$(EXTENSION)): $(TARGET).c
+	$(CC) $(LFLAGS) $(OBJS) -o $@
+
+compile: $(TARGET).o
+
+generate-binary: deps compile $(TARGET:=.$(EXTENSION))
 
 clean:
 	rm -rfv *.out *.o
 
+# clean the dependencies too
 clean-all: clean
-	@${MAKE} clean -C point
-	@${MAKE} clean -C circle
-	@${MAKE} clean -C matrix
+	+${MAKE} clean -C point
+	+${MAKE} clean -C circle
+	+${MAKE} clean -C matrix
 
-run: link
+run: generate-binary
 	./$(TARGET).$(EXTENSION)
 
-.PHONY: clean clean-all
+.PHONY: clean clean-all all

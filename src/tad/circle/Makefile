@@ -5,10 +5,11 @@ OBJ = $(TARGET).o
 SRC = $(TARGET).c
 
 all: compile
+	@echo > /dev/null
 
 compile: $(OBJ)
 
-$(OBJ): $(SRC)
+%.o: %.c
 	$(CC) -c $(LFLAGS) -o $@ $?
 
 clean:

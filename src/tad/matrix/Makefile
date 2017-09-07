@@ -6,6 +6,7 @@ MATRIX_UTILS = matrix-utils
 TARGETS = $(MATRIX_POINTER).o $(MATRIX_VECTOR).o $(MATRIX_UTILS).o
 
 all: compile
+	@echo > /dev/null
 
 compile: $(TARGETS)
 
@@ -19,4 +20,4 @@ $(TARGETS):
 clean:
 	rm -fv *.o
 
-.PHONY: clean
+.PHONY: all clean
