@@ -14,7 +14,7 @@
 #include <assert.h>
 #include <stdlib.h>
 #include "student.h"
-#include "../utils/check_alloc.h"
+#include "utils/check_alloc.h"
 
 #define STUDENT_EMPTY -1
 

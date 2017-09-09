@@ -13,6 +13,8 @@ POINTER_VECTOR_STRUCT_DYNAMIC = pointer-vector-struct-dynamic
 POINTER_VECTOR_STRUCT_STATIC = pointer-vector-struct-static
 VECTOR_STRUCT_STATIC = vector-struct-static
 VECTOR_STRUCT_DYNAMIC = vector-struct-dynamic
+INCLUDE = -I../
+
 
 # all binary files
 TARGETS  = $(POINTER_VECTOR_STRUCT_DYNAMIC:=.$(EXTENSION))
@@ -34,7 +36,7 @@ $(VECTOR_STRUCT_DYNAMIC:=.$(EXTENSION)): $(VECTOR_STRUCT_DYNAMIC).c
 # $? is pre-requisites
 
 $(TARGETS):
-	$(CC) $(LFLAGS) -o $@ $?
+	$(CC) $(INCLUDE) $(LFLAGS) -o $@ $?
 
 run-vector-struct-static: $(VECTOR_STRUCT_STATIC:=.$(EXTENSION))
 	./$?

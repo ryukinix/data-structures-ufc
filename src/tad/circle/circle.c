@@ -12,7 +12,7 @@
 
 #include <stdlib.h>
 #include "circle.h"
-#include "../../utils/check_alloc.h"
+#include "utils/check_alloc.h"
 
 struct circle {
     Point* center; /**< the center point of circle */

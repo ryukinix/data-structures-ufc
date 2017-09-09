@@ -4,6 +4,7 @@ MATRIX_POINTER = matrix-pointer
 MATRIX_VECTOR = matrix-vector
 MATRIX_UTILS = matrix-utils
 TARGETS = $(MATRIX_POINTER).o $(MATRIX_VECTOR).o $(MATRIX_UTILS).o
+INCLUDE = -I../../
 
 all: compile
 	@echo > /dev/null
@@ -15,9 +16,9 @@ $(MATRIX_VECTOR:=.o): $(MATRIX_VECTOR).c
 $(MATRIX_UTILS:=.o): $(MATRIX_UTILS).c
 
 $(TARGETS):
-	$(CC) -c $(LFLAGS) -o $@ $?
+	$(CC) $(INCLUDE) -c $(LFLAGS) -o $@ $?
 
 clean:
 	rm -fv *.o
 
-.PHONY: all clean
+.PHONY: all clean compile

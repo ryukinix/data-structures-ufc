@@ -8,17 +8,19 @@ CC=gcc
 CFLAGS=-lm -Wall -g
 SOURCES=circle.c main.c point.c
 TARGET=main.$(EXTENSION)
+INCLUDE=-I../
 
 all: compile
 
-compile:
-	@echo Compiling source...
-	$(CC) $(CFLAGS) $(SOURCES) -o $(TARGET)
+$(TARGET): $(SOURCES)
+	$(CC) $(INCLUDE) $(CFLAGS) $(SOURCES) -o $(TARGET)
+
+compile: $(TARGET)
 
 run:
-	@echo Running...
 	./$(TARGET)
 
 clean:
-	@echo Cleaning up...
 	rm -v $(TARGET) || del $(TARGET)
+
+.PHONY: compile run all clean

@@ -13,7 +13,7 @@
 #include <stdlib.h>
 #include <math.h>
 #include "point.h"
-#include "../../utils/check_alloc.h"
+#include "utils/check_alloc.h"
 
 struct point {
     float x;
