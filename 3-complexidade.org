@@ -1,5 +1,5 @@
 #+STARTUP: showall align
-#+OPTIONS: todo:nil tasks:all tags:nil
+#+OPTIONS: todo:nil tasks:("IN-PROGRESS" "DONE") tags:nil
 #+AUTHOR: Manoel Vilela
 #+TITLE: Estrutura de Dados @@latex:\\@@ 03 - Complexidade
 #+DATE: <2017-08-29 Tue 21:37>
@@ -15,11 +15,20 @@
 :CUSTOM_ID: toc-org
 :END:
 - [[#descrição][Descrição]]
+- [[#notações][Notações]]
+  - [[#big-o][Big-O]]
+  - [[#big-omega][Big-Omega]]
+  - [[#big-theta][Big-Theta]]
+- [[#casos][Casos]]
+  - [[#pior-caso][Pior caso]]
+  - [[#melhor-caso][Melhor caso]]
+  - [[#caso-médio][Caso médio]]
+- [[#classes-de-complexidades][Classes de complexidades]]
 - [[#análises][Análises]]
   - [[#insertion-sort][Insertion Sort]]
   - [[#merge-sort][Merge Sort]]
-  - [[#prime-checker][Prime Checker]]
 - [[#p-vs-np][P vs NP]]
+- [[#referências][Referências]]
 
 * Descrição
 
@@ -31,21 +40,178 @@ por inserção, também conhecido como /Insertion Sort/. Como bem se sabe, o que
 de uma complexidade é seu polinômio de maior grau ou entidade de maior complexidade usando a notação
 Big-O. Dizemos que Big-O é uma limitação por cima (upper bound) do comportamento de uma função.
 
-Dessa maneira, por exemplo um algoritmo \(O(n)\) possuí complexidade linear (acesso em uma lista encadeada),
+Dessa maneiraq, por exemplo um algoritmo \(O(n)\) possuí complexidade linear (acesso em uma lista encadeada),
 \(O(n^2)\) possui complexidade quadrática (/Insertion Sort/ pior caso) e \(O(nlog_2(n))\) possui complexidade
 logarítmica (/Merge Sort/ pior caso).
 
 
-* TODO Análises
-  SCHEDULED: <2017-09-01 Fri>
+* DONE Notações
+  CLOSED: [2017-09-11 Mon 13:13] SCHEDULED: <2017-09-11 Mon>
+
+As notações para descrever complexidade são construtores de conjuntos que agrupam
+todas possíveis funções características para algoritmos independente dos coeficientes constantes
+referente a máquina, custo de operações do algoritmo ou operações de inicialização.
+
+Dessa maneira, pode-se analisar um algoritmo de maneira agnóstica sobre o /hardware/ que ele é
+executado. Há três notações muito comum na literatura para descrever complexidade de algoritmos:
+O, \Omega e \Theta. Existem as versões para /little/ dessas três, mas por não ser muito utilizado,
+só falarei sobre a notação /big/.
+
+** DONE Big-O
+   CLOSED: [2017-09-11 Mon 13:13]
+
+A notação Big-O, uma das mais utilizadas pra descrever algoritmos, refere-se a função
+assintótica com limite superior (/upper bound/). Por exemplo, o algoritmo /Insertion Sort/
+possui complexidade \(O(n^2)\). Isso quer dizer que para todas possíveis funções da classe
+quadrática, nenhuma é maior que \O(n^2\), pois esse é o limite superior. Importante
+destacar que todas essas notações geram um conjunto de funções. (Sim, é um conjunto!)
+
+A definição dessa notação é feita da seguinte maneira:
+
+#+BEGIN_LATEX
+\begin{aligned}
+\begin{equation*}
+O(f(n)) = \{T(n) \mid \quad &c, n \in \mathbb{R_+^*} \quad 0 \leq T(n) \leq c f(n) \\
+                            &\text{for} \quad n \geq a \\
+                            &\text{where} \quad T(a) = cf(a) \}
+\end{equation*}
+\end{aligned}
+#+END_LATEX
+
+** DONE Big-Omega
+   CLOSED: [2017-09-11 Mon 13:13]
+
+A notação Big-Omega, utilizada não tão quanto a Big-O, descreve um conjunto de funções
+delimitadas por um limite inferior (/lower bound/). Muitas vezes usada para descrever o melhor
+caso de um algoritmo, possui a seguinte definição:
+
+#+BEGIN_LATEX
+\begin{aligned}
+\begin{equation*}
+\Omega(f(n)) = \{T(n) \mid \quad &c, n \in \mathbb{R_+^*} \quad 0 \leq c f(n) \leq c T(n) \\
+                                 &\text{for} \quad n \geq a \\
+                                 &\text{where} \quad T(a) = cf(a) \}
+\end{equation*}
+\end{aligned}
+
+#+END_LATEX
+
+** DONE Big-Theta
+   CLOSED: [2017-09-11 Mon 13:13]
+
+Por outro lado, anotação Big-Theta, referencia a um limite superior e inferior, isto é, como
+um sanduíche. Em inglês referenciando como /tiny bound/. É importante não relacionar essa notação
+com caso médio, pois o que essa notação nos diz é que o algoritmo se comporta numa determinada faixa,
+mas não que esse seja o caso médio.
+
+A definição dessa notação é similar as duas anteriores, misturando um pouco de cada definição [fn:big-theta]:
+
+#+BEGIN_LATEX
+\begin{aligned}
+\begin{equation*}
+\Omega(f(n)) = \{T(n) \mid \quad &c_1, c_2, n \in \mathbb{R_+^*} \quad 0 \leq c_1 f(n) \leq T(n) \leq c_2 f(n) \\
+                                 &\text{for} \quad n \geq a \\
+                                 &\text{where} \quad T(a) = c_1f(a) \leq c_2f(a) \}
+\end{equation*}
+\end{aligned}
+
+#+END_LATEX
+
+[fn:big-theta] Ainda estou com dúvida como analisar esse \(a\) da definição, pois é o ponto de estabilidade entre as funções,
+mas como agora determinar sendo ele uma possível intersecção do ponto estável de três funções?
+
+* DONE Casos
+  CLOSED: [2017-09-11 Mon 13:32]
+
+Um algoritmo pode ter diferentes comportamentos e complexidades para um tipo de entrada. É o que conhecemos sobre:
+pior caso, melhor caso e caso médio. Todas as notações podem ser utilizadas em cada caso.
+
+** DONE Pior caso
+   CLOSED: [2017-09-11 Mon 13:32]
+
+O pior caso se refere quando o algoritmo levar o maior tempo para terminar. É denotado geralmente com a notação
+Big-O pois refere-se ao limite superior assintótico da função (como o algoritmo se comporta para entradas muito grandes).
+Observar no entanto que as outras notações também podem ser usadas para analisar esse caso.
+
+** DONE Melhor caso
+   CLOSED: [2017-09-11 Mon 13:32]
+
+O melhor caso se refere quando o algoritmo levar o menor tempo possível para terminar, com uma complexidade diferente.
+Alguns autores se referem a notação Omega para o estudo de melhor caso, no entanto isso não é restritamente necessário.
+A notação omega oferece o limite inferior assintótico de uma função, como ela se comporta para entradas muito pequenas e
+sua complexidade. A distribuição de melhor caso não é diretamente relacionada ao tamanho da entrada, mas sim com sua
+distribuição [fn:melhor-caso]. Tal como para alguns algoritmos de ordenação o melhor caso se refere a entrada já estiver ordenada.
+
+[fn:melhor-caso] carece fonte. O professor sempre se refere a \Omega como melhor caso, no entanto na internet vejo outras definições.
+preciso tirar minha dúvida com isso lendo os livros.
+
+** DONE Caso médio
+   CLOSED: [2017-09-11 Mon 13:30]
+
+Não existe uma notação específica e, por favor, não confunde com a notação Big-Theta. Para sua análise
+é geralmente feito um modelo probabilístico a partir da experimentação de muitas entradas, observando
+qual tiver a probabilidade maior de ser na média de o algoritmo comportar-se de uma determinada maneira.
+Devido sua inconveniência, muitos algoritmos não possuem de fato um caso médio analisado (falta de dados).
+
+
+* DONE Classes de complexidades
+  CLOSED: [2017-09-11 Mon 13:30]
+
+Classes de complexidade podem ser ordenadas da seguinte maneira:
+
+#+BEGIN_LATEX
+\begin{aligned}
+\begin{equation*}
+O(1) < O(log(n)) < O(n) < O(nlog(n)) < O(n^2) < O(n^3) < O(2^n) < O(n!)
+\end{equation*}
+\end{aligned}
+#+END_LATEX
+
+* DONE Análises
+  CLOSED: [2017-09-11 Mon 13:47] SCHEDULED: <2017-09-11 Mon>
 
 Nas próximas seções irei elucidar como é feito a análise de alguns algoritmos de ordenação, tal como
 na sua implicação no tempo de execução.
 
-** TODO Insertion Sort
+** DONE Insertion Sort
+   CLOSED: [2017-09-11 Mon 13:46]
+
+#+NAME: insertion-sort
+#+CAPTION: Exemplo de análise do algoritmo de ordenação por inserção.
+[[file:img/insertion-sort-complexity.png]]
+
+Melhor caso: \(\Omega(n)\)
+Pior caso: \(O(n^2)\)
+
+A análise de um algoritmo é feito através dos seus coeficientes constantes que relaciona
+um tipo de operação e a quantidade de operações que são feitas. No geral é simplesmente isso.
+Laços de iterações são vistos como loops e muitas vezes eles que possuem a maior complexidade
+assintótica, como nesse caso. Para o melhor caso o segundo laço nunca ocorre, então é encarado
+como apenas um laço. Mas para o pior caso isso não é verdade, necessitando dois laços aninhados, o que
+causa um comportamento quadrático.
+
 
 ** TODO Merge Sort
 
-** TODO Prime Checker
 
-* TODO P vs NP
+* DONE P vs NP
+  CLOSED: [2017-09-11 Mon 13:22] SCHEDULED: <2017-09-16 Sat>
+
+Um grande problema da matemática que ainda não foi resolvido. O problema se refere
+se há qualquer solução polinomial para um problema que não seja P, isto é, seja NP.
+P significa polinomial, NP significa tempo polinomial não-determinístico, ou em inglês
+/non-deterministic polynomial time/.
+
+É premiado como um dos 7 problemas do /Prémio Millenium/. Sua solução além de todo
+o crédito provavelmente até o término da humanidade, receberá um prêmio de 1 milhão
+de dólares.
+
+Muitos matemáticos e cientistas da computação acreditam que a resposta do problema seja
+\(P != NP\). Isto é, de fato não é possível encontrar uma solução polinomial para
+problemas que sejam de fato NP. Um fator para se acreditar nisso é que nenhum algoritmo
+polinomial para problemas NP foi encontrado até hoje.
+
+
+* Referências
+
+- THOMAS CORMEN, 2012, Algoritmos: Teoria e prática 2ª edição.
