@@ -54,4 +54,4 @@ run-pointer-vector-struct-static: $(POINTER_VECTOR_STRUCT_STATIC:=.$(EXTENSION))
 clean:
 	rm -rv *.$(EXTENSION)
 
-.PHONY: clean
+.PHONY: clean compile all
