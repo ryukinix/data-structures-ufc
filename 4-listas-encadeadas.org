@@ -184,9 +184,10 @@ contexto de /Scheme/ (LISP-1).
 Observe que nem todas funções precisam ser definidas diferentemente,
 apenas são necessárias aquelas que percorrem a lista de alguma
 maneira. Por esse motivo, um arquivo separado chamado ~list-common.c~
-é definido os métodos comuns da lista. Isso evita reêscreve-los nos
-arquivos individuais que contém as implementações específicas dos
-métodos recursivos e iterativos.
+é definido os métodos comuns da lista. Isso evita reescrevê-los nos
+arquivos individuais que contêm as implementações específicas dos
+métodos recursivos e iterativos. O código fonte para esses métodos
+você encontra em [[file:src/list/single/]].
 
 *** DONE Métodos em Comum
     CLOSED: [2017-09-12 Tue 12:24]
