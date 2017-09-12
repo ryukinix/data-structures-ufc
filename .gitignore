@@ -4,3 +4,4 @@
 *.tex
 *_minted*/
 *.o
+TAGS
