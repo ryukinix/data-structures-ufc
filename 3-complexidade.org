@@ -69,14 +69,17 @@ destacar que todas essas notações geram um conjunto de funções. (Sim, é um 
 A definição dessa notação é feita da seguinte maneira:
 
 #+BEGIN_LATEX
+\begin{equation}
 \begin{aligned}
-\begin{equation*}
 O(f(n)) = \{T(n) \mid \quad &c, n \in \mathbb{R_+^*} \quad 0 \leq T(n) \leq c f(n) \\
                             &\text{for} \quad n \geq a \\
                             &\text{where} \quad T(a) = cf(a) \}
-\end{equation*}
 \end{aligned}
+\end{equation}
 #+END_LATEX
+
+Uma possível leitura dessa notação é: `Este algoritmo *não leva mais
+tempo que* \(O(f(n))\)'.
 
 ** DONE Big-Omega
    CLOSED: [2017-09-11 Mon 13:13]
@@ -86,15 +89,17 @@ delimitadas por um limite inferior (/lower bound/). Muitas vezes usada para desc
 caso de um algoritmo, possui a seguinte definição:
 
 #+BEGIN_LATEX
+\begin{equation}
 \begin{aligned}
-\begin{equation*}
 \Omega(f(n)) = \{T(n) \mid \quad &c, n \in \mathbb{R_+^*} \quad 0 \leq c f(n) \leq c T(n) \\
                                  &\text{for} \quad n \geq a \\
                                  &\text{where} \quad T(a) = cf(a) \}
-\end{equation*}
 \end{aligned}
+\end{equation}
 
 #+END_LATEX
+
+Uma possível leitura dessa notação é: 'Este algoritmo *leva ao menos* o tempo de \(\Omega(f(n))\)'.
 
 ** DONE Big-Theta
    CLOSED: [2017-09-11 Mon 13:13]
@@ -107,18 +112,25 @@ mas não que esse seja o caso médio.
 A definição dessa notação é similar as duas anteriores, misturando um pouco de cada definição [fn:big-theta]:
 
 #+BEGIN_LATEX
+\begin{equation}
 \begin{aligned}
-\begin{equation*}
 \Omega(f(n)) = \{T(n) \mid \quad &c_1, c_2, n \in \mathbb{R_+^*} \quad 0 \leq c_1 f(n) \leq T(n) \leq c_2 f(n) \\
                                  &\text{for} \quad n \geq a \\
                                  &\text{where} \quad T(a) = c_1f(a) \leq c_2f(a) \}
-\end{equation*}
 \end{aligned}
+\end{equation}
 
 #+END_LATEX
 
+Uma possível leitura dessa notação é: 'Este algoritmo *leva o tempo na ordem* de \(\Theta(f(n))\)'. [fn:big-theta-2]
+
+
 [fn:big-theta] Ainda estou com dúvida como analisar esse \(a\) da definição, pois é o ponto de estabilidade entre as funções,
 mas como agora determinar sendo ele uma possível intersecção do ponto estável de três funções?
+
+[fn:big-theta-2] Para a notação Theta ser usada, a função deve ter \(O(f(n))\) e \(\Omega(f(n)\) definido. Ou seja,
+ela deve ser limitada fortemente tanto por baixo quanto por cima. Se um algoritmo leva ao menos X(n) e não mais que Y(n),
+mas se \(X(n)=Y(n)\) então esse algoritmo simplesmente leva \(\Theta(X(n))\) pra completar.
 
 * DONE Casos
   CLOSED: [2017-09-11 Mon 13:32]
@@ -160,11 +172,12 @@ Devido sua inconveniência, muitos algoritmos não possuem de fato um caso médi
 Classes de complexidade podem ser ordenadas da seguinte maneira:
 
 #+BEGIN_LATEX
+\begin{equation}
 \begin{aligned}
-\begin{equation*}
-O(1) < O(log(n)) < O(n) < O(nlog(n)) < O(n^2) < O(n^3) < O(2^n) < O(n!)
-\end{equation*}
+O(1) &< O(log(n)) < O(n) < O(nlog(n)) \\
+     &< O(n^2) < O(n^3) < O(2^n) < O(n!)
 \end{aligned}
+\end{equation}
 #+END_LATEX
 
 * DONE Análises
