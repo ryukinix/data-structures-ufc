@@ -27,7 +27,7 @@
 - [[#análises][Análises]]
   - [[#insertion-sort][Insertion Sort]]
   - [[#merge-sort][Merge Sort]]
-- [[#p-vs-np][P vs NP]]
+- [[#in-progress-p-vs-np][IN-PROGRESS P vs NP]]
 - [[#referências][Referências]]
 
 * Descrição
@@ -100,7 +100,7 @@ caso de um algoritmo, possui a seguinte definição:
    CLOSED: [2017-09-11 Mon 13:13]
 
 Por outro lado, anotação Big-Theta, referencia a um limite superior e inferior, isto é, como
-um sanduíche. Em inglês referenciando como /tiny bound/. É importante não relacionar essa notação
+um sanduíche. Em inglês referenciando como /tight bound/. É importante não relacionar essa notação
 com caso médio, pois o que essa notação nos diz é que o algoritmo se comporta numa determinada faixa,
 mas não que esse seja o caso médio.
 
@@ -192,10 +192,11 @@ causa um comportamento quadrático.
 
 
 ** TODO Merge Sort
+   SCHEDULED: <2017-09-16 Sat>
 
 
-* DONE P vs NP
-  CLOSED: [2017-09-11 Mon 13:22] SCHEDULED: <2017-09-16 Sat>
+* IN-PROGRESS P vs NP
+  SCHEDULED: <2017-09-16 Sat>
 
 Um grande problema da matemática que ainda não foi resolvido. O problema se refere
 se há qualquer solução polinomial para um problema que não seja P, isto é, seja NP.
