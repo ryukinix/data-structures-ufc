@@ -342,7 +342,7 @@ void list_free(List *l) {
 #+END_SRC
 
 *** TODO Iterativa
-    SCHEDULED: <2017-09-12 Tue>
+    SCHEDULED: <2017-09-16 Sat>
 
 A iterativa é a maneira mais verbosa de ser feita. Vou procastina um
 pouco até escrever. Mas enquanto isso olhe a recursiva.
