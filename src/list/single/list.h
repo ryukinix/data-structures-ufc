@@ -65,10 +65,18 @@ List* list_insert_ord(List *l, int data);
 List* list_search(List *l, int data);
 
 /**
- * @brief Print the list
+ * @brief Print the list without a new line
  * @param l the list to print
  */
 void list_print(List *l);
+
+
+/**
+ * @brief Print the list with a new line
+ * @param l the list to print
+ */
+void list_println(List *l);
+
 
 /**
  * @brief Remove specific element from List
@@ -88,5 +96,41 @@ void list_free(List *l);
  * @return 1 if empty and 0 if is not
  */
 int list_empty(List *l);
+
+/**
+ * @brief Create a list based on its variadic arguments
+ * @param size_list number of paramaters passed to the function
+ */
+List* list(int size_list,...);
+
+/**
+ * @brief Get the data from last element
+ */
+int list_last(List *l);
+
+/**
+ * @brief Get the data from the first element
+ */
+int list_head(List *l);
+
+/**
+ * @brief Get the tail of the list
+ */
+List* list_tail(List *l);
+
+/**
+ * @brief Get and pop the head of the list
+ */
+int list_pop_head(List** l);
+
+/**
+ * @brief Get and pop the last element of the list
+ */
+int list_pop_last(List** l);
+
+/**
+ * @brief Check if two lists are equal
+ */
+int list_equal(List* l_x, List* l_y);
 
 #endif
