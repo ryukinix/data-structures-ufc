@@ -47,7 +47,7 @@ void list_free(List *l) {
 
 
 
-List* list(int n_data,...) {
+List* list_init(int n_data,...) {
     // define the function here
 }
 

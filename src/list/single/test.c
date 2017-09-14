@@ -42,7 +42,7 @@ void test_basic_functions(void) {
 
 void test_list(void) {
     puts("== test list() variadic");
-    List *l = list(4,1,2,3,4);
+    List *l = list_init(4,1,2,3,4);
     list_println(l);
     list_free(l);
     l = EMPTY_LIST;
@@ -50,7 +50,7 @@ void test_list(void) {
 
 void test_list_last(void) {
     puts("== test list_last()");
-    List *l = list(3, 1, 2, 3);
+    List *l = list_init(3, 1, 2, 3);
     list_println(l);
     printf("Last: %d\n", list_last(l));
     list_free(l);
@@ -59,7 +59,7 @@ void test_list_last(void) {
 
 void test_list_head(void) {
     puts("== test list_head()");
-    List *l = list(3, 1, 2, 3);
+    List *l = list_init(3, 1, 2, 3);
     list_println(l);
     printf("Head: %d\n", list_head(l));
     list_free(l);
@@ -68,7 +68,7 @@ void test_list_head(void) {
 
 void test_list_tail(void) {
     puts("== test list_tail()");
-    List *l = list(3, 1, 2, 3);
+    List *l = list_init(3, 1, 2, 3);
     list_println(l);
     printf("Tail: ");
     list_println(list_tail(l));
@@ -78,7 +78,7 @@ void test_list_tail(void) {
 
 void test_list_pop_head(void) {
     puts("== test list_pop_head");
-    List *l = list(3, 1, 2, 3);
+    List *l = list_init(3, 1, 2, 3);
     list_println(l);
     printf("Head popped: %d\n", list_pop_head(&l));
     printf("List updated: ");
@@ -89,7 +89,7 @@ void test_list_pop_head(void) {
 
 void test_list_pop_last(void) {
     puts("== test list_pop_last()");
-    List *l = list(3, 1, 2, 3);
+    List *l = list_init(3, 1, 2, 3);
     list_println(l);
     printf("Last popped: %d\n", list_pop_last(&l));
     printf("List updated: ");
@@ -100,9 +100,9 @@ void test_list_pop_last(void) {
 
 void test_list_equal(void) {
     puts("== test list_list_equal()");
-    List *l = list(3, 1, 2, 3);
-    List *s = list(3, 1, 2, 3);
-    List *z = list(2, 0, 1);
+    List *l = list_init(3, 1, 2, 3);
+    List *s = list_init(3, 1, 2, 3);
+    List *z = list_init(2, 0, 1);
     list_print(l);
     printf(" == ");
     list_print(s);

@@ -101,7 +101,7 @@ int list_empty(List *l);
  * @brief Create a list based on its variadic arguments
  * @param size_list number of paramaters passed to the function
  */
-List* list(int size_list,...);
+List* list_init(int size_list, ...);
 
 /**
  * @brief Get the data from last element

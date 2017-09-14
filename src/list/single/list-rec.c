@@ -23,7 +23,7 @@
 #include "utils/check_alloc.h"
 
 // util function
-static inline List* new_node(int data) {
+static inline List* list__new_node(int data) {
     List* l = (List *) malloc(sizeof(List));
     check_alloc(l);
     l->data = data;
@@ -32,20 +32,20 @@ static inline List* new_node(int data) {
 }
 
 // auxiliar print recursively list (without squared brackets)
-void aux_list_print(List *l) {
+void list__aux_print(List *l) {
     if(!list_empty(l)) {
         printf("%d", l->data);
         if (!list_empty(l->next)) {
             printf(", ");
         }
-        aux_list_print(l->next);
+        list__aux_print(l->next);
     }
 }
 
 
 List* list_append(List *l, int data) {
     if (list_empty(l)) {
-        l = new_node(data);
+        l = list__new_node(data);
     } else {
         l->next = list_append(l->next, data);
     }
@@ -78,7 +78,7 @@ List* list_search(List *l, int data) {
 
 void list_print(List *l) {
     printf("[");
-    aux_list_print(l);
+    list__aux_print(l);
     printf("]");
 }
 
@@ -109,7 +109,7 @@ void list_free(List *l) {
 }
 
 
-List* list(int size_list,...) {
+List* list_init(int size_list,...) {
     List *l = list_create();
     va_list args;
 
