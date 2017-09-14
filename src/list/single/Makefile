@@ -20,15 +20,15 @@ TARGETS += $(TEST_TARGET).o
 
 
 # linking test binary
-LIST_DEF = $(LIST_REC).o
-OBJS += $(LIST_DEF)
+LIST_OBJ = $(LIST_REC).o
+OBJS += $(LIST_OBJ)
 OBJS += $(LIST_COMMON).o
 OBJS += $(TEST_TARGET).o
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
 
 # static library
 LIBRARY_TARGET = liblist.a
-LIBRARY_OBJS = $(LIST_COMMON).o $(LIST_DEF)
+LIBRARY_OBJS = $(LIST_COMMON).o $(LIST_OBJ)
 
 all: library
 	@echo > /dev/null
