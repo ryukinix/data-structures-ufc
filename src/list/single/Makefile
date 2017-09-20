@@ -30,7 +30,7 @@ TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
 LIBRARY_TARGET = liblist.a
 LIBRARY_OBJS = $(LIST_COMMON).o $(LIST_OBJ)
 
-all: library
+all: compile
 	@echo > /dev/null
 
 compile: $(TARGETS)

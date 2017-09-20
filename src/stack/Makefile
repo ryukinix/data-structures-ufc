@@ -28,7 +28,7 @@ TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
 LIBRARY_TARGET = libstack.a
 LIBRARY_OBJS = $(STACK_OBJ)
 
-all: library
+all: compile
 	@echo > /dev/null
 
 
