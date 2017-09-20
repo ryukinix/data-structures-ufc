@@ -203,6 +203,18 @@ void test_list_concat(void) {
     list_free(empty_s);
 
 }
+
+void test_list_reverse(void) {
+    puts("== test list_reverse()");
+    List *l = list_init(5, 1, 2, 3, 4, 5);
+    list_print(l);
+    list_reverse(&l);
+    printf(" => ");
+    list_println(l);
+    list_free(l);
+    l = EMPTY_LIST;
+}
+
 int main(void) {
     test_basic_functions();
     test_list_init();
@@ -217,5 +229,6 @@ int main(void) {
     test_list_less_than();
     test_list_sum();
     test_list_concat();
+    test_list_reverse();
     return 0;
 }

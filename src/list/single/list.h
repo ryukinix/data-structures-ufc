@@ -180,6 +180,11 @@ int list_pop_head(List** l);
  */
 int list_pop_last(List** l);
 
+/**
+ * @brief Reverse a list (no creating a new)
+ * WARNING: side-effects
+ */
+void list_reverse(List** l);
 
                         /*******************/
                         /* PRIVATE METHODS */

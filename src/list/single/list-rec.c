@@ -202,6 +202,19 @@ List* list_concat(List *l_x, List* l_y) {
     return list__aux_concat(copy_lx, copy_ly);
 }
 
-List* list_reverse(List* l) {
-    //asdfasd
+
+void list_reverse(List** l) {
+    if (list_empty(*l) || list_empty((*l)->next)) {
+        return;
+    }
+
+    List* first = *l;
+    List* tail = first->next;
+
+    // reverse the tail recursively
+    list_reverse(&tail);
+    first->next->next = first;
+    first->next = NULL;
+
+    *l = tail;
 }
