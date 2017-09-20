@@ -16,6 +16,7 @@
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <math.h>
 #include "list.h"
 #include "utils/check_alloc.h"
 
@@ -42,4 +43,17 @@ List* list_insert(List *l, int data) {
 
     }
     return l;
+}
+
+// check if a given number is perfect or not
+int list__is_perfect_number(int n) {
+    int sum_divisors = 1;
+
+    for(int i = 2; i < sqrt(n); i++) {
+        if (n % i == 0) {
+            sum_divisors += i + n/i;
+        }
+    }
+    return sum_divisors == n;
+
 }

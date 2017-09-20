@@ -40,8 +40,8 @@ void test_basic_functions(void) {
 
 }
 
-void test_list(void) {
-    puts("== test list() variadic");
+void test_list_init(void) {
+    puts("== test list_init() variadic");
     List *l = list_init(4,1,2,3,4);
     list_println(l);
     list_free(l);
@@ -120,14 +120,102 @@ void test_list_equal(void) {
     z = EMPTY_LIST;
 }
 
+void test_list_perfect(void) {
+    puts("== test list_perfect");
+    List *l = list_init(3, 6, 12, 28);
+    list_print(l);
+    printf(" has %d perfect numbers\n", list_perfect(l));
+    list_free(l);
+    l = EMPTY_LIST;
+}
+
+void test_list_length(void) {
+    puts("== test list_length");
+    List *l = list_init(3, 1, 2, 3);
+    list_print(l);
+    printf(" has length %d\n", list_length(l));
+    list_free(l);
+    l = EMPTY_LIST;
+}
+
+void test_list_less_than(void) {
+    puts("== test list_less_than");
+    List *l = list_init(5, 1, 2, 3, 4, 5);
+    int n = 3;
+    list_print(l);
+    printf(" %d nodes are lesser than %d\n", list_less_than(l, n), n);
+    list_free(l);
+    l = EMPTY_LIST;
+}
+
+void test_list_sum(void) {
+    puts("== test list_sum");
+    List *l = list_init(5, 1, 2, 3, 4, 5);
+    list_print(l);
+    printf(" the sum of nodes: %d\n", list_sum(l));
+    list_free(l);
+    l = EMPTY_LIST;
+}
+
+
+void test_list_concat(void) {
+    puts("== test list_concat");
+    List *l = list_init(3, 1, 2, 3);
+    List *s = list_init(2, 4, 5);
+    List *sl = list_concat(s, l);
+    List *ls = list_concat(l, s);
+    List *l_empty = list_concat(l, EMPTY_LIST);
+    List *empty_s = list_concat(EMPTY_LIST, s);
+
+    // l + s => ls
+    list_print(l);
+    printf(" + ");
+    list_print(s);
+    printf(" => ");
+    list_println(ls);
+
+    // s + l => sl
+    list_print(s);
+    printf(" + ");
+    list_print(l);
+    printf(" => ");
+    list_println(sl);
+
+    // [] + s => s
+    list_print(EMPTY_LIST);
+    printf(" + ");
+    list_print(s);
+    printf(" => ");
+    list_println(empty_s);
+
+    // l + [] => l
+    list_print(l);
+    printf(" + ");
+    list_print(EMPTY_LIST);
+    printf(" => ");
+    list_println(l_empty);
+
+    list_free(l);
+    list_free(s);
+    list_free(ls);
+    list_free(sl);
+    list_free(l_empty);
+    list_free(empty_s);
+
+}
 int main(void) {
     test_basic_functions();
-    test_list();
+    test_list_init();
     test_list_last();
     test_list_head();
     test_list_tail();
     test_list_pop_head();
     test_list_pop_last();
     test_list_equal();
+    test_list_perfect();
+    test_list_length();
+    test_list_less_than();
+    test_list_sum();
+    test_list_concat();
     return 0;
 }
