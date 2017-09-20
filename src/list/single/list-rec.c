@@ -46,7 +46,6 @@ void list_println(List *l) {
 }
 
 
-
 List* list_append(List *l, int data) {
     if (list_empty(l)) {
         l = list__new_node(data);
@@ -62,8 +61,6 @@ List* list_insert_ord(List *l, int data) {
     if(list_empty(l) || data <= l->data) {
         l = list_insert(l, data);
     } else {
-        // l is not empty
-        // data > l->data
         l->next = list_insert_ord(l->next, data);
     }
     return l;
@@ -107,31 +104,7 @@ int list_last(List *l) {
     } else if (!list_empty(l)) {
         return list_last(l->next);
     } else {
-        printf("Exception: get head on empty list\n");
-        exit(1);
-    }
-}
-
-
-int list_head(List *l) {
-    return l->data;
-}
-
-
-List* list_tail(List *l) {
-    return l->next;
-}
-
-
-int list_pop_head(List** l) {
-    if (!list_empty(*l)) {
-        int head = (*l)->data;
-        List* head_pointer = *l;
-        *l = (*l)->next;
-        free(head_pointer);
-        return head;
-    } else {
-        printf("Exception: pop head on empty list\n");
+        printf("Exception: trying get last on empty list\n");
         exit(1);
     }
 }

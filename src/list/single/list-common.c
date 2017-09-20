@@ -77,3 +77,27 @@ int list__is_perfect_number(int n) {
     return sum_divisors == n;
 
 }
+
+
+int list_head(List *l) {
+    return l->data;
+}
+
+
+List* list_tail(List *l) {
+    return l->next;
+}
+
+
+int list_pop_head(List** l) {
+    if (!list_empty(*l)) {
+        int head = (*l)->data;
+        List* head_pointer = *l;
+        *l = (*l)->next;
+        free(head_pointer);
+        return head;
+    } else {
+        printf("Exception: pop head on empty list\n");
+        exit(1);
+    }
+}

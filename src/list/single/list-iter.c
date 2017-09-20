@@ -45,29 +45,12 @@ void list_free(List *l) {
     // define the function here
 }
 
-
-
 List* list_init(int n_data,...) {
     // define the function here
 }
 
 
 int list_last(List *l) {
-    // define the function here
-}
-
-
-int list_head(List *l) {
-    // define the function here
-}
-
-
-List* list_tail(List *l) {
-    // define the function here
-}
-
-
-int list_pop_head(List** l) {
     // define the function here
 }
 
