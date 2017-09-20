@@ -18,17 +18,18 @@
 /**
  * @brief remove all the garbage from stdin
  */
-static inline void clean_stdin() {
+static inline void flush_stdin() {
     char c;
-    while((c = getchar()) != '\n' && c != EOF);
+    ungetc('\n', stdin); // ensure that stdin is dirty
+    while(((c = getchar()) != '\n') && (c != EOF));
 }
 
 /**
  * @brief Cross-platform pause: works on windows and linux
  */
 static inline void pause() {
-    clean_stdin();
     printf("Press enter to continue...");
+    flush_stdin();
     getchar();
 }
 
