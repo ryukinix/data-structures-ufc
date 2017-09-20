@@ -58,16 +58,16 @@ int stack_top(Stack *s) {
     return list_head(s->list);
 }
 
-int _list_odds(List* l) {
+int stack__list_odds(List* l) {
     if (list_empty(l)) {
         return 0;
     } else if (list_head(l) & 1) {
-        return 1 + _list_odds(list_tail(l));
+        return 1 + stack__list_odds(list_tail(l));
     } else {
-        return 0 + _list_odds(list_tail(l));
+        return 0 + stack__list_odds(list_tail(l));
     }
 }
 
 int stack_odds(Stack *s) {
-    return _list_odds(s->list);
+    return stack__list_odds(s->list);
 }
