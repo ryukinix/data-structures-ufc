@@ -197,6 +197,11 @@ List* list__aux_concat(List *l_x, List *l_y) {
 
 
 List* list_concat(List *l_x, List* l_y) {
-    List* copy = list_copy(l_x);
-    return list__aux_concat(copy, l_y);
+    List* copy_lx = list_copy(l_x);
+    List* copy_ly = list_copy(l_y);
+    return list__aux_concat(copy_lx, copy_ly);
+}
+
+List* list_reverse(List* l) {
+    //asdfasd
 }
