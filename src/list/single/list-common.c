@@ -17,6 +17,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 #include <math.h>
+#include <stdarg.h>
 #include "list.h"
 #include "utils/check_alloc.h"
 
@@ -28,22 +29,41 @@ int list_empty(List *l) {
     return l == EMPTY_LIST;
 }
 
+// util function
+List* list__new_node(int data) {
+    List* l = (List *) malloc(sizeof(List));
+    check_alloc(l);
+    l->data = data;
+    l->next = list_create();
+    return l;
+}
+
 
 List* list_insert(List *l, int data) {
-    List *head = (List *) malloc(sizeof(List));
-    check_alloc(head);
-    head->data = data;
-    head->next = list_create();
+    List* head = list__new_node(data);
 
     if (list_empty(l)) {
         l = head;
     } else {
         head->next = l;
         l = head;
-
     }
     return l;
 }
+
+List* list_init(int size_list,...) {
+    List *l = list_create();
+    va_list args;
+
+    va_start(args, size_list);
+    for(int i = 0; i < size_list; i++) {
+        l = list_append(l, va_arg(args, int));
+    }
+
+    va_end(args);
+    return l;
+}
+
 
 // check if a given number is perfect or not
 int list__is_perfect_number(int n) {

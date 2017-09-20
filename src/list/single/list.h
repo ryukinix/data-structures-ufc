@@ -27,6 +27,10 @@ typedef struct node List;
 
 #define EMPTY_LIST (List*) 0
 
+                         /******************/
+                         /* PUBLIC METHODS */
+                         /******************/
+
 /**
  * @brief create a new list instance
  */
@@ -97,6 +101,54 @@ void list_free(List *l);
  */
 int list_empty(List *l);
 
+
+/**
+ * @brief Check if two lists are equal
+ */
+int list_equal(List* l_x, List* l_y);
+
+
+                       /**********************/
+                       /* ADDITIONAL METHODS */
+                       /**********************/
+
+
+/**
+ * @brief Return the count of perfect numbers on list
+ */
+int list_perfect(List *l);
+
+/**
+ * @brief Return the length of the list
+ */
+int list_length(List *l);
+
+/**
+ * @brief Return the number of numbers less \p n
+ */
+int list_less_than(List *l, int n);
+
+/**
+ * @brief Return the sum of numbers on the list
+ */
+int list_sum(List *l);
+
+/**
+ * @brief Create a copy of the list l
+ */
+List* list_copy(List *l);
+
+/**
+ * @brief Return a concatenation of the two lists as a new list
+ */
+List* list_concat(List *l_x, List* l_y);
+
+
+                          /****************/
+                          /* UTIL METHODS */
+                          /****************/
+
+
 /**
  * @brief Create a list based on its variadic arguments
  * @param size_list number of paramaters passed to the function
@@ -128,47 +180,19 @@ int list_pop_head(List** l);
  */
 int list_pop_last(List** l);
 
-/**
- * @brief Check if two lists are equal
- */
-int list_equal(List* l_x, List* l_y);
 
-
-// additional methods
+                        /*******************/
+                        /* PRIVATE METHODS */
+                        /*******************/
 
 /**
- * @brief Private method: check if a given number is perfect
+ * @brief Check if a given number is perfect
  */
 int list__is_perfect_number(int n);
 
 /**
- * @brief Return the count of perfect numbers on list
+ * @brief Create a new node for the list
  */
-int list_perfect(List *l);
-
-/**
- * @brief Return the length of the list
- */
-int list_length(List *l);
-
-/**
- * @brief Return the number of numbers less \p n
- */
-int list_less_than(List *l, int n);
-
-/**
- * @brief Return the sum of numbers on the list
- */
-int list_sum(List *l);
-
-/**
- * @brief Create a copy the list l
- */
-List* list_copy(List *l);
-
-/**
- * @brief Return a concatenation of the two lists as a new list
- */
-List* list_concat(List *l_x, List* l_y);
+List* list__new_node(int data);
 
 #endif
