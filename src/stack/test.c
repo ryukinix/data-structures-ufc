@@ -28,6 +28,8 @@ int main(void) {
     printf("Odds count %d\n", stack_odds(p1));
     stack_free(p1);
 
+#ifdef _WIN32
     pause();
+#endif
     return 0;
 }

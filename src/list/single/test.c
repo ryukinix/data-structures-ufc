@@ -16,6 +16,7 @@
 
 
 #include "list.h"
+#include "console/console.h"
 #include <stdio.h>
 
 void test_basic_functions(void) {
@@ -230,5 +231,8 @@ int main(void) {
     test_list_sum();
     test_list_concat();
     test_list_reverse();
+#ifdef _WIN32
+    pause();
+#endif
     return 0;
 }

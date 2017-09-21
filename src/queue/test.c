@@ -12,6 +12,7 @@
 
 #include <stdio.h>
 #include "queue.h"
+#include "console/console.h"
 
 int main(void) {
     Queue* q = queue_create();
@@ -32,5 +33,8 @@ int main(void) {
     printf("Even elements on queue: %d\n", queue_evens(q));
     queue_free(q);
 
+#ifdef _WIN32
+    pause();
+#endif
     return 0;
 }
