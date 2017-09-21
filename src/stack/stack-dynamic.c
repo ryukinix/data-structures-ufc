@@ -50,8 +50,8 @@ void stack_println(Stack* s) {
 
 void stack_free(Stack* s) {
     list_free(s->list);
-    free(s);
     s->list = NULL;
+    free(s);
 }
 
 int stack_top(Stack *s) {
