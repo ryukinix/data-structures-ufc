@@ -45,7 +45,7 @@ test: $(TARGETS) $(TEST_BINARY)
 	./$(TEST_BINARY)
 
 $(LIBRARY_TARGET): $(LIBRARY_OBJS)
-	ar cr $@ $?
+	ar rcs $@ $?
 
 library: $(LIBRARY_TARGET)
 
