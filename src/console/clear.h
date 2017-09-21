@@ -14,17 +14,11 @@
 #define CLEAR_H
 
 #ifdef _WIN32
-#include <conio.h>
+#include <stdlib.h>
+#define clear() system("cls")
 #else
 #include <stdio.h>
-#define clrscr() printf("\033[1;1H\033[2J")
+#define clear() printf("\033[1;1H\033[2J")
 #endif
-
-/**
- * @brief if on windows use the horrible conion.h, otherwise use ANSI escapes
- */
-static inline void clear() {
-    clrscr();
-}
 
 #endif
