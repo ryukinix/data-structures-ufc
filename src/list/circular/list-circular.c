@@ -47,6 +47,17 @@ ListCircular* list_circular_insert(ListCircular *l, int data) {
     return node;
 }
 
+ListCircular* list_circular_search(ListCircular *l, int data) {
+    ListCircular* head = l;
+    do {
+        if (head->data == data) {
+            return head;
+        }
+        head = head->next;
+    } while(l != head);
+    return EMPTY_LIST_CIRCULAR;
+}
+
 ListCircular* list_circular_remove(ListCircular *l, int data) {
     if(!list_circular_empty(l)) {
         ListCircular **head = &l;

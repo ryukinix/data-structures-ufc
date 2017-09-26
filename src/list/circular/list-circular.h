@@ -30,6 +30,9 @@ ListCircular* list_circular_insert(ListCircular *l, int data);
 /** Remove a element \p data, if exists, on the list */
 ListCircular* list_circular_remove(ListCircular *l, int data);
 
+/** Search for a node which has a \p data field */
+ListCircular* list_circular_search(ListCircular *l, int data);
+
 /** Print a circular list (without newline) */
 void list_circular_print(ListCircular *l);
 

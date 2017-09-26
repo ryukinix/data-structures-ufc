@@ -27,6 +27,7 @@ int main(void) {
     list_circular_println(l);
     l = list_circular_insert(l,40);
     list_circular_println(l);
+    list_circular_println(list_circular_search(l, 29));
     l = list_circular_remove(l,10);
     list_circular_println(l);
     l = list_circular_remove(l,13);
