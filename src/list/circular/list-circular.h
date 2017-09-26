@@ -27,9 +27,6 @@ int list_circular_empty(ListCircular *l);
 /** Insert a new element on the begin of the list */
 ListCircular* list_circular_insert(ListCircular *l, int data);
 
-/** Insert a new element on the end of the list */
-ListCircular* list_circular_append(ListCircular *l, int data);
-
 /** Remove a element \p data, if exists, on the list */
 ListCircular* list_circular_remove(ListCircular *l, int data);
 
