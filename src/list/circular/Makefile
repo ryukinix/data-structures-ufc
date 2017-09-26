@@ -45,6 +45,6 @@ $(LIBRARY_TARGET): $(LIBRARY_OBJS)
 library: $(LIBRARY_TARGET)
 
 clean:
-	rm -fv *.o *.out *.a
+	rm -fv *.o *.$(EXTENSION) *.a
 
 .PHONY: all clean compile

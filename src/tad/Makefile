@@ -40,7 +40,7 @@ compile: $(TARGET).o
 generate-binary: deps compile $(TARGET:=.$(EXTENSION))
 
 clean:
-	rm -rfv *.out *.o
+	rm -rfv *.$(EXTENSION) *.o
 
 # clean the dependencies too
 clean-all: clean
