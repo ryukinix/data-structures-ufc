@@ -8,7 +8,8 @@ endif
 
 # definitions
 CC = gcc
-LFLAGS = -std=c99 -pedantic -lm -Wall
+CFLAGS = -std=c99 -pedantic -Wall
+LDFLAGS = -lm
 POINTER_VECTOR_STRUCT_DYNAMIC = pointer-vector-struct-dynamic
 POINTER_VECTOR_STRUCT_STATIC = pointer-vector-struct-static
 VECTOR_STRUCT_STATIC = vector-struct-static
@@ -36,7 +37,7 @@ $(VECTOR_STRUCT_DYNAMIC:=.$(EXTENSION)): $(VECTOR_STRUCT_DYNAMIC).c
 # $? is pre-requisites
 
 $(TARGETS):
-	$(CC) $(INCLUDE) $(LFLAGS) -o $@ $?
+	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $? $(LDFLAGS)
 
 run-vector-struct-static: $(VECTOR_STRUCT_STATIC:=.$(EXTENSION))
 	./$?

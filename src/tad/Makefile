@@ -5,7 +5,8 @@ else
 endif
 
 CC= gcc
-LFLAGS = -g -pedantic -lm -Wall -Wextra
+CFLAGS = -g -pedantic -Wall -Wextra
+LDFLAGS = -lm
 TARGET = main
 CIRCLE = circle/circle.o
 MATRIX_POINTER = matrix/matrix-pointer.o
@@ -30,10 +31,10 @@ deps:
 	@+$(MAKE) --no-print-directory -C matrix
 
 $(TARGET).o: $(TARGET).c
-	$(CC) -c -o $(TARGET).o $(TARGET).c
+	$(CC) $(CFLAGS) -c -o $(TARGET).o $(TARGET).c $(LDFLAGS)
 
 $(TARGET:=.$(EXTENSION)): $(TARGET).c
-	$(CC) $(LFLAGS) $(OBJS) -o $@
+	$(CC) $(CFLAGS) $(OBJS) -o $@ $(LDFLAGS)
 
 compile: $(TARGET).o
 
@@ -41,9 +42,6 @@ generate-binary: deps compile $(TARGET:=.$(EXTENSION))
 
 clean:
 	rm -rfv *.$(EXTENSION) *.o
-
-# clean the dependencies too
-clean-all: clean
 	+${MAKE} clean -C point
 	+${MAKE} clean -C circle
 	+${MAKE} clean -C matrix

@@ -5,7 +5,8 @@ else
 endif
 
 CC = gcc
-LFLAGS = -g -pedantic -lm -Wall -Wextra
+CFLAGS = -g -pedantic -Wall -Wextra
+LDFLAGS = --static -lm
 LIST_DOUBLE = list-double
 TEST_TARGET = test
 INCLUDE = -I../../
@@ -31,10 +32,10 @@ all: compile
 compile: $(TARGETS)
 
 %.o: %.c
-	$(CC) $(INCLUDE) -c $(LFLAGS) -o $@ $<
+	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $< $(LDFLAGS)
 
 $(TEST_BINARY): $(TARGETS) $(TEST_TARGET).c
-	$(CC) $(INCLUDE) $(LFLAGS) -o $@ $(OBJS)
+	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
 test: $(TARGETS) $(TEST_BINARY)
 	./$(TEST_BINARY)

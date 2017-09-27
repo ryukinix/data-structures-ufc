@@ -5,7 +5,8 @@ else
 endif
 
 CC = gcc
-LFLAGS = -g -pedantic -lm -Wall -Wextra
+CFLAGS = -g -pedantic -Wall -Wextra
+LDFLAGS = -lm
 LIST_CIRCULAR = list-circular
 TEST_TARGET = test
 INCLUDE = -I../../
@@ -13,7 +14,6 @@ INCLUDE = -I../../
 # object-code
 TARGETS = $(LIST_CIRCULAR).o
 TARGETS += $(TEST_TARGET).o
-
 
 # linking test binary
 LIST_OBJ = $(LIST_CIRCULAR).o
@@ -31,10 +31,10 @@ all: compile
 compile: $(TARGETS)
 
 %.o: %.c
-	$(CC) $(INCLUDE) -c $(LFLAGS) -o $@ $<
+	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $<
 
 $(TEST_BINARY): $(TARGETS) $(TEST_TARGET).c
-	$(CC) $(INCLUDE) $(LFLAGS) -o $@ $(OBJS)
+	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
 test: $(TARGETS) $(TEST_BINARY)
 	./$(TEST_BINARY)

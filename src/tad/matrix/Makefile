@@ -1,5 +1,6 @@
 CC = gcc
-LFLAGS = -g -pedantic -lm -Wall -Wextra
+CFLAGS = -g -pedantic -Wall -Wextra
+LDFLAGS = -lm
 MATRIX_POINTER = matrix-pointer
 MATRIX_VECTOR = matrix-vector
 MATRIX_UTILS = matrix-utils
@@ -16,7 +17,7 @@ $(MATRIX_VECTOR:=.o): $(MATRIX_VECTOR).c
 $(MATRIX_UTILS:=.o): $(MATRIX_UTILS).c
 
 $(TARGETS):
-	$(CC) $(INCLUDE) -c $(LFLAGS) -o $@ $?
+	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $? $(LDFLAGS)
 
 clean:
 	rm -fv *.o

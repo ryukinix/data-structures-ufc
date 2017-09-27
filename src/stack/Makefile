@@ -5,8 +5,8 @@ else
 endif
 
 CC = gcc
-LFLAGS = -g -pedantic -lm -Wall -Wextra
-RFLAGS = -llist
+CFLAGS = -g -pedantic -Wall -Wextra
+LDFLAGS = -llist -lm
 STACK_STATIC = stack-static
 STACK_DYNAMIC = stack-dynamic
 TEST_TARGET = test
@@ -38,10 +38,10 @@ deps:
 compile: $(TARGETS)
 
 %.o: %.c
-	$(CC) $(INCLUDE) -c $(LFLAGS) -o $@ $<
+	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $<
 
 $(TEST_BINARY): deps $(TARGETS) $(TEST_TARGET).c
-	$(CC) $(INCLUDE) $(LFLAGS) -o $@ $(OBJS) $(RFLAGS)
+	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
 test: $(TARGETS) $(TEST_BINARY)
 	./$(TEST_BINARY)

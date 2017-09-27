@@ -5,7 +5,8 @@ else
 endif
 
 CC = gcc
-LFLAGS = -g -pedantic -lm -Wall -Wextra
+CFLAGS = -g -pedantic -Wall -Wextra
+LDFLAGS = -lm
 LIST_ITER = list-iter
 LIST_REC = list-rec
 LIST_COMMON = list-common
@@ -36,10 +37,10 @@ all: compile
 compile: $(TARGETS)
 
 %.o: %.c
-	$(CC) $(INCLUDE) -c $(LFLAGS) -o $@ $<
+	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $<
 
 $(TEST_BINARY): $(TARGETS) $(TEST_TARGET).c
-	$(CC) $(INCLUDE) $(LFLAGS) -o $@ $(OBJS)
+	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
 test: $(TARGETS) $(TEST_BINARY)
 	./$(TEST_BINARY)

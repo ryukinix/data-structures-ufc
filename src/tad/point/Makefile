@@ -1,5 +1,6 @@
 CC = gcc
-LFLAGS = -g -pedantic -lm -Wall -Wextra
+CFLAGS = -g -pedantic -Wall -Wextra
+LDFLAGS = -lm
 TARGET = point
 OBJ = $(TARGET).o
 SRC = $(TARGET).c
@@ -11,7 +12,7 @@ all: compile
 compile: $(OBJ)
 
 $(OBJ): $(SRC)
-	$(CC) $(INCLUDE) -c $(LFLAGS) -o $@ $?
+	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $? $(LDFLAGS)
 
 clean:
 	rm -fv *.o

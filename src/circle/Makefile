@@ -5,7 +5,8 @@ else
 endif
 
 CC=gcc
-CFLAGS=-lm -Wall -g
+CFLAGS=-Wall -Wextra -g
+LDFLAGS=-lm
 SOURCES=circle.c main.c point.c
 TARGET=main.$(EXTENSION)
 INCLUDE=-I../
@@ -13,14 +14,14 @@ INCLUDE=-I../
 all: compile
 
 $(TARGET): $(SOURCES)
-	$(CC) $(INCLUDE) $(CFLAGS) $(SOURCES) -o $(TARGET)
+	$(CC) $(INCLUDE) $(CFLAGS) $(SOURCES) -o $(TARGET) $(LDFLAGS)
 
 compile: $(TARGET)
 
-run:
+run: compile
 	./$(TARGET)
 
 clean:
-	rm -v $(TARGET) || del $(TARGET)
+	rm -fv $(TARGET) || del $(TARGET)
 
 .PHONY: compile run all clean
