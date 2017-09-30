@@ -11,7 +11,7 @@
  */
 
 #include <stdio.h>
-#include<stdlib.h>
+#include <stdlib.h>
 #include "list-circular.h"
 #include "console/console.h"
 
@@ -41,7 +41,6 @@ int main(void) {
     list_circular_free(l);
 
 #ifdef _WIN32
-    fflush(stdout);
     pause();
 #endif
 

@@ -216,6 +216,38 @@ void test_list_reverse(void) {
     l = EMPTY_LIST;
 }
 
+void test_jarbas(void) {
+    printf("\n\n== TEST ADDED FOR JARBAS CHECKING ==\n");
+    List* l1 = list_create();
+    l1 = list_insert(l1, 6);
+    l1 = list_insert(l1, 13);
+    l1 = list_insert(l1, 25);
+    l1 = list_insert(l1, 28);
+    l1 = list_insert(l1, 40);
+    l1 = list_remove(l1, 10);
+    printf("List: ");
+    list_println(l1);
+    printf("Reversed: ");
+    list_println_reverse(l1);
+
+    printf("Nodes with data lesser than 23: %d\n", list_less_than(l1,23));
+    printf("The length of the list is: %d\n", list_length(l1));
+    printf("Sum of values of nodes: %d\n", list_sum(l1));
+    printf("Num of nodes with perfect numbers: %d\n", list_perfect(l1));
+
+    List* l2 = list_create();
+    l2 = list_insert(l2, 90);
+    l2 = list_insert(l2, 130);
+
+    List* l3 = list_concat(l1, l2);
+    list_println(l3);
+
+    list_free(l1);
+    list_free(l2);
+    list_free(l3);
+
+}
+
 int main(void) {
     test_basic_functions();
     test_list_init();
@@ -231,6 +263,7 @@ int main(void) {
     test_list_sum();
     test_list_concat();
     test_list_reverse();
+    test_jarbas();
 #ifdef _WIN32
     pause();
 #endif

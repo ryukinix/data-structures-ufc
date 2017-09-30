@@ -34,6 +34,18 @@ void list__aux_print(List *l) {
     }
 }
 
+// the is_init param is used to signalize if is the first funcall
+// to print correctly without a comma on the last element (which is the first)
+void list__aux_print_reverse(List *l, int is_init) {
+    if(!list_empty(l)) {
+        list__aux_print_reverse(l->next, 0);
+        printf("%d", l->data);
+        if (!is_init) {
+            printf(", ");
+        }
+    }
+}
+
 void list_print(List *l) {
     printf("[");
     list__aux_print(l);
@@ -45,6 +57,16 @@ void list_println(List *l) {
     printf("\n");
 }
 
+void list_print_reverse(List *l) {
+    printf("[");
+    list__aux_print_reverse(l, 1);
+    printf("]");
+}
+
+void list_println_reverse(List *l) {
+    list_print_reverse(l);
+    printf("\n");
+}
 
 List* list_append(List *l, int data) {
     if (list_empty(l)) {

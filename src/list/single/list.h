@@ -81,6 +81,19 @@ void list_print(List *l);
  */
 void list_println(List *l);
 
+/**
+ * @brief Print the list reversed without a new line
+ * @param l the list to print
+ */
+void list_print_reverse(List *l);
+
+
+/**
+ * @brief Print the list reversed with a new line
+ * @param l the list to print
+ */
+void list_println_reverse(List *l);
+
 
 /**
  * @brief Remove specific element from List
