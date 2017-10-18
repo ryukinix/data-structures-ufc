@@ -27,6 +27,9 @@ typedef struct node BSTree;
 
 #define BST_EMPTY (BSTree*) 0
 
+/* Função que cria um nó de uma Árvore */
+BSTree* bst_create_node(BSTree* left, BSTree* right, Type value);
+
 /* Função que cria uma Árvore Binária de Busca Vazia. */
 BSTree* bst_create(void);
 
