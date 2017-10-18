@@ -18,3 +18,48 @@ struct node {
     BSTree* left;
     BSTree* right;
 };
+
+BSTree* bst_create(void) {
+    // define here the function
+    return 0;
+}
+
+int bst_empty(BSTree *t) {
+    // define here the function
+    return 0;
+}
+
+int bst_exists(BSTree *t, Type c) {
+    // define here the function
+    return 0;
+}
+
+BSTree* bst_search(BSTree *t, Type c) {
+    // define here the function
+    return 0;
+}
+
+void bst_print(BSTree *t) {
+    // define here the procedure
+    return;
+}
+
+int bst_height(BSTree *t) {
+    // define here the function
+    return 0;
+}
+
+BSTree* bst_insert(BSTree *t, Type c) {
+    // define here the function
+    return 0;
+}
+
+BSTree* bst_remove(BSTree *t, Type c) {
+    // define here the function
+    return 0;
+}
+
+void bst_free(BSTree *t) {
+    // define here the procedure
+    return;
+}
