@@ -18,15 +18,13 @@ struct node {
     BSTree* left;
     BSTree* right;
 };
-
+s
 BSTree* bst_create(void) {
-    // define here the function
-    return 0;
+    return BST_EMPTY;
 }
 
 int bst_empty(BSTree *t) {
-    // define here the function
-    return 0;
+    return t == BST_EMPTY;
 }
 
 int bst_exists(BSTree *t, Type c) {
