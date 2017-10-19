@@ -21,8 +21,12 @@ int main(void) {
     t = bst_insert(t, 80);
     t = bst_insert(t, 50);
     bst_print(t);
+    printf("Infix: ");
     bst_infix(t);
+    printf("Prefix: ");
     bst_prefix(t);
-    bst_infix(t);
+    printf("Posfix: ");
+    bst_posfix(t);
+    bst_free(t);
     return 0;
 }

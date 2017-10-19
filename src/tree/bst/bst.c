@@ -109,9 +109,9 @@ void bst_print(BSTree *t) {
 
 void bst_posfix_aux(BSTree *t) {
     if (!bst_empty(t)) {
-        bst_posfix(t->left);
-        bst_posfix(t->right);
-        printf("(%d)", t->value);
+        bst_posfix_aux(t->left);
+        bst_posfix_aux(t->right);
+        printf(" (%d) ", t->value);
     }
 }
 
@@ -123,9 +123,9 @@ void bst_posfix(BSTree *t) {
 
 void bst_prefix_aux(BSTree *t) {
     if (!bst_empty(t)) {
-        printf("(%d)", t->value);
-        bst_prefix(t->left);
-        bst_prefix(t->right);
+        printf(" (%d) ", t->value);
+        bst_prefix_aux(t->left);
+        bst_prefix_aux(t->right);
     }
 }
 
@@ -137,9 +137,9 @@ void bst_prefix(BSTree *t) {
 
 void bst_infix_aux(BSTree *t) {
     if (!bst_empty(t)) {
-        bst_infix(t->left);
-        printf("(%d)", t->value);
-        bst_infix(t->right);
+        bst_infix_aux(t->left);
+        printf(" (%d) ", t->value);
+        bst_infix_aux(t->right);
     }
 }
 
