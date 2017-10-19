@@ -5,7 +5,9 @@ else
 endif
 
 CC = gcc
-CFLAGS = -g -pedantic -Wall -Wextra -std=c99
+WARN = -Wall -Wextra
+DEBUG = -g
+CFLAGS = $(DEBUG) -pedantic $(WARN) -std=c99
 LDFLAGS = -lm
 BST = bst
 TEST_TARGET = test
