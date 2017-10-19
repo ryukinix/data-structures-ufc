@@ -46,11 +46,18 @@ int bst_exists(BSTree *t, Type c) {
 BSTree* bst_search(BSTree *t, Type c) {
     // define here the function
     return 0;
+void bst_print_aux(BSTree *t, int deep, char prefix) {
+    if (!bst_empty(t)) {
+        printf("| %*c(%c) %d\n", deep*4, ' ', prefix,  t->value);
+        deep++;
+        bst_print_aux(t->left, deep, 'L');
+        bst_print_aux(t->right, deep, 'R');
+    }
 }
 
 void bst_print(BSTree *t) {
-    // define here the procedure
-    return;
+    printf("== TREE\n");
+    bst_print_aux(t, 1, '.');
 }
 
 int bst_height(BSTree *t) {
