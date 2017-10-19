@@ -102,8 +102,12 @@ void bst_print_aux(BSTree *t, int deep, char prefix) {
 }
 
 void bst_print(BSTree *t) {
-    printf("== TREE\n");
-    bst_print_aux(t, 1, '.');
+    if (!bst_empty(t)) {
+        printf("== TREE\n");
+        bst_print_aux(t, 1, '.');
+    } else {
+        printf("Empty tree.\n");
+    }
 }
 
 
