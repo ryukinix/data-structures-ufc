@@ -14,6 +14,7 @@
 #include <stdlib.h>
 #include "bst.h"
 #include "utils/check_alloc.h"
+#define MAX(a, b) a > b? a : b
 
 struct node {
     Type value;
@@ -70,9 +71,12 @@ void bst_print(BSTree *t) {
     bst_print_aux(t, 1, '.');
 }
 
+
 int bst_height(BSTree *t) {
-    // define here the function
-    return 0;
+    if (!bst_empty(t)) {
+        return MAX(1 + bst_height(t->left), 1 + bst_height(t->right));
+    }
+    return -1;
 }
 
 BSTree* bst_insert(BSTree *t, Type c) {
