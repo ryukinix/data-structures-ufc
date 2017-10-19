@@ -80,8 +80,14 @@ int bst_height(BSTree *t) {
 }
 
 BSTree* bst_insert(BSTree *t, Type c) {
-    // define here the function
-    return 0;
+    if (bst_empty(t)) {
+        t = bst_create_node(NULL, NULL, c);
+    } else if (c < t->value) {
+        t->left = bst_insert(t->left, c);
+    } else if (c > t->value) {
+        t->right = bst_insert(t->right, c);
+    }
+    return t;
 }
 
 BSTree* bst_remove(BSTree *t, Type c) {
