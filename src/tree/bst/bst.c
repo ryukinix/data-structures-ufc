@@ -96,6 +96,9 @@ BSTree* bst_remove(BSTree *t, Type c) {
 }
 
 void bst_free(BSTree *t) {
-    // define here the procedure
-    return;
+    if(!bst_empty(t)) {
+        bst_free(t->left);
+        bst_free(t->right);
+        free(t);
+    }
 }
