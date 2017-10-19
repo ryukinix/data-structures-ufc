@@ -14,6 +14,12 @@
 #include "bst.h"
 
 int main(void) {
-    printf("Hello, World!\n");
+    BSTree* t = bst_create();
+    t = bst_insert(t, 10);
+    t = bst_insert(t, 20);
+    t = bst_insert(t, 5);
+    t = bst_insert(t, 80);
+    t = bst_insert(t, 50);
+    bst_print(t);
     return 0;
 }
