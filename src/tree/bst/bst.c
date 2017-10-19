@@ -76,8 +76,33 @@ BSTree* bst_insert(BSTree *t, Type c) {
 }
 
 BSTree* bst_remove(BSTree *t, Type c) {
-    // define here the function
-    return 0;
+    if (!bst_empty(t)) {
+        if (c < t->value) {
+            t->left = bst_remove(t->left, c);
+        } else if (c > t->value) {
+            t->right = bst_remove(t->right, c);
+        } else {
+            BSTree* r;
+            if (bst_empty(t->left)) {
+                r = t; t = t->right;
+                free(r);
+            } else if (bst_empty(t->right)) {
+                r = t; t = t->left;
+                free(r);
+            } else {
+                // remoção por substituição
+                // do elemento mais a direita da subárvore esquerda
+                r = t->left;
+                while (!bst_empty(r->right)) {
+                    r = r->right;
+                }
+                t->value = r->value;
+                r->value = c;
+                t->left = bst_remove(t->left, c);
+            }
+        }
+    }
+    return t;
 }
 
 void bst_free(BSTree *t) {
