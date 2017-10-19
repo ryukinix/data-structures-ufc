@@ -21,5 +21,8 @@ int main(void) {
     t = bst_insert(t, 80);
     t = bst_insert(t, 50);
     bst_print(t);
+    bst_infix(t);
+    bst_prefix(t);
+    bst_infix(t);
     return 0;
 }

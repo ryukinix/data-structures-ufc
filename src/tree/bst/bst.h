@@ -57,4 +57,13 @@ BSTree* bst_remove(BSTree *t, Type c);
 /* Libera o espaço alocado para uma Árvore. */
 void bst_free(BSTree *t);
 
+/* Imprime a árvore linearmente em pós-ordem */
+void bst_posfix(BSTree *t);
+
+/* Imprime a árvore linearmente em pré-ordem */
+void bst_prefix(BSTree *t);
+
+/* Imprime a árvore linearmente de forma simétrica */
+void bst_infix(BSTree *t);
+
 #endif

@@ -57,21 +57,6 @@ BSTree* bst_search(BSTree *t, Type c) {
 }
 
 
-void bst_print_aux(BSTree *t, int deep, char prefix) {
-    if (!bst_empty(t)) {
-        printf("| %*c(%c) %d\n", deep*4, ' ', prefix,  t->value);
-        deep++;
-        bst_print_aux(t->left, deep, 'L');
-        bst_print_aux(t->right, deep, 'R');
-    }
-}
-
-void bst_print(BSTree *t) {
-    printf("== TREE\n");
-    bst_print_aux(t, 1, '.');
-}
-
-
 int bst_height(BSTree *t) {
     if (!bst_empty(t)) {
         return MAX(1 + bst_height(t->left), 1 + bst_height(t->right));
@@ -101,4 +86,65 @@ void bst_free(BSTree *t) {
         bst_free(t->right);
         free(t);
     }
+}
+
+/**********/
+/* OUTPUT */
+/**********/
+
+void bst_print_aux(BSTree *t, int deep, char prefix) {
+    if (!bst_empty(t)) {
+        printf("| %*c(%c) %d\n", deep*4, ' ', prefix,  t->value);
+        deep++;
+        bst_print_aux(t->left, deep, 'L');
+        bst_print_aux(t->right, deep, 'R');
+    }
+}
+
+void bst_print(BSTree *t) {
+    printf("== TREE\n");
+    bst_print_aux(t, 1, '.');
+}
+
+
+void bst_posfix_aux(BSTree *t) {
+    if (!bst_empty(t)) {
+        bst_posfix(t->left);
+        bst_posfix(t->right);
+        printf("(%d)", t->value);
+    }
+}
+
+void bst_posfix(BSTree *t) {
+    printf("[");
+    bst_posfix_aux(t);
+    printf("]\n");
+}
+
+void bst_prefix_aux(BSTree *t) {
+    if (!bst_empty(t)) {
+        printf("(%d)", t->value);
+        bst_prefix(t->left);
+        bst_prefix(t->right);
+    }
+}
+
+void bst_prefix(BSTree *t) {
+    printf("[");
+    bst_prefix_aux(t);
+    printf("]\n");
+}
+
+void bst_infix_aux(BSTree *t) {
+    if (!bst_empty(t)) {
+        bst_infix(t->left);
+        printf("(%d)", t->value);
+        bst_infix(t->right);
+    }
+}
+
+void bst_infix(BSTree *t) {
+    printf("[");
+    bst_infix_aux(t);
+    printf("]\n");
 }
