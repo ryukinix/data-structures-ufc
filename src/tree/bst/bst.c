@@ -39,8 +39,7 @@ BSTree* bst_create_node(BSTree* left, BSTree* right, Type value) {
 }
 
 int bst_exists(BSTree *t, Type c) {
-    // define here the function
-    return 0;
+    return bst_search(t, c) != BST_EMPTY;
 }
 
 BSTree* bst_search(BSTree *t, Type c) {
