@@ -1,0 +1,77 @@
+#+STARTUP: showall align
+#+OPTIONS: todo:nil tasks:("IN-PROGRESS" "DONE") tags:nil
+#+AUTHOR: Manoel Vilela
+#+TITLE: Estrutura de Dados @@latex:\\@@ Árvore AVL
+#+DATE: <2017-10-19 Thu 23:37>
+#+EXCLUDE_TAGS: TOC_3
+#+LANGUAGE: bt-br
+#+LATEX_HEADER: \usepackage[]{babel}
+#+LATEX_HEADER: \usepackage{indentfirst}
+#+LATEX_HEADER: \renewcommand\listingscaption{Código}
+
+* Sumário                                                             :TOC_3:
+:PROPERTIES:
+:CUSTOM_ID: toc-org
+:END:
+- [[#descrição][Descrição]]
+- [[#origem-e-motivação][Origem e Motivação]]
+- [[#fator-de-balanceamento][Fator de Balanceamento]]
+- [[#regras-de-inserção][Regras de Inserção]]
+- [[#regras-de-remoção][Regras de Remoção]]
+
+* DONE Descrição
+  CLOSED: [2017-10-19 Thu 23:58]
+
+Esta nota se refere aos procedimentos necessário para balanceamento
+que são envolvidos numa árvore do tipo AVL.
+
+
+* DONE Origem e Motivação
+  CLOSED: [2017-10-19 Thu 23:57]
+
+A árvore AVL foi criada pelos matemáticos russos /Adelson Velsky/ e
+/Landis/ na antiga união soviética em 1962 para que fosse possível
+inserir e buscar um elemento em tempo de \(log(n)\) operações. Onde n é o
+número de nós.
+
+Sua complexidade é então de fato \(O(log(n)\) para ambos casos e
+possuí espaço de \(O(n)\), considerando ambos pior e médio caso.
+
+Para controlar o desbalanceamento da árvore com remoções e inserção,
+ambos algoritmos que fazem essas operações consideram o
+*fator de balanceamento*.
+
+* DONE Fator de Balanceamento
+  CLOSED: [2017-10-19 Thu 23:58]
+
+O fator de balanceamento é o critério adotado nas operações de
+inserção e remoção para mexer parar realizar uma operação de
+balanceamento ou não na árvore. Isto é, ele que caracteriza
+se a árvore está ou não balanceada, ou necessariamente, se uma
+subárvore está desbalanceada.
+
+O critério é definido da seguinte maneira:
+
+Se a árvore é balanceada, todo nó terá fator de balanceamento
+1, 0 ou -1.
+
+O fator de balanceamento é definido pela equação:
+
+\[
+FB(T) = H(left(T)) - H(right(T))
+\]
+
+Onde T é uma árvore, left e right selecionam os filhos
+e H é a função que calcula a altura.
+
+* TODO Regras de Inserção
+
+A Árvore AVL é também uma Árvore Binária de Busca, portanto, os
+critérios de onde inserir um novo nó permanece o mesmo. Insere a
+direita os maiores que o nó atual, insere a esquerda os menores que o nó atual.
+
+De tal maneira, ao percorrer de maneira infixa (ou simétrica) você
+terá um vetor ordenado crescentemente.
+
+
+* TODO Regras de Remoção
