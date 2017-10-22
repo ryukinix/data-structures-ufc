@@ -8,26 +8,30 @@ CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
 CFLAGS = $(DEBUG) -pedantic $(WARN) -std=c99
-LDFLAGS = -lm
-BST = bst
+LDFLAGS = -L../bst/ -lm -lbst
+ASCII_TREE = ascii-tree
 TEST_TARGET = test
 INCLUDE = -I../../
 
 # targets to compile
-TARGETS = $(BST).o
+TARGETS = $(ASCII_TREE).o
 TARGETS += $(TEST_TARGET).o
 
 # linking test binary
-OBJS += $(BST).o
+OBJS += $(ASCII_TREE).o
 OBJS += $(TEST_TARGET).o
 TEST_BINARY = $(TEST_TARGET).$(EXTENSION)
 
 # static library
-LIBRARY_TARGET = libbst.a
-LIBRARY_OBJS = $(BST).o
+LIBRARY_TARGET = libascii-tree.a
+LIBRARY_OBJS = $(ASCII_TREE).o
 
 all: compile
 	@echo > /dev/null
+
+deps:
+	make -C ../bst library
+
 
 compile: $(TARGETS)
 
@@ -37,7 +41,7 @@ compile: $(TARGETS)
 $(TEST_BINARY): $(TARGETS) $(TEST_TARGET).c
 	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
-test: $(TARGETS) $(TEST_BINARY)
+test: deps $(TARGETS) $(TEST_BINARY)
 	./$(TEST_BINARY)
 
 $(LIBRARY_TARGET): $(LIBRARY_OBJS)
