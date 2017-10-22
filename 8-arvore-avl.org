@@ -34,7 +34,7 @@ A árvore AVL foi criada pelos matemáticos russos /Adelson Velsky/ e
 inserir e buscar um elemento em tempo de \(log(n)\) operações. Onde n é o
 número de nós.
 
-Sua complexidade é então de fato \(O(log(n)\) para ambos casos e
+Sua complexidade é então de fato \(O(log(n)\) para ambas operações e
 possuí espaço de \(O(n)\), considerando ambos pior e médio caso.
 
 Para controlar o desbalanceamento da árvore com remoções e inserção,
@@ -64,14 +64,33 @@ FB(T) = H(left(T)) - H(right(T))
 Onde T é uma árvore, left e right selecionam os filhos
 e H é a função que calcula a altura.
 
-* TODO Regras de Inserção
+* DONE Regras de Inserção
+  CLOSED: [2017-10-22 Sun 08:39]
 
 A Árvore AVL é também uma Árvore Binária de Busca, portanto, os
 critérios de onde inserir um novo nó permanece o mesmo. Insere a
-direita os maiores que o nó atual, insere a esquerda os menores que o nó atual.
+direita se o nó a ser inserido é maior que o nó atual, insere a
+esquerda se é menor que o nó atual.
 
 De tal maneira, ao percorrer de maneira infixa (ou simétrica) você
-terá um vetor ordenado crescentemente.
+terá um vetor ordenado de forma crescente.
 
+Ao final da inserção, é necessário verificar se houve desbalanceamento
+da árvore através dos critérios que envolve o cálculo do Fator de
+Balanceamento.
+
+Há dois casos para um nó qualquer:
+
+1. Quando para um nó \(|FB| = 2\) e seu filho \(|FB| = 1\) mas ambos tem sinais
+   trocados
+2. Quando para um nó \(|FB| = 2\) e seu filho \(|FB| = 1\) mas ambos tem sinais
+   iguais.
+
+Para (1) efetua-se uma dupla rotação em torno do nó com \(|FB|
+= 2\). Primeiro o pai, depois o filho. A direção da rotação é inversa ao
+sinal, isto é, se é negativo, é para direita se é positivo é para
+esquerda. A segunda rotação feita no nó filho e a direção é inversa a primeira.
+Para (2) efetua-se apenas uma simples rotação de acordo com o sinal
+de FB.
 
 * TODO Regras de Remoção
