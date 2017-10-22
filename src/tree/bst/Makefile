@@ -32,7 +32,7 @@ all: compile
 compile: $(TARGETS)
 
 deps:
-	make -C ../ascii-tree/
+	make -C ../ascii-tree/ library
 
 %.o: %.c
 	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $<
