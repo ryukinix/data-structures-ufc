@@ -14,13 +14,9 @@
 #include <stdlib.h>
 #include "bst.h"
 #include "utils/check_alloc.h"
+
 #define MAX(a, b) a > b? a : b
 
-struct node {
-    Type value;
-    BSTree* left;
-    BSTree* right;
-};
 
 BSTree* bst_create(void) {
     return BST_EMPTY;

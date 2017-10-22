@@ -12,6 +12,8 @@
 
 #include <stdio.h>
 #include "bst.h"
+#include "tree/ascii-tree/ascii-tree.h"
+
 #define N 5
 
 int main(void) {
@@ -22,7 +24,7 @@ int main(void) {
     for(int i = 0; i < N; i++) {
         printf("Insert: %d\n", array[i]);
         t = bst_insert(t, array[i]);
-        bst_print(t);
+        print_ascii_tree(t);
     }
 
     // infix, posfix, prefix
@@ -38,7 +40,7 @@ int main(void) {
     for(int i = 0; i < N; i++) {
         printf("Remove: %d\n", array[i]);
         t = bst_remove(t, array[i]);
-        bst_print(t);
+        print_ascii_tree(t);
     }
 
     bst_free(t);

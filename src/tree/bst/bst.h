@@ -19,8 +19,8 @@
  * for the structure Binary Search Tree.
  */
 
-#define Type int
-
+// definition of BinaryTree and struct node.
+#include "tree/binary-tree.h"
 
 /* Binary Search Tree DataType Definition */
 typedef struct node BSTree;

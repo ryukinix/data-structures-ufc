@@ -8,7 +8,7 @@ CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
 CFLAGS = $(DEBUG) -pedantic $(WARN) -std=c99
-LDFLAGS = -lm
+LDFLAGS = -L../ascii-tree/ -lm -lascii-tree
 BST = bst
 TEST_TARGET = test
 INCLUDE = -I../../
@@ -31,13 +31,16 @@ all: compile
 
 compile: $(TARGETS)
 
+deps:
+	make -C ../ascii-tree/
+
 %.o: %.c
 	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $<
 
 $(TEST_BINARY): $(TARGETS) $(TEST_TARGET).c
 	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
-test: $(TARGETS) $(TEST_BINARY)
+test: deps $(TARGETS) $(TEST_BINARY)
 	./$(TEST_BINARY)
 
 $(LIBRARY_TARGET): $(LIBRARY_OBJS)
