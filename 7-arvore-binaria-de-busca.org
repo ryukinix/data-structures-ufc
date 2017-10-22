@@ -1,0 +1,70 @@
+#+STARTUP: showall align
+#+OPTIONS: todo:nil tasks:("IN-PROGRESS" "DONE") tags:nil
+#+AUTHOR: Manoel Vilela
+#+TITLE: Estrutura de Dados @@latex:\\@@ Árvore Binária de Busca
+#+DATE: <2017-10-22 Sun 10:33>
+#+EXCLUDE_TAGS: TOC_3
+#+LANGUAGE: bt-br
+#+LATEX_HEADER: \usepackage[]{babel}
+#+LATEX_HEADER: \usepackage{indentfirst}
+#+LATEX_HEADER: \renewcommand\listingscaption{Código}
+
+* Sumário                                                             :TOC_3:
+:PROPERTIES:
+:CUSTOM_ID: toc-org
+:END:
+- [[#descrição][Descrição]]
+- [[#motivação][Motivação]]
+- [[#regras][Regras]]
+- [[#inserção][Inserção]]
+- [[#remoção][Remoção]]
+
+* Descrição
+
+Esta nota relaciona os conceitos vistos de Árvore e Árvore Binário
+para um caso especial que é a Árvore Binária de Busca (Binary Search
+Tree em inglês).
+
+* Motivação
+
+
+A Árvore Binária de Busca, como sugere o nome, possuí uma estrutura de
+inserção e remoção ótima para que sua estrutura respeite um acesso
+na árvore de \(O(log(n))\). Um tempo de pesquisa dessa complexidade é
+incrivelmente mais rápido que numa escala linear. Por exemplo, se uma
+operação é realizada numa árvore que contenha 2^10 nós, que seria 1024
+nós, numa busca linear seria necessário fazer no pior caso cerca de
+1000 comparações.
+
+
+Para o caso ideal de uma árvore binária de busca (não degenerada), no entanto, só seria
+necessário levar 10 passos pra concluir a pesquisa e determinar se o
+nó está ou não na árvore.
+
+
+* Regras
+
+É definido por essa estrutura de dados que as seguintes leis devem ser
+obedecidas:
+
+- todos os nós da subárvore direita são maiores que a raíz
+- todos os nós da subárvore esquerda são menores que a raíz.
+
+É inferido então que para cado passo que eu verificar se um número é
+menor ou maior, eu corto metade das possibilidades de checagem, pois
+se o número é maior que a raíz só preciso checar a direita e se é
+menor apenas à esquerda.
+
+* Inserção
+
+Durante a inserção, deve-se verificar se a árvore é vazia. Se for
+vazia atribuir o novo nó como raíz. Caso contrário, verificar se a
+raiz é menor ou maior então decidir se irá pra esquerda ou direita.
+Aplicar este algoritmo recursivamente.
+
+* Remoção
+
+Na remoção precisamos de um cuidado um tanto maior para essa operação.
+Pois pode ocorrer ruptura da árvore na remoção e devemos lidar com
+isso. É possível encontrar esse procedimento de maneira mais detalhada
+em: [[file:src/tree/bst/bst.c][bst.c]]
