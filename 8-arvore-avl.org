@@ -87,7 +87,7 @@ Há dois casos para um nó qualquer:
    iguais.
 
 Para (1) efetua-se uma dupla rotação em torno do nó com \(|FB|
-= 2\). Primeiro o pai, depois o filho. A direção da rotação é inversa ao
+= 2\). Primeiro o filho, depois o pai. A direção da rotação é inversa ao
 sinal, isto é, se é negativo, é para direita se é positivo é para
 esquerda. A segunda rotação feita no nó filho e a direção é inversa a primeira.
 Para (2) efetua-se apenas uma simples rotação de acordo com o sinal
