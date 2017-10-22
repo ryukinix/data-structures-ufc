@@ -1,0 +1,40 @@
+#+STARTUP: showall align
+#+OPTIONS: todo:nil tasks:("IN-PROGRESS" "DONE") tags:nil
+#+AUTHOR: Manoel Vilela
+#+TITLE: Estrutura de Dados @@latex:\\@@ Árvores
+#+DATE: <2017-10-22 Sun 10:49>
+#+EXCLUDE_TAGS: TOC_3
+#+LANGUAGE: bt-br
+#+LATEX_HEADER: \usepackage[]{babel}
+#+LATEX_HEADER: \usepackage{indentfirst}
+#+LATEX_HEADER: \renewcommand\listingscaption{Código}
+
+* Sumário                                                             :TOC_3:
+:PROPERTIES:
+:CUSTOM_ID: toc-org
+:END:
+- [[#descrição][Descrição]]
+- [[#motivação][Motivação]]
+- [[#regras][Regras]]
+
+* Descrição
+
+Árvores são estruturas que podem ter filhos num sistema de hieraquia.
+Muitas estruturas de dados na computação são um tipo de árvore. Temos
+como por exemplo: Árvore Binária, Árvore Binária de Busca, AVL,
+Red-black Trees, B-Trees, HashMaps, Heap e por aí vaí.
+
+* Motivação
+
+Muitos problemas podem ser descritos através de árvores e algoritmos
+que manipulam essa estrutura. Por exemplo, um parser sintático de
+expressões aritméticas pode ser descrito como uma árvore binária nas
+operações `+-*/` como nós e filhos os números.
+
+#+CAPTION: Árvore representando a operação (5*2) + 1
+[[file:img/expr.png]]
+
+* Regras
+
+Diferentemente de um grafo, árvores não permitem loops ou laços
+internos. A árvore só cresce para baixo, por exemplo.
