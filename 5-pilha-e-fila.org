@@ -1,0 +1,61 @@
+#+STARTUP: showall align
+#+OPTIONS: todo:nil tasks:("IN-PROGRESS" "DONE") tags:nil
+#+AUTHOR: Manoel Vilela
+#+TITLE: Estrutura de Dados @@latex:\\@@ Pilha e Fila
+#+DATE: <2017-10-22 Sun 10:56>
+#+EXCLUDE_TAGS: TOC_3
+#+LANGUAGE: bt-br
+#+LATEX_HEADER: \usepackage[]{babel}
+#+LATEX_HEADER: \usepackage{indentfirst}
+#+LATEX_HEADER: \renewcommand\listingscaption{Código}
+
+* Sumário                                                             :TOC_3:
+:PROPERTIES:
+:CUSTOM_ID: toc-org
+:END:
+- [[#descrição][Descrição]]
+- [[#o-que-são][O que são?]]
+- [[#pilha][Pilha]]
+- [[#fila][Fila]]
+
+* Descrição
+
+Este arquivo esclarece sucintamente sobre as diferenças entre pilha e fila.
+
+
+* O que são?
+
+Pilha e Fila são estrutura de dados muito comum na implementação de
+inúmeros sistemas. São muito semelhante ao que conhecemos, como pilhas
+de pratos e filas de banco.
+
+
+Para a Pilha se dá o conceito de estrutura do tipo FILO (First in
+Last Out) e para Fila é FIFO (First in First Out).
+
+* Pilha
+
+Como se é de esperar, a pilha tem definido uma operação que empilha
+algo novo chamado de ~push~ e outra chamada de ~pop~ para remover o
+elemento do topo da pilha.
+
+Então, dessa maneira, ~push~ acrescenta um novo elemento ao topo da
+pilha e ~pop~ o remove.
+
+Perguntariam então e se eu quiser remover o último elemento? Se isso
+for requisitado, será necessário tirar todos os elementos do topo
+primeiro pra se chegar no fim, respeitando assim a estrutura.
+
+* Fila
+
+A fila, por outro lado, tem uma ordem diferente de acesso para remoção
+ou inserção da estrutura de dados.
+
+Uma fila por exemplo pode ser implementada intuitivamente ao pensar
+numa fila de banco e afirmar que:
+
+- Todos elementos novos irão para o final da fila
+- Os próximos elementos a serem lido da fila são os primeiros
+
+Sendo assim, a fila que pode ter o procedimento ~insert~ insere no
+final da file e ~remove~ remove do final da fila.
