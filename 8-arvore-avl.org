@@ -16,8 +16,10 @@
 - [[#descrição][Descrição]]
 - [[#origem-e-motivação][Origem e Motivação]]
 - [[#fator-de-balanceamento][Fator de Balanceamento]]
-- [[#regras-de-inserção][Regras de Inserção]]
-- [[#regras-de-remoção][Regras de Remoção]]
+- [[#regras][Regras]]
+  - [[#rebalanceamento][Rebalanceamento]]
+  - [[#inserção][Inserção]]
+  - [[#remoção][Remoção]]
 
 * DONE Descrição
   CLOSED: [2017-10-19 Thu 23:58]
@@ -64,20 +66,18 @@ FB(T) = H(left(T)) - H(right(T))
 Onde T é uma árvore, left e right selecionam os filhos
 e H é a função que calcula a altura.
 
-* DONE Regras de Inserção
-  CLOSED: [2017-10-22 Sun 08:39]
+* DONE Regras
+  CLOSED: [2017-10-22 Sun 10:26]
 
-A Árvore AVL é também uma Árvore Binária de Busca, portanto, os
-critérios de onde inserir um novo nó permanece o mesmo. Insere a
-direita se o nó a ser inserido é maior que o nó atual, insere a
-esquerda se é menor que o nó atual.
+A principal regra definida para esse tipo de estrutura de dados está
+no procedimento de rebalanceamento que é executado após as operações
+de inserção e remoção. Os critérios usados para balanceamento envolve
+as alturas dos nós através do Fator de Balanceamento (FB) que pode
+ter no máximo valor de módulo 1. As operações para rebalanceamento
+envolve rotações em torno de um nó específico.
 
-De tal maneira, ao percorrer de maneira infixa (ou simétrica) você
-terá um vetor ordenado de forma crescente.
-
-Ao final da inserção, é necessário verificar se houve desbalanceamento
-da árvore através dos critérios que envolve o cálculo do Fator de
-Balanceamento.
+** DONE Rebalanceamento
+   CLOSED: [2017-10-22 Sun 10:26]
 
 Há dois casos para um nó qualquer:
 
@@ -93,4 +93,47 @@ esquerda. A segunda rotação feita no nó filho e a direção é inversa a prim
 Para (2) efetua-se apenas uma simples rotação de acordo com o sinal
 de FB.
 
-* TODO Regras de Remoção
+#+CAPTION: Pseudo-código para rotação simples a esquerda
+#+BEGIN_SRC python
+# Rotação Simples a Esquerda
+# p aponta para o nó desbalanceado
+q = right(p)
+hold = left(q)
+left(q) = p
+right(p) = hold
+p = q
+#+END_SRC
+
+#+CAPTION: Pseudo código para rotação simples a direita.
+#+BEGIN_SRC python
+# Rotação Simples a Direita
+# p aponta para o nó desbalanceado
+q = left(p)
+hold = right(q)
+right(q) = p
+left(p) = hold
+p = q
+#+END_SRC
+
+** DONE Inserção
+  CLOSED: [2017-10-22 Sun 08:39]
+
+A Árvore AVL é também uma Árvore Binária de Busca, portanto, os
+critérios de onde inserir um novo nó permanece o mesmo. Insere-se a
+direita se o nó a ser inserido é maior que o nó atual, insere-se a
+esquerda se é menor que o nó atual.
+
+De tal maneira, ao percorrer de maneira infixa (ou simétrica) você
+terá um vetor ordenado de forma crescente.
+
+Ao final da inserção, é necessário verificar se houve desbalanceamento
+da árvore através dos critérios que envolve o cálculo do Fator de
+Balanceamento. As regras usadas estão definidas no tópico anterior.
+
+
+** DONE Remoção
+  CLOSED: [2017-10-22 Sun 10:22]
+
+As regras de remoção são no geral idênticas as descritas acima para
+inserção, com a adição das propriedades usada em Árvore Binária de
+Busca para remoção também.
