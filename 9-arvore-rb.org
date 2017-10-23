@@ -1,0 +1,132 @@
+#+STARTUP: showall align
+#+OPTIONS: todo:nil tasks:("IN-PROGRESS" "DONE") tags:nil
+#+AUTHOR: Manoel Vilela
+#+TITLE: Estrutura de Dados @@latex:\\@@ Red Black Trees
+#+DATE: <2017-10-22 Sun 11:43>
+#+EXCLUDE_TAGS: TOC_3
+#+LANGUAGE: bt-br
+#+LATEX_HEADER: \usepackage[]{babel}
+#+LATEX_HEADER: \usepackage{indentfirst}
+#+LATEX_HEADER: \renewcommand\listingscaption{Código}
+
+* Sumário                                                             :TOC_3:
+:PROPERTIES:
+:CUSTOM_ID: toc-org
+:END:
+- [[#descrição][Descrição]]
+- [[#motivação][Motivação]]
+- [[#regras][Regras]]
+  - [[#inserção][Inserção]]
+  - [[#remoção][Remoção]]
+- [[#aplicação-de-simulação][Aplicação de simulação]]
+
+* DONE Descrição
+  CLOSED: [2017-10-22 Sun 11:56]
+
+Esta nota tentará descrever de forma breve as regras envolvidas nas
+árvores do tipo Red Black -- Rubro-negras, como conhecidas em português brasileiro.
+As árvores Red Black, assim como AVL, são também um tipo de Árvore
+Binária de Busca.
+
+* DONE Motivação
+  CLOSED: [2017-10-22 Sun 11:56]
+
+Balancear uma árvore através das regras de AVL é um processamento custoso. É
+necessário que a cada inserção/remoção você assegure de certeza que a árvore
+não será desbalanceada por tal operação. Tudo isso para deixar o tempo
+de acesso em complexidade logarítmica.
+
+
+Para problemas onde as operações de acesso são muito mais frequentes
+que inserção e remoção ocorrem, AVL pode ser interessante. Mas nem sempre
+é esse o caso, às vezes inserção e remoção também é bastante
+frequente. Então com AVL perdermos muita performance pelo excesso de
+operações para balancear a árvore. O que seria então um equilíbrio?
+Balancear, mas não tão rigorosamente?
+
+
+As árvores RB (Red-Black) tentam resolver o problema de rebalanceamento
+desenvolvendo regras mais sofisticadas de implementar, mas computacionalmente
+mais baratas de se calcular.
+
+
+A principal ideia é anexar a cada nó uma informação a mais com a cor
+de um nó: vermelho ou preto. Isso caracterizará que procedimentos
+serão necessários (ou não) para realizar um procedimento de ajuste na
+árvore.
+
+* DONE Regras
+  CLOSED: [2017-10-22 Sun 11:56]
+
+Alguns axiomas são adotados para essa estrutura:
+
+- Todo nó novo é vermelho
+- A raiz é sempre preta
+- A quantidade de nós pretos devem ser iguais em todos ramos
+- Um nó vermelho não pode ter um filho vermelho
+- As folhas são os ponteiros null dos nós e eles são pretos.
+
+A cada operação de inserção/remoção é necessário se essas propriedades
+da árvore ainda sejam cumpridas. Do contrário, ajustes necessitarão
+ser feitos, com alguns critérios: preservar a sua ordem.
+
+** DONE Inserção
+   CLOSED: [2017-10-23 Mon 01:27]
+
+As regras de inserção envolve a análise das cores após inserção do nó
+em relação a pai, avô e tio. Dependendo da distribuição deles, é
+selecionado uma regra, se necessário, pra balancear a árvore de
+acordo com os axiomas fundamentais dessa estrutura.
+
+Casos:
+
+1. O pai do novo nó é preto. Nesse caso, simplesmente se insere o novo
+   nó.
+2. O pai do novo nó é vermelho e o tio é vermelho também
+2.1 Trocar as cores entre avô <=> tio e pai.
+2.2 Se o avô for raiz alterar pra preto.
+3. O pai do novo nó é vermelho e o tio do novo nó é preto.
+3.1 Se o elemento é inserido à esquerda e o pai é o
+    filho esquerdo então rotação a DIREITA!
+3.2 Se o elemento é inserido a à direita e o pai
+    é o filho direito então Rotação a ESQUERDA! .
+3.3 Se o elemento é inserido à esquerda e o pai é o filho direito
+    então rotação dupla DIREITA e ESQUERDA!
+3.4 Se o elemento é inserido à direita e o pai é o filho esquerdo
+    então rotação dupla ESQUERDA e DIREITA.
+
+
+De preferência, a solução para os problemas de balanceamento é para o
+menor custo ao maior. Logo, primeiramente tenta solucionar com troca
+de cores, senão for possível, rotações locais, do contrário aplicar
+recursivamente em cascata as regras.
+
+
+** DONE Remoção
+   CLOSED: [2017-10-23 Mon 01:32]
+
+Pode-se retirar arbitrariamente um nó que seja vermelho.
+No entanto se for preto, é necessário atentar se será preciso
+realizar modificar na árvore pra continuar seguindo as regras da
+árvore rubron-negra.
+
+Casos:
+
+1. O nó a ser retirado é preto e o irmão é vermelho:
+   irmão e pai trocam de cor, então são efetuadas rotações
+   adequadas. Pode ser necessário aplicar regras em cascata.
+2. O nó a ser retirado é preto e o irmão, e os sobrinhos são pretos:
+   Muda-se a cor do irmão para vermelho. Pode ser necessário aplicar
+   regras em cascata.
+3. O nó a ser retirado é preto, o irmão é preto e o sobrinho distante
+   é vermelho: colocar a cor do pai no irmão, pintar pai e sobrinho
+   distante de preto então rotacionar na direção adequada.
+4. O nó a ser retirado é preto, o irmão é preto e o sobrinho próximo
+   é vermelho: Trocar as cores de irmão e sobrinho, efetuar rotação no
+   irmão. De tal maneira que a árvore fique com apenas um sobrinho
+   distante, o que se reduz a solução do caso 3.
+
+
+* Aplicação de simulação
+
+Uma aplicação de simulação é provida em [[http://www.cs.usfca.edu/~galles/visualization/RedBlack.html][Red/Black Tree Visualization]]
