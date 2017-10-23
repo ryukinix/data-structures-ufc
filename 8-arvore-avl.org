@@ -20,6 +20,7 @@
   - [[#rebalanceamento][Rebalanceamento]]
   - [[#inserção][Inserção]]
   - [[#remoção][Remoção]]
+- [[#aplicação-de-simulação][Aplicação de simulação]]
 
 * DONE Descrição
   CLOSED: [2017-10-19 Thu 23:58]
@@ -137,3 +138,8 @@ Balanceamento. As regras usadas estão definidas no tópico anterior.
 As regras de remoção são no geral idênticas as descritas acima para
 inserção, com a adição das propriedades usada em Árvore Binária de
 Busca para remoção também.
+
+
+* Aplicação de simulação
+
+Uma aplicação de simulação é provida em [[http://www.cs.usfca.edu/~galles/visualization/AVLtree.html][AVL Tree Visualization]]
