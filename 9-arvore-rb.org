@@ -84,7 +84,7 @@ Casos:
    nó.
 2. O pai do novo nó é vermelho e o tio é vermelho também
    1) Trocar as cores entre avô <=> tio e pai.
-   2) Se o avô for raiz alterar pra preto.
+   2) Se o avô for raiz alterá-lo pra preto.
 3. O pai do novo nó é vermelho e o tio do novo nó é preto.
    1) Se o elemento é inserido à esquerda e o pai é o
        filho esquerdo então rotação a DIREITA!
