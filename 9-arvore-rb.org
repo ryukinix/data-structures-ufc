@@ -83,17 +83,17 @@ Casos:
 1. O pai do novo nó é preto. Nesse caso, simplesmente se insere o novo
    nó.
 2. O pai do novo nó é vermelho e o tio é vermelho também
-2.1 Trocar as cores entre avô <=> tio e pai.
-2.2 Se o avô for raiz alterar pra preto.
+   1) Trocar as cores entre avô <=> tio e pai.
+   2) Se o avô for raiz alterar pra preto.
 3. O pai do novo nó é vermelho e o tio do novo nó é preto.
-3.1 Se o elemento é inserido à esquerda e o pai é o
-    filho esquerdo então rotação a DIREITA!
-3.2 Se o elemento é inserido a à direita e o pai
-    é o filho direito então Rotação a ESQUERDA! .
-3.3 Se o elemento é inserido à esquerda e o pai é o filho direito
-    então rotação dupla DIREITA e ESQUERDA!
-3.4 Se o elemento é inserido à direita e o pai é o filho esquerdo
-    então rotação dupla ESQUERDA e DIREITA.
+   1) Se o elemento é inserido à esquerda e o pai é o
+       filho esquerdo então rotação a DIREITA!
+   2) Se o elemento é inserido a à direita e o pai
+       é o filho direito então Rotação a ESQUERDA! .
+   3) Se o elemento é inserido à esquerda e o pai é o filho direito
+       então rotação dupla DIREITA e ESQUERDA!
+   4) Se o elemento é inserido à direita e o pai é o filho esquerdo
+       então rotação dupla ESQUERDA e DIREITA.
 
 
 De preferência, a solução para os problemas de balanceamento é para o
