@@ -16,6 +16,11 @@ Estrutura de Dados, ministrada pelo professor Jarbas na UFC - Sobral, 2017.2
 3. [[file:2-tipos-abstratos-de-dados.org][Tipos Abstratos de Dados]]
 4. [[file:3-complexidade.org][Complexidade]]
 5. [[file:4-listas-encadeadas.org][Listas Encadeadas]]
+6. [[file:5-pilha-e-fila.org][Pilha e Fila]]
+7. [[file:6-arvores.pdf][Árvores]]
+8. [[7-arvore-binaria-de-busca.org][Árvore Binária de Busca (BST)]]
+9. [[file:8-arvore-avl.org][Árvore AVL]]
+10. [[file:9-arvore-rb.org][Árvore RB]]
 
 * Versões em PDF
 
