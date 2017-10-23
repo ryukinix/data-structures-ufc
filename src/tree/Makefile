@@ -7,7 +7,7 @@ endif
 CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
-CFLAGS = $(DEBUG) -pedantic $(WARN) -std=c99
+override CFLAGS += $(DEBUG) -pedantic $(WARN) -std=c99
 LDFLAGS = -L./ascii-tree/ -L./bst -lm -lascii-tree -lbst
 MAIN = main
 INCLUDE = -I../
