@@ -13,24 +13,25 @@
 #include <stdio.h>
 #include "sort.h"
 
+// HACK: macro rules
+#define TEST(ALGORITHM, V, S)                   \
+    printf("== Testing for %s: ", #ALGORITHM);  \
+    print_vector(V, S);                         \
+    ALGORITHM(V, S);                            \
+    printf("Finished: ");                       \
+    print_vector(V, S)
+
 void test_bubblesort(void) {
-    int v[] = {5,2,3,1,3,5};
+    Type v[] = {5,2,3,1,3,5};
     int s = 6;
-    printf("== Testing for bubblesort: ");
-    print_vector(v, s);
-    bubblesort(v, s);
-    printf("Finished: ");
-    print_vector(v, s);
+    TEST(bubblesort, v, s);
 }
 
 void test_insertionsort(void) {
-    int v[] = {5,2,3,1,3,5};
+    Type v[] = {5,2,3,1,3,5};
     int s = 6;
-    printf("== Testing for insertionsort: ");
-    print_vector(v, s);
-    insertionsort(v, s);
-    printf("Finished: ");
-    print_vector(v, s);
+    TEST(insertionsort, v, s);
+
 }
 
 int main(void) {
