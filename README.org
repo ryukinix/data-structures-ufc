@@ -3,6 +3,12 @@
 #+DATE: 2017.2
 #+TITLE: Estrutura de Dados
 
+#+BEGIN_HTML html
+  <a href="https://github.com/nikku/works-on-my-machine">
+     <img alt="ci-done" src="https://cdn.rawgit.com/nikku/works-on-my-machine/v0.2.0/badge.svg" />
+  </a>
+#+END_HTML
+
 * Descrição
 
 Este repositório é onde se encontra as principais notas sobre
