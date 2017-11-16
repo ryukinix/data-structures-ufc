@@ -66,4 +66,5 @@ void bst_prefix(BSTree *t);
 /* Imprime a árvore linearmente de forma simétrica */
 void bst_infix(BSTree *t);
 
+int bst_nodes(BSTree *t);
 #endif

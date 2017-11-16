@@ -35,6 +35,7 @@ int main(void) {
     bst_prefix(t);
     printf("Posfix: ");
     bst_posfix(t);
+    printf("Nodes: %d\n", bst_nodes(t));
 
     // remove
     for(int i = 0; i < N; i++) {

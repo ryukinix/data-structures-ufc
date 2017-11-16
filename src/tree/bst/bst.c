@@ -60,6 +60,14 @@ int bst_height(BSTree *t) {
     return -1;
 }
 
+int bst_nodes(BSTree *t) {
+    if (t == NULL) {
+        return 0;
+    } else {
+        return 1 + bst_nodes(t->left) + bst_nodes(t->right);
+    }
+}
+
 BSTree* bst_insert(BSTree *t, Type c) {
     if (bst_empty(t)) {
         t = bst_create_node(NULL, NULL, c);
