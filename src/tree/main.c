@@ -29,7 +29,12 @@ int main(void) {
     printf("usage: [insert num | remove num | infix | posfix | prefix | print | clear]\n");
     while (1) {
         printf(">>> ");
-        scanf("%s", command);
+        int tokens = scanf("%s", command);
+
+        if (tokens == 0) { // EOF emit
+            exit(0);
+        }
+
         if (strcmp(command, "insert") == 0) {
             scanf(" %d", &number);
             root = bst_insert(root, number);
@@ -46,7 +51,10 @@ int main(void) {
             print_ascii_tree(root);
         } else if (strcmp(command, "clear") == 0) {
             clear();
+        } else if (strcmp(command, "exit") == 0 || strcmp(command, "quit") == 0) {
+            exit(0);
         }
+
     }
 
 }
