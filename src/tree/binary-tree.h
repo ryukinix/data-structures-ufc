@@ -13,8 +13,12 @@
 #ifndef BINARY_TREE_H
 #define BINARY_TREE_H
 
+#ifndef Type
 #define Type int
+#endif
+#ifndef TypeFormat
 #define TypeFormat "%d"
+#endif
 
 struct node {
     Type value;
