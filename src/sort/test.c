@@ -34,8 +34,16 @@ void test_insertionsort(void) {
 
 }
 
+void test_quicksort(void) {
+    Type v[] = {5,2,3,1,3,5};
+    int s = 6;
+    TEST(quicksort, v, s);
+
+}
+
 int main(void) {
     test_bubblesort();
     test_insertionsort();
+    test_quicksort();
     return 0;
 }
