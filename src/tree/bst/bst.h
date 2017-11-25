@@ -66,5 +66,19 @@ void bst_prefix(BSTree *t);
 /* Imprime a árvore linearmente de forma simétrica */
 void bst_infix(BSTree *t);
 
+/* Count the number of nodes */
 int bst_nodes(BSTree *t);
+
+/* Return the number of leafs which are prime numbers */
+int bst_leafs_primes(BSTree *t);
+
+/* Return the number of nodes that has two children */
+int bst_two_children(BSTree *t);
+
+/* Return the number of nodes which have equal branch heights*/
+int bst_nodes_equal_height(BSTree *t);
+
+/* Compare if t1 and t2 are equal by traversal tree search */
+int bst_equals(BSTree *t1, BSTree *t2);
+
 #endif

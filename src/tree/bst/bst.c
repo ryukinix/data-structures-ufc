@@ -12,6 +12,8 @@
 
 #include <stdio.h>
 #include <stdlib.h>
+#include <stdbool.h>
+#include <math.h>
 #include "bst.h"
 #include "utils/check_alloc.h"
 
@@ -180,4 +182,79 @@ void bst_infix(BSTree *t) {
     printf("[");
     bst_infix_aux(t);
     printf("]\n");
+}
+
+/*********************************/
+/*    Jarbas - Assignment 2     */
+/*********************************/
+
+// a)
+
+int is_leaf(BSTree *t) {
+    return t != NULL && t->left == NULL && t->right == NULL;
+}
+
+int is_prime(int n) {
+    if (n == 2) {
+        return true;
+    } else if (n <= 1) {
+        return false;
+    }
+
+    for (int k = 3; k < sqrt(n); k += 2) {
+        if (n % k == 0) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+int bst_leafs_primes(BSTree *t) {
+    if (!bst_empty(t)) {
+        if (is_leaf(t)) {
+            return is_prime(t->value);
+        } else {
+            return bst_leafs_primes(t->left) + bst_leafs_primes(t->right);
+        }
+    }
+    return 0;
+}
+
+
+// b)
+
+int bst_two_children(BSTree *t) {
+    if (!bst_empty(t)) {
+        return (t->left != NULL && t->right != NULL) \
+            + bst_two_children(t->left)              \
+            + bst_two_children(t->right);
+    }
+    return 0;
+}
+
+// c)
+
+int bst_nodes_equal_height(BSTree *t) {
+    if (!bst_empty(t)) {
+        return bst_height(t->left) == bst_height(t->right) \
+            + bst_nodes_equal_height(t->left)              \
+            + bst_nodes_equal_height(t->right);
+    }
+    return 0;
+}
+
+
+// d)
+
+int bst_equals(BSTree *t1, BSTree *t2) {
+    if (bst_empty(t1) != bst_empty(t2)) {
+        return false;
+    } else if (bst_empty(t1) && bst_empty(t2)) {
+        return true;
+    } else {
+        return t1->value == t2->value               \
+            && bst_equals(t1->left, t2->left)       \
+            && bst_equals(t1->right, t2->right);
+    }
 }
