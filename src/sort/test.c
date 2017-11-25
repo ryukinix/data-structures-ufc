@@ -23,35 +23,35 @@
 
 void test_bubblesort(void) {
     Type v[] = {5,2,3,1,3,5};
-    int s = 6;
-    TEST(bubblesort, v, s);
+    int n = 6;
+    TEST(bubblesort, v, n);
 }
 
 void test_insertionsort(void) {
     Type v[] = {5,2,3,1,3,5};
-    int s = 6;
-    TEST(insertionsort, v, s);
+    int n = 6;
+    TEST(insertionsort, v, n);
 
 }
 
 void test_quicksort(void) {
     Type v[] = {5,2,3,1,3,5};
-    int s = 6;
-    TEST(quicksort, v, s);
+    int n = 6;
+    TEST(quicksort, v, n);
 
 }
 
 void test_mergesort(void) {
     Type v[] = {5,2,3,1,3,5};
-    int s = 6;
-    TEST(mergesort, v, s);
+    int n = 6;
+    TEST(mergesort, v, n);
 
 }
 
 void test_heapsort(void) {
     Type v[] = {5,2,3,1,3,5};
-    int s = 6;
-    TEST(heapsort, v, s);
+    int n = 6;
+    TEST(heapsort, v, n);
 
 }
 
