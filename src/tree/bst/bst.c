@@ -194,10 +194,11 @@ int is_leaf(BSTree *t) {
     return t != NULL && t->left == NULL && t->right == NULL;
 }
 
+// Worst: O(sqrt(n))
 int is_prime(int n) {
     if (n == 2) {
         return true;
-    } else if (n <= 1) {
+    } else if (n <= 1 || n % 2 == 0) {
         return false;
     }
 
@@ -237,8 +238,8 @@ int bst_two_children(BSTree *t) {
 
 int bst_nodes_equal_height(BSTree *t) {
     if (!bst_empty(t)) {
-        return bst_height(t->left) == bst_height(t->right) \
-            + bst_nodes_equal_height(t->left)              \
+        return (bst_height(t->left) == bst_height(t->right))    \
+            + bst_nodes_equal_height(t->left)                   \
             + bst_nodes_equal_height(t->right);
     }
     return 0;
