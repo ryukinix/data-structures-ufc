@@ -17,17 +17,23 @@ void heapify(Type v[], int n, int i) {
     int l = 2*i + 1;
     int r = 2*(i + 1);
 
+    // verify if left node is greater
+    // than largest
     if (l < n && v[l] > v[largest]) {
         largest = l;
     }
 
+    // verify if the right node is greater
+    // than largest
     if (r < n && v[r] > v[largest]) {
         largest = r;
     }
 
+    // if current node is not the largest
+    // need swaps
     if (largest != i) {
-        swap(v+i, v+largest);
-        heapify(v, n, largest);
+        swap(v+i, v+largest); // current and largest
+        heapify(v, n, largest); // apply recursively
     }
 }
 
