@@ -13,8 +13,12 @@
 #ifndef SORT_H
 #define SORT_H
 
+#ifndef Type
 #define Type int
-#define Formater "%d"
+#endif
+#ifndef TypeFormat
+#define TypeFormat "%d"
+#endif
 
 /* Apply BubbleSort Algorithm on the v */
 void bubblesort(Type *v, int n);
