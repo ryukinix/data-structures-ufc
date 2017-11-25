@@ -41,9 +41,17 @@ void test_quicksort(void) {
 
 }
 
+void test_mergesort(void) {
+    Type v[] = {5,2,3,1,3,5};
+    int s = 6;
+    TEST(mergesort, v, s);
+
+}
+
 int main(void) {
     test_bubblesort();
     test_insertionsort();
     test_quicksort();
+    test_mergesort();
     return 0;
 }
