@@ -31,7 +31,7 @@ int main(void) {
         printf(">>> ");
         int tokens = scanf("%s", command);
 
-        if (tokens == 0) { // EOF emit
+        if (tokens < 1) { // EOF emit
             exit(0);
         }
 
