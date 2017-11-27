@@ -202,7 +202,7 @@ int is_prime(int n) {
         return false;
     }
 
-    for (int k = 3; k < sqrt(n); k += 2) {
+    for (int k = 3; k <= floor(sqrt(n)); k += 2) {
         if (n % k == 0) {
             return false;
         }
