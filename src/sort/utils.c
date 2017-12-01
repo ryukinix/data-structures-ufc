@@ -16,7 +16,7 @@
 void print_vector(Type *v, int n) {
     printf("[");
     for(int i = 0; i < n; i++) {
-        printf(Formater, v[i]);
+        printf(TypeFormat, v[i]);
         if (i + 1 < n) {
             printf(", ");
         }
