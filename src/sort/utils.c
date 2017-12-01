@@ -11,7 +11,11 @@
  */
 
 #include <stdio.h>
+#include <stdlib.h>
+#include <stdbool.h>
+#include <time.h>
 #include "sort.h"
+#include "utils/check_alloc.h"
 
 void print_vector(Type *v, int n) {
     printf("[");
@@ -22,6 +26,28 @@ void print_vector(Type *v, int n) {
         }
     }
     printf("]\n");
+}
+
+Type* random_vector(int n) {
+    Type* v = (Type*) malloc(sizeof(Type) * n);
+    check_alloc(v);
+    srand(time((void*) v));
+    for (int i = 0; i < n; i++) {
+        v[i] = rand() % n;
+    }
+    return v;
+}
+
+// check if array v is sorted, O(n)
+bool check_sorted(Type *v, int n) {
+    int i;
+
+    for (i = 0; i < n - 1 ; i++) {
+        if (v[i] > v[i + 1]) {
+            return false;
+        }
+    }
+    return true;
 }
 
 void swap(Type *e1, Type *e2) {
