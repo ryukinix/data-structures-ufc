@@ -10,7 +10,7 @@
 
 
 import sys
-import pandas as pd # python-pandas dependency
+import pandas as pd  # python-pandas dependency
 import matplotlib.pyplot as plt
 from typing import List, Dict
 
@@ -20,8 +20,8 @@ scales = {
     'heapsort': (0, 600),
     'mergesort': (0, 600),
     'quicksort': (0, 600),
-    'insertionsort': (0, 100000),
-    'bubblesort': (0, 100000),
+    # 'insertionsort': (0, 200000),
+    # 'bubblesort': (0, 100000),
 }
 
 
@@ -58,23 +58,31 @@ def save_graph_algorithm(name: str, df: List[pd.DataFrame]):
     ax.set_ylabel('Tempo (ms)')
     ax.set_xlabel('Elementos no vetor')
     ax.xaxis.set_tick_params(rotation=0)
-    # if name in scales:
-    #     plt.ylim(scales[name])
+    if name in scales:
+        plt.ylim(scales[name])
     plt.savefig(name + '.png', dpi=dpi)
     plt.close(fig)
 
 
-def save_graph_algorithms(dfs: Dict[str, pd.DataFrame]):
+def save_graph_algorithms(dfs: Dict[str, pd.DataFrame], prefix=''):
     "Make a graph comparing all the sorting algorithms"
+    print("Generating general graph {}".format(prefix))
     df_general = mean_graph(dfs)
     fig = plt.figure()
-    ax = df_general.plot(title='Algoritmos de Ordenação', kind='line')
+    title = 'Algoritmos de Ordenação ' + prefix.capitalize()
+    ax = df_general.plot(title=title, kind='line')
     ax.set_ylabel('Tempo (ms)')
     ax.set_xlabel('Elementos no vetor')
     ax.xaxis.set_tick_params(rotation=0)
-    plt.savefig('sorting.png', dpi=dpi)
+    fname = 'sorting'
+    if prefix:
+        fname = 'sorting-' + prefix
+    plt.savefig(fname+'.png', dpi=dpi)
     plt.close(fig)
 
+
+def save_graph_per_element(dfs: Dict[str, pd.DataFrame]):
+    df_general = mean_graph(dfs)
     for loc, i in enumerate(df_general.index):
         fig = plt.figure()
         row = df_general.iloc[loc]
@@ -100,8 +108,13 @@ def main():
         save_graph_algorithm(name, df)
 
     # save general graph
-    print("Generating general graph")
+    efficient = {'heapsort', 'mergesort', 'quicksort'}
+    df_eff = dict((k, v) for k,v in dfs.items() if k.strip('.csv') in efficient)
+    df_ineff = dict((k, v) for k,v in dfs.items() if k.strip('.csv') not in efficient)
     save_graph_algorithms(dfs)
+    save_graph_algorithms(df_eff, prefix='log-linear')
+    save_graph_algorithms(df_ineff, prefix='quadratic')
+    save_graph_per_element(dfs)
 
 
 if __name__ == '__main__':
