@@ -59,8 +59,12 @@ def save_graph_algorithm(name: str, df: List[pd.DataFrame]):
     ax.set_ylabel('Tempo (ms)')
     ax.set_xlabel('Elementos no vetor')
     ax.xaxis.set_tick_params(rotation=0)
+    ax.minorticks_on()
+    ax.set_axisbelow(True)
     if name in scales:
         plt.ylim(scales[name])
+
+    plt.tight_layout()
     plt.savefig(name + '.png', dpi=dpi)
     plt.close(fig)
 
@@ -75,9 +79,12 @@ def save_graph_algorithms(dfs: Dict[str, pd.DataFrame], prefix=''):
     ax.set_ylabel('Tempo (ms)')
     ax.set_xlabel('Elementos no vetor')
     ax.xaxis.set_tick_params(rotation=0)
+    ax.minorticks_on()
+    ax.set_axisbelow(True)
     fname = 'sorting'
     if prefix:
         fname = 'sorting-' + prefix
+    plt.tight_layout()
     plt.savefig(fname+'.png', dpi=dpi)
     plt.close(fig)
 
@@ -97,6 +104,9 @@ def save_graph_per_element(dfs: Dict[str, pd.DataFrame]):
         ax.set_xlabel('')
         ax.legend().set_visible(False)
         ax.xaxis.set_tick_params(rotation=0)
+        ax.minorticks_on()
+        ax.set_axisbelow(True)
+        plt.tight_layout()
         plt.savefig('sorting-{}.png'.format(i), dpi=dpi)
         plt.close(fig)
 

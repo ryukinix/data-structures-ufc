@@ -8,7 +8,7 @@
 #+LATEX_HEADER: \usepackage{indentfirst}
 #+LATEX_HEADER: \renewcommand\listingscaption{Código}
 #+OPTIONS: toc:nil
-#+LATEX_CLASS: article
+#+LATEX_CLASS: report
 [[./img/ufc.png]]
 
 #+BEGIN_ABSTRACT
