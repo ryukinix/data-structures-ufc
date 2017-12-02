@@ -6,3 +6,4 @@
 *.o
 TAGS
 *.a
+*.pyc
