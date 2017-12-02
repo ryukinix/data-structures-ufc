@@ -25,7 +25,7 @@ const int sizes[] = {1E2, 1E3, 1E4, 1E5, 1E6};
 
 // HACK: Macro for expanding testing by name of algorithm (ALGO)
 //       STORE: matrix to save the values as double v[SIZES][EXP+1]
-#define TEST_ALGORITHM(ALGO, STORE)                                     \
+#define BENCHMARK_ALGORITHM(ALGO, STORE)                                \
     printf("== Testing algorithm: %s\n", #ALGO);                        \
     for (int i = 0; i < SIZES; i++) {                                   \
         int n = sizes[i];                                               \
@@ -70,10 +70,10 @@ void save_csv(char *algorithm, double times[SIZES][EXP+1]) {
 
 int main(void) {
     double times_measured[SIZES][EXP+1];
-    TEST_ALGORITHM(quicksort, times_measured);
-    TEST_ALGORITHM(heapsort, times_measured);
-    TEST_ALGORITHM(mergesort, times_measured);
-    TEST_ALGORITHM(insertionsort, times_measured);
-    TEST_ALGORITHM(bubblesort, times_measured);
+    BENCHMARK_ALGORITHM(quicksort, times_measured);
+    BENCHMARK_ALGORITHM(heapsort, times_measured);
+    BENCHMARK_ALGORITHM(mergesort, times_measured);
+    BENCHMARK_ALGORITHM(insertionsort, times_measured);
+    BENCHMARK_ALGORITHM(bubblesort, times_measured);
     return 0;
 }
