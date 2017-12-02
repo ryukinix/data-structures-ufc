@@ -51,4 +51,7 @@ library: $(LIBRARY_TARGET)
 clean:
 	rm -fv *.o *.$(EXTENSION) *.a
 
-.PHONY: all clean compile test
+stats:
+	python stats.py *.csv
+
+.PHONY: all clean compile test stats
