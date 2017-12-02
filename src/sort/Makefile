@@ -52,6 +52,6 @@ clean:
 	rm -fv *.o *.$(EXTENSION) *.a
 
 stats:
-	python stats.py *.csv
+	python stats.py benchmark/*.csv
 
 .PHONY: all clean compile test stats

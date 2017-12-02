@@ -10,6 +10,7 @@
 
 
 import sys
+from os import path
 import pandas as pd  # python-pandas dependency
 import matplotlib.pyplot as plt
 from typing import List, Dict
@@ -30,7 +31,7 @@ def load_dataframes(csvs: List[str]):
     for csv in csvs:
         df = pd.read_csv(csv, index_col=0)
         df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
-        dfs[csv] = df
+        dfs[path.basename(csv)] = df
     return dfs
 
 
