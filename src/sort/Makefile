@@ -26,7 +26,7 @@ LIBRARY_TARGET = libsort.a
 all: compile
 	@echo > /dev/null
 
-compile: $(TARGETS)
+compile: $(TARGETS) $(TEST_TARGET).o $(MAIN_TARGET).o
 
 %.o: %.c
 	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $<
