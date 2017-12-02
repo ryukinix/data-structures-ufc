@@ -108,9 +108,10 @@ def main():
         save_graph_algorithm(name, df)
 
     # save general graph
-    efficient = {'heapsort', 'mergesort', 'quicksort'}
-    df_eff = dict((k, v) for k,v in dfs.items() if k.strip('.csv') in efficient)
-    df_ineff = dict((k, v) for k,v in dfs.items() if k.strip('.csv') not in efficient)
+    nlogn = {'heapsort', 'mergesort', 'quicksort'}
+    quadratic = {'insertionsort', 'bubblesort'}
+    df_eff = dict((k, v) for k,v in dfs.items() if k.strip('.csv') in nlogn)
+    df_ineff = dict((k, v) for k,v in dfs.items() if k.strip('.csv') in quadratic)
     save_graph_algorithms(dfs)
     save_graph_algorithms(df_eff, prefix='log-linear')
     save_graph_algorithms(df_ineff, prefix='quadratic')

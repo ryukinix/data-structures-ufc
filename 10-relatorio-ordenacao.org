@@ -26,14 +26,14 @@ da disciplina Estrutura de Dados lecionada pelo professor  Jarbas Joaci de Mesqu
 :CUSTOM_ID: toc-org
 :END:
 - [[#introdução][Introdução]]
-- [[#in-progress-algoritmos][IN-PROGRESS Algoritmos]]
+- [[#algoritmos][Algoritmos]]
   - [[#heapsort][HeapSort]]
   - [[#quicksort][QuickSort]]
   - [[#mergesort][MergeSort]]
   - [[#insertionsort][InsertionSort]]
   - [[#bubblesort][BubbleSort]]
 - [[#análise-conjunta][Análise Conjunta]]
-  - [[#comparação-entre-os-algoritmos-vs-quantidade-de-elementos][Comparação entre os algoritmos vs quantidade de elementos]]
+  - [[#algoritmos-por-quantidade-de-elementos][Algoritmos por quantidade de elementos]]
   - [[#avaliação-dos-algoritmos-quadráticos][Avaliação dos algoritmos quadráticos]]
   - [[#avaliação-dos-algoritmos-log-linear][Avaliação dos algoritmos log-linear]]
   - [[#análise-global][Análise Global]]
@@ -58,7 +58,8 @@ algoritmos foram executados 5 experimentos de execução de ordenação
 com vetores pseudo-aleatórios. Na análise global é considerado a média
 desses experimentos.
 
-* IN-PROGRESS Algoritmos
+* DONE Algoritmos
+  CLOSED: [2017-12-02 Sat 10:10]
 ** DONE HeapSort
    CLOSED: [2017-12-02 Sat 03:58]
 
@@ -98,7 +99,8 @@ desses experimentos.
  #+CAPTION: Avaliação do desempenho do algoritmo InsertionSort.
  [[./img/insertionsort.png]]
 
-** TODO BubbleSort
+** DONE BubbleSort
+   CLOSED: [2017-12-02 Sat 09:53]
 
  Algoritmo de complexidade no pior caso \(O(n^2)\). Dados
  de inferência:
@@ -109,7 +111,7 @@ desses experimentos.
 * DONE Análise Conjunta
   CLOSED: [2017-12-02 Sat 03:58]
 
-** DONE Comparação entre os algoritmos vs quantidade de elementos
+** DONE Algoritmos por quantidade de elementos
    CLOSED: [2017-12-02 Sat 03:58]
 
  #+ATTR_LATEX: :placement [H]
@@ -125,31 +127,31 @@ desses experimentos.
  [[./img/sorting-10000.png]]
 
  #+ATTR_LATEX: :placement [H]
- #+CAPTION: Avaliação no tempo entre os algoritmos para 10^5.
+ #+CAPTION: Avaliação no tempo entre os algoritmos para 10^5. Algoritmos log-linear já se perdem na escala.
  [[./img/sorting-100000.png]]
 
  #+ATTR_LATEX: :placement [H]
- #+CAPTION: Avaliação no tempo entre os algoritmos para 10^6.
+ #+CAPTION: Avaliação no tempo entre os algoritmos para 10^6. Explosão quadrática para /BubbleSort/ e /InsertionSort/.
  [[./img/sorting-1000000.png]]
 
 ** DONE Avaliação dos algoritmos quadráticos
    CLOSED: [2017-12-02 Sat 03:58]
  #+ATTR_LATEX: :placement [H]
- #+CAPTION: Avaliação dos algoritmos de ordenação quadráticos \(O(n^2)\).
- [[./img/quadratic-sorting.png]]
+ #+CAPTION: Avaliação dos algoritmos de ordenação quadráticos \(O(n^2)\). /InsertionSort/ é cerca de duas vezes mais rápido que /BubbleSort/.
+ [[./img/sorting-quadratic.png]]
 
 ** DONE Avaliação dos algoritmos log-linear
    CLOSED: [2017-12-02 Sat 03:58]
 
  #+ATTR_LATEX: :placement [H]
- #+CAPTION: Avaliação de desempenho para os algoritmos eficientes \(O(nlog(n))\).
- [[./img/log-linear-sorting.png]]
+ #+CAPTION: Avaliação de desempenho para os algoritmos eficientes \(O(nlog(n))\). Heapsort o mais lento, Quicksort o mais rápido.
+ [[./img/sorting-log-linear.png]]
 
 ** DONE Análise Global
    CLOSED: [2017-12-02 Sat 03:58]
 
  #+ATTR_LATEX: :placement [H]
- #+CAPTION: Avaliação no tempo generalizada de todos algoritmos desse documento.
+ #+CAPTION: Avaliação no tempo generalizada de todos algoritmos desse documento. Os algoritmos log-linear são coincidentes.
  [[./img/sorting.png]]
 
 
@@ -162,3 +164,14 @@ entre os mais eficientes (\(O(nlog(n))\)) /HeapSort/ foi o mais lento. No caso d
 quadráticos, /BubbleSort/ demonstrou ter a pior performance
 assintótica, assim como pior que /InsertionSort/ embora possuam a
 mesma complexidade computacional no pior caso.
+
+/BubbleSort/ segue um padrão de ser duas vezes pior que
+/InsertionSort/. Enquanto para o /BubbleSort/ levou cerca de uma hora
+para ordenar o caso com um milhão de elementos, /InsertionSort/ levou
+apenas meia-hora.
+
+
+O mais impressionante é que os algoritmos considerados eficientes são
+mais rápidos numa escala muito diferente. Observando os algoritmos
+quadráticos e log-linear no mesmo gráfico, os algoritmos eficientes
+tem uma aparência constante comparado com os quadráticos.
