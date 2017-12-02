@@ -8,7 +8,7 @@
 #+LATEX_HEADER: \usepackage{indentfirst}
 #+LATEX_HEADER: \renewcommand\listingscaption{Código}
 #+OPTIONS: toc:nil
-#+LATEX_CLASS: report
+#+LATEX_CLASS: article
 [[./img/ufc.png]]
 
 #+BEGIN_ABSTRACT
@@ -158,12 +158,12 @@ desses experimentos.
 * DONE Conclusão
   CLOSED: [2017-12-02 Sat 03:59]
 
-Percebe-se então que, experimentalmente, o algoritmo que obteve o
+Percebe-se experimentalmente,portanto, que o algoritmo que obteve o
 melhor desempenho entre eles foi o /QuickSort/. Relevante observar que
-entre os mais eficientes (\(O(nlog(n))\)) /HeapSort/ foi o mais lento. No caso dos algoritmos
-quadráticos, /BubbleSort/ demonstrou ter a pior performance
-assintótica, assim como pior que /InsertionSort/ embora possuam a
-mesma complexidade computacional no pior caso.
+entre os mais eficientes (\(O(nlog(n))\)) /HeapSort/ foi o mais
+lento. No caso dos algoritmos quadráticos, /BubbleSort/ demonstrou ter
+a pior performance assintótica, assim como pior que /InsertionSort/
+embora possuam a mesma complexidade computacional de pior caso.
 
 /BubbleSort/ segue um padrão de ser duas vezes pior que
 /InsertionSort/. Enquanto para o /BubbleSort/ levou cerca de uma hora
@@ -175,3 +175,7 @@ O mais impressionante é que os algoritmos considerados eficientes são
 mais rápidos numa escala muito diferente. Observando os algoritmos
 quadráticos e log-linear no mesmo gráfico, os algoritmos eficientes
 tem uma aparência constante comparado com os quadráticos.
+
+
+As tabelas dos dados coletados estão disponíveis abertamente no sítio:
+[[https://github.com/ryukinix/data-structures-ufc/tree/master/src/sort/benchmark]]
