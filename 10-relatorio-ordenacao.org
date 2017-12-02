@@ -1,0 +1,164 @@
+#+STARTUP: showall align
+#+OPTIONS: todo:nil tasks:("IN-PROGRESS" "DONE") tags:nil
+#+AUTHOR: Manoel Vilela
+#+TITLE: Estrutura de Dados @@latex:\\@@ Análise de Algoritmos de Ordenação
+#+EXCLUDE_TAGS: TOC_3
+#+LANGUAGE: bt-br
+#+LATEX_HEADER: \usepackage[]{babel}
+#+LATEX_HEADER: \usepackage{indentfirst}
+#+LATEX_HEADER: \renewcommand\listingscaption{Código}
+#+OPTIONS: toc:nil
+#+LATEX_CLASS: report
+[[./img/ufc.png]]
+
+#+BEGIN_ABSTRACT
+Este documento descreve uma breve análise empírica sobre os
+comportamentos de alguns famosos algoritmos de ordenação, como
+QuickSort, BubbleSort e outros. Destinado como trabalho extra-classe
+da disciplina Estrutura de Dados lecionada pelo professor  Jarbas Joaci de Mesquita Sá Junior em
+2017.2, na Universidade Federal do Ceará, campus de Sobral.
+#+END_ABSTRACT
+#+TOC: headlines=2
+
+
+* Sumário                                                             :TOC_3:
+:PROPERTIES:
+:CUSTOM_ID: toc-org
+:END:
+- [[#introdução][Introdução]]
+- [[#in-progress-algoritmos][IN-PROGRESS Algoritmos]]
+  - [[#heapsort][HeapSort]]
+  - [[#quicksort][QuickSort]]
+  - [[#mergesort][MergeSort]]
+  - [[#insertionsort][InsertionSort]]
+  - [[#bubblesort][BubbleSort]]
+- [[#análise-conjunta][Análise Conjunta]]
+  - [[#comparação-entre-os-algoritmos-vs-quantidade-de-elementos][Comparação entre os algoritmos vs quantidade de elementos]]
+  - [[#avaliação-dos-algoritmos-quadráticos][Avaliação dos algoritmos quadráticos]]
+  - [[#avaliação-dos-algoritmos-log-linear][Avaliação dos algoritmos log-linear]]
+  - [[#análise-global][Análise Global]]
+- [[#conclusão][Conclusão]]
+
+* DONE Introdução
+  CLOSED: [2017-12-02 Sat 03:39]
+
+Algoritmos de ordenação tem uma grande importância na área de
+computação, tendo em vista que a tarefa de ordenação é aplicada em
+tarefas diversas, entre elas pré-optimização, listagem de valores,
+indexação e entre outros. Um subproblema de grande ocorrência.
+
+Neste documento será apresentado uma breve análise empírica extraída
+sobre o comportamento em relação ao tempo de execução dos seguintes
+algoritmos: /BubbleSort/, /QuickSort/, /InsertionSort/, /MergeSort/ e
+/HeapSort/.
+
+Dentre tais citados, estão classificados como algoritmos de ordenação
+quadráticos \(O(n^2)\) e log-linear \(O(nlog(n)\). Para cada um dos
+algoritmos foram executados 5 experimentos de execução de ordenação
+com vetores pseudo-aleatórios. Na análise global é considerado a média
+desses experimentos.
+
+* IN-PROGRESS Algoritmos
+** DONE HeapSort
+   CLOSED: [2017-12-02 Sat 03:58]
+
+ Algoritmo de complexidade no pior e médio caso de \(O(nlog(n))\). Dados
+ de inferência:
+
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação do desempenho do algoritmo Quicksort.
+ [[./img/heapsort.png]]
+
+** DONE QuickSort
+   CLOSED: [2017-12-02 Sat 03:58]
+
+ Algoritmo de complexidade no pior caso \(O(n^2)\) e médio caso de \(O(nlog(n))\). Dados
+ de inferência:
+
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação do desempenho do algoritmo Quicksort.
+ [[./img/quicksort.png]]
+
+** DONE MergeSort
+   CLOSED: [2017-12-02 Sat 03:58]
+
+ Algoritmo de complexidade no pior e médio caso de \(O(nlog(n))\). Dados
+ de inferência:
+
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação do desempenho do algoritmo MergeSort.
+ [[./img/mergesort.png]]
+
+** DONE InsertionSort
+   CLOSED: [2017-12-02 Sat 03:58]
+
+ Algoritmo de complexidade no pior caso \(O(n^2)\). Dados
+ de inferência:
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação do desempenho do algoritmo InsertionSort.
+ [[./img/insertionsort.png]]
+
+** TODO BubbleSort
+
+ Algoritmo de complexidade no pior caso \(O(n^2)\). Dados
+ de inferência:
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação do desempenho do algoritmo BubbleSort.
+ [[./img/bubblesort.png]]
+
+* DONE Análise Conjunta
+  CLOSED: [2017-12-02 Sat 03:58]
+
+** DONE Comparação entre os algoritmos vs quantidade de elementos
+   CLOSED: [2017-12-02 Sat 03:58]
+
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação no tempo entre os algoritmos para 10^2.
+ [[./img/sorting-100.png]]
+
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação no tempo entre os algoritmos para 10^3.
+ [[./img/sorting-1000.png]]
+
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação no tempo entre os algoritmos para 10^4.
+ [[./img/sorting-10000.png]]
+
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação no tempo entre os algoritmos para 10^5.
+ [[./img/sorting-100000.png]]
+
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação no tempo entre os algoritmos para 10^6.
+ [[./img/sorting-1000000.png]]
+
+** DONE Avaliação dos algoritmos quadráticos
+   CLOSED: [2017-12-02 Sat 03:58]
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação dos algoritmos de ordenação quadráticos \(O(n^2)\).
+ [[./img/quadratic-sorting.png]]
+
+** DONE Avaliação dos algoritmos log-linear
+   CLOSED: [2017-12-02 Sat 03:58]
+
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação de desempenho para os algoritmos eficientes \(O(nlog(n))\).
+ [[./img/log-linear-sorting.png]]
+
+** DONE Análise Global
+   CLOSED: [2017-12-02 Sat 03:58]
+
+ #+ATTR_LATEX: :placement [H]
+ #+CAPTION: Avaliação no tempo generalizada de todos algoritmos desse documento.
+ [[./img/sorting.png]]
+
+
+* DONE Conclusão
+  CLOSED: [2017-12-02 Sat 03:59]
+
+Percebe-se então que, experimentalmente, o algoritmo que obteve o
+melhor desempenho entre eles foi o /QuickSort/. Relevante observar que
+entre os mais eficientes (\(O(nlog(n))\)) /HeapSort/ foi o mais lento. No caso dos algoritmos
+quadráticos, /BubbleSort/ demonstrou ter a pior performance
+assintótica, assim como pior que /InsertionSort/ embora possuam a
+mesma complexidade computacional no pior caso.
