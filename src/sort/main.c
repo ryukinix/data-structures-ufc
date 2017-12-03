@@ -49,22 +49,22 @@ void save_csv(char *algorithm, double times[SIZES][EXP+1]) {
     sprintf(filename, "%s.csv", algorithm);
     FILE *fp = fopen(filename,"w");
 
-    fprintf(fp,"Elements,");
+    fprintf(fp,"Elements;");
     for(int i = 0; i < EXP; i++) {
-        fprintf(fp, "Time_%d(ms),", (i+1));
+        fprintf(fp, "Time_%d(ms);", (i+1));
     }
     fprintf(fp, "\n");
 
     for(int i = 0; i < SIZES; i++){
-        fprintf(fp, "%d,", (int)times[i][0]);
+        fprintf(fp, "%d;", (int)times[i][0]);
         for(int j = 1; j < EXP+1; j++) {
-            fprintf(fp,"%.3lf,", times[i][j]);
+            fprintf(fp,"%.3lf;", times[i][j]);
         }
         fprintf(fp, "\n");
     }
 
     fclose(fp);
-
+	printf("Saved at: %s\n", filename);
 }
 
 
