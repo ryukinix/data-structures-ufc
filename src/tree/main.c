@@ -21,12 +21,16 @@
  * A simple program to see what happens on BST
  * interactively inserting and removing new elements
  */
+ 
+void help() {
+	printf("usage: [insert num | remove num | infix | posfix | prefix | print | clear | help | exit]\n");
+}
 
 int main(void) {
     BSTree *root = bst_create();
     int number;
     char command[50];
-    printf("usage: [insert num | remove num | infix | posfix | prefix | print | clear]\n");
+    help();
     while (1) {
         printf(">>> ");
         int tokens = scanf("%s", command);
@@ -51,10 +55,12 @@ int main(void) {
             print_ascii_tree(root);
         } else if (strcmp(command, "clear") == 0) {
             clear();
+        
         } else if (strcmp(command, "exit") == 0 || strcmp(command, "quit") == 0) {
             exit(0);
-        }
-
+        } else {
+        	help();
+		}
     }
 
 }
