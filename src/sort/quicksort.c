@@ -12,28 +12,29 @@
 
 #include "sort.h"
 
+
 void quicksort(Type *v, int n) {
     if (n <= 1) {
         return;
     }
 
-    int x = v[0];
+    const int pivot = 0;
+    int x = v[pivot];
     int a = 1;
     int b = n - 1;
 
     while(1) {
-        while(a<n && v[a] <= x) a++;
+        while(a  <n && v[a] <= x) a++;
         while(v[b] > x) b--;
         if (a < b) {
-            swap(v+a, v+b);
+            swap(v + a, v + b);
             a++;
             b--;
         } else {
             break;
         }
     }
-    v[0] = v[b];
-    v[b] = x;
-    quicksort(v+a, n - a);
+    swap(v + pivot, v + b);
+    quicksort(v + a, n - a);
     quicksort(v, b);
 }
