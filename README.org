@@ -27,6 +27,7 @@ Estrutura de Dados, ministrada pelo professor Jarbas na UFC - Sobral, 2017.2
 8. [[7-arvore-binaria-de-busca.org][Árvore Binária de Busca (BST)]]
 9. [[file:8-arvore-avl.org][Árvore AVL]]
 10. [[file:9-arvore-rb.org][Árvore RB]]
+11. [[file:10-relatorio-ordenacao.org][Comparativo entre Algoritmos de Ordenação]]
 
 * Versões em PDF
 
