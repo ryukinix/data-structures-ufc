@@ -22,29 +22,30 @@
 #define EXP 5
 
 const int sizes[] = {1E2, 1E3, 1E4, 1E5, 1E6};
+static double benchmark[SIZES][EXP+1];
+
 
 // HACK: Macro for expanding testing by name of algorithm (ALGO)
-//       STORE: matrix to save the values as double v[SIZES][EXP+1]
-#define BENCHMARK_ALGORITHM(ALGO, STORE)                                \
+#define BENCHMARK_ALGORITHM(ALGO)                                       \
     printf("== Testing algorithm: %s\n", #ALGO);                        \
     for (int i = 0; i < SIZES; i++) {                                   \
         int n = sizes[i];                                               \
-        STORE[i][0] = n;                                                \
+        benchmark[i][0] = n;                                            \
         for (int j = 1; j < EXP+1; j++) {                               \
             int *v = random_vector(n);                                  \
             clock_t start = clock();                                    \
             ALGO(v, n);                                                 \
             clock_t end = clock();                                      \
             assert(check_sorted(v, n));                                 \
-            STORE[i][j] = (double)1000*(end-start)/CLOCKS_PER_SEC;      \
+            benchmark[i][j] = (double)1000*(end-start)/CLOCKS_PER_SEC;  \
             free(v);                                                    \
         }                                                               \
         printf("%d/%d :: %d elements\n", i+1, SIZES,  sizes[i]);        \
     }                                                                   \
-    save_csv(#ALGO, STORE);                                             \
+    save_csv(#ALGO);                                                    \
 
 // save a csv file based on the name of algorithm like 'quicksort'
-void save_csv(char *algorithm, double times[SIZES][EXP+1]) {
+void save_csv(char *algorithm) {
     char filename[80];
     sprintf(filename, "%s.csv", algorithm);
     FILE *fp = fopen(filename,"w");
@@ -56,9 +57,9 @@ void save_csv(char *algorithm, double times[SIZES][EXP+1]) {
     fprintf(fp, "\n");
 
     for(int i = 0; i < SIZES; i++){
-        fprintf(fp, "%d;", (int)times[i][0]);
+        fprintf(fp, "%d;", (int)benchmark[i][0]);
         for(int j = 1; j < EXP+1; j++) {
-            fprintf(fp,"%.3lf;", times[i][j]);
+            fprintf(fp,"%.3lf;", benchmark[i][j]);
         }
         fprintf(fp, "\n");
     }
@@ -69,11 +70,10 @@ void save_csv(char *algorithm, double times[SIZES][EXP+1]) {
 
 
 int main(void) {
-    double times_measured[SIZES][EXP+1];
-    BENCHMARK_ALGORITHM(quicksort, times_measured);
-    BENCHMARK_ALGORITHM(heapsort, times_measured);
-    BENCHMARK_ALGORITHM(mergesort, times_measured);
-    BENCHMARK_ALGORITHM(insertionsort, times_measured);
-    BENCHMARK_ALGORITHM(bubblesort, times_measured);
+    BENCHMARK_ALGORITHM(quicksort);
+    BENCHMARK_ALGORITHM(heapsort);
+    BENCHMARK_ALGORITHM(mergesort);
+    BENCHMARK_ALGORITHM(insertionsort);
+    BENCHMARK_ALGORITHM(bubblesort);
     return 0;
 }
