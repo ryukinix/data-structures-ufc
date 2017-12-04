@@ -110,7 +110,7 @@ void pqueue_println(PQueue *pq) {
 
 void pqueue_increase_keys(PQueue *pq, int k, int v) {
     if (v < pq->heap[k]) {
-        printf("New weight %d is lesser then %d (current)", v, pq->heap[k]);
+        printf("New weight %d is lesser than %d (current)", v, pq->heap[k]);
         exit(1);
     }
     pq->heap[k] = v;
