@@ -16,6 +16,7 @@ import matplotlib.pyplot as plt
 from typing import List, Dict
 
 dpi = 300
+csv_sep = ';'
 # fit best scale for each algorithm
 scales = {
     'heapsort': (0, 600),
@@ -29,7 +30,7 @@ scales = {
 def load_dataframes(csvs: List[str]):
     dfs = {}
     for csv in csvs:
-        df = pd.read_csv(csv, index_col=0)
+        df = pd.read_csv(csv, index_col=0, sep=csv_sep)
         df = df.loc[:, ~df.columns.str.contains('^Unnamed')]
         dfs[path.basename(csv)] = df
     return dfs
