@@ -39,8 +39,7 @@ void jarbas_test(void) {
     printf("Increase index-2 element to 200 priority\n");
     printf("Element of max priority: %d\n", pqueue_maximum(pq));
     printf("PQueue: ");
-    pqueue_print(pq);
-
+    pqueue_println(pq);
 }
 
 int main(void) {
