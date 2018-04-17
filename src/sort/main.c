@@ -19,10 +19,10 @@
 #include <string.h>
 
 #define SIZES 5
-#define EXP 5
+#define EXPERIMENTS 5
 
 const int sizes[] = {1E2, 1E3, 1E4, 1E5, 1E6};
-static double benchmark[SIZES][EXP+1];
+static double benchmark[SIZES][EXPERIMENTS+1];
 
 
 // HACK: Macro for expanding testing by name of algorithm (ALGO)
@@ -31,7 +31,7 @@ static double benchmark[SIZES][EXP+1];
     for (int i = 0; i < SIZES; i++) {                                   \
         int n = sizes[i];                                               \
         benchmark[i][0] = n;                                            \
-        for (int j = 1; j < EXP+1; j++) {                               \
+        for (int j = 1; j < EXPERIMENTS+1; j++) {                       \
             int *v = random_vector(n);                                  \
             clock_t start = clock();                                    \
             ALGO(v, n);                                                 \
@@ -51,14 +51,14 @@ void save_csv(char *algorithm) {
     FILE *fp = fopen(filename,"w");
 
     fprintf(fp,"Elements;");
-    for(int i = 0; i < EXP; i++) {
+    for(int i = 0; i < EXPERIMENTS; i++) {
         fprintf(fp, "Time_%d(ms);", (i+1));
     }
     fprintf(fp, "\n");
 
     for(int i = 0; i < SIZES; i++){
         fprintf(fp, "%d;", (int)benchmark[i][0]);
-        for(int j = 1; j < EXP+1; j++) {
+        for(int j = 1; j < EXPERIMENTS+1; j++) {
             fprintf(fp,"%.3lf;", benchmark[i][j]);
         }
         fprintf(fp, "\n");
