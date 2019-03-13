@@ -19,7 +19,7 @@ struct pqueue_t {
     int size;
 };
 
-void swap(int *e1, int *e2) {
+void swap_values(int *e1, int *e2) {
     int temp = *e1;
     *e1 = *e2;
     *e2 = temp;
@@ -38,7 +38,7 @@ int right(int i) {
 }
 
 
-void heapify(int v[], int n, int i) {
+void heapify_vector(int v[], int n, int i) {
     int largest = i;
     int l = 2*i + 1;
     int r = 2*(i + 1);
@@ -56,10 +56,10 @@ void heapify(int v[], int n, int i) {
     }
 
     // if current node is not the largest
-    // need swaps
+    // need swap_valuess
     if (largest != i) {
-        swap(v+i, v+largest); // current and largest
-        heapify(v, n, largest); // apply recursively
+        swap_values(v+i, v+largest); // current and largest
+        heapify_vector(v, n, largest); // apply recursively
     }
 }
 
@@ -87,7 +87,7 @@ int pqueue_extract_max(PQueue *pq) {
     int max = pqueue_maximum(pq);
     pq->heap[0] = pq->heap[pq->size-1];
     pq->size--;
-    heapify(pq->heap, pq->size, 0);
+    heapify_vector(pq->heap, pq->size, 0);
     return max;
 
 }
@@ -115,7 +115,7 @@ void pqueue_increase_keys(PQueue *pq, int k, int v) {
     }
     pq->heap[k] = v;
     while(k > 0 && pq->heap[parent(k)] < pq->heap[k]) {
-        swap(pq->heap+k, pq->heap+parent(k));
+        swap_values(pq->heap+k, pq->heap+parent(k));
         k = parent(k);
     }
 }
