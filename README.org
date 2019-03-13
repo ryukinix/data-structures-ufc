@@ -17,17 +17,17 @@ Estrutura de Dados, ministrada pelo professor Jarbas na UFC - Sobral, 2017.2
 
 * Mapa do Repositório
 
-1. [[file:0-funcoes-ponteiros-vetores-matrizes.org][Funcões, Ponteiros, Vetores e Matrizes]]
-2. [[file:1-tipos-estruturados.org][Tipos Estrutrados]]
-3. [[file:2-tipos-abstratos-de-dados.org][Tipos Abstratos de Dados]]
-4. [[file:3-complexidade.org][Complexidade]]
-5. [[file:4-listas-encadeadas.org][Listas Encadeadas]]
-6. [[file:5-pilha-e-fila.org][Pilha e Fila]]
-7. [[file:6-arvores.pdf][Árvores]]
-8. [[7-arvore-binaria-de-busca.org][Árvore Binária de Busca (BST)]]
-9. [[file:8-arvore-avl.org][Árvore AVL]]
-10. [[file:9-arvore-rb.org][Árvore RB]]
-11. [[file:10-relatorio-ordenacao.org][Comparativo entre Algoritmos de Ordenação]]
+1. [[file:docs/0-funcoes-ponteiros-vetores-matrizes.org][Funcões, Ponteiros, Vetores e Matrizes]]
+2. [[file:docs/1-tipos-estruturados.org][Tipos Estrutrados]]
+3. [[file:docs/2-tipos-abstratos-de-dados.org][Tipos Abstratos de Dados]]
+4. [[file:docs/3-complexidade.org][Complexidade]]
+5. [[file:docs/4-listas-encadeadas.org][Listas Encadeadas]]
+6. [[file:docs/5-pilha-e-fila.org][Pilha e Fila]]
+7. [[file:docs/6-arvores.org][Árvores]]
+8. [[file:docs/7-arvore-binaria-de-busca.org][Árvore Binária de Busca (BST)]]
+9. [[file:docs/8-arvore-avl.org][Árvore AVL]]
+10. [[file:docs/9-arvore-rb.org][Árvore RB]]
+11. [[file:docs/10-relatorio-ordenacao.org][Comparativo entre Algoritmos de Ordenação]]
 
 * Versões em PDF
 
