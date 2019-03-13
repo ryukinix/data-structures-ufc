@@ -8,3 +8,4 @@ TAGS
 *.a
 *.pyc
 lib/
+src/sort/data/
