@@ -13,7 +13,7 @@
 #ifndef CONSOLE_H
 #define CONSOLE_H
 
-#include "pause.h"
-#include "clear.h"
+#include "console/pause.h"
+#include "console/clear.h"
 
 #endif

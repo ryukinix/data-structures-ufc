@@ -14,11 +14,13 @@
 #define CLEAR_H
 
 #ifdef _WIN32
-#include <stdlib.h>
-#define clear() system("cls")
+static inline void clear() {
+    system("cls");
+}
 #else
-#include <stdio.h>
-#define clear() printf("\033[1;1H\033[2J")
+static inline void clear() {
+    printf("\033[1;1H\033[2J");
+}
 #endif
 
 #endif

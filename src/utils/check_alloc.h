@@ -12,8 +12,10 @@
 
 #ifndef CHECK_ALLOC_H
 #define CHECK_ALLOC_H
+#ifndef DS_UFC_H
 #include <stdio.h>
 #include <stdlib.h>
+#endif
 
 // wondering why the `static` here?
 // the inline is just to expand as macro instead to define a function

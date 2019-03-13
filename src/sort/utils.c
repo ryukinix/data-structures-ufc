@@ -39,7 +39,7 @@ Type* random_vector(int n) {
 }
 
 // check if array v is sorted, O(n)
-bool check_sorted(Type *v, int n) {
+int check_sorted(Type *v, int n) {
     int i;
 
     for (i = 0; i < n - 1 ; i++) {
