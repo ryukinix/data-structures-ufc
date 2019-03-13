@@ -19,7 +19,6 @@
 #ifndef TypeFormat
 #define TypeFormat "%d"
 #endif
-#include <stdbool.h>
 
 /**********************/
 /* SORTING ALGORITHMS */
@@ -52,7 +51,7 @@ void print_vector(Type *v, int n);
 void swap(Type *e1, Type *e2);
 
 /* Check if the vector v is sorted */
-bool check_sorted(Type *v, int n);
+int check_sorted(Type *v, int n);
 
 /* Return a random_vector with n values */
 Type* random_vector(int n);

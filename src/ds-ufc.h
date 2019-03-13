@@ -10,6 +10,8 @@
  * ============================================================================
  */
 
+#ifndef DS_UFC_H
+#define DS_UFC_H
 
 #include "tad/circle/circle.h"
 #include "tad/matrix/matrix.h"
@@ -25,3 +27,5 @@
 #include "tree/ascii-tree/ascii-tree.h"
 #include "tree/binary-tree.h"
 #include "tree/bst/bst.h"
+
+#endif

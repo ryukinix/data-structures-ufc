@@ -13,7 +13,9 @@
 #ifndef PAUSE_H
 #define PAUSE_H
 
+#ifndef DS_UFC_H
 #include <stdio.h>
+#endif
 
 /**
  * @brief remove all the garbage from stdin
