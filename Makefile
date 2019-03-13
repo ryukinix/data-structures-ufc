@@ -42,6 +42,11 @@ $(LIBPATH).so: $(LIB_OBJECTS)
 header: $(LIBDIR)/$(HEADER)
 
 $(LIBDIR)/$(HEADER): $(SRCDIR)/$(HEADER)
-	$(CC) -CC -E -o "$@" -Isrc/ "$<"
+	rm -rf $@
+	touch $@
+	echo "#include <stdio.h>" >> $@
+	echo "#include <stdlib.h>" >> $@
+	echo "#include <math.h>" >> $@
+	$(CC) -CC -E -Isrc/ "$<" >> $@
 
 .PHONY: clean
