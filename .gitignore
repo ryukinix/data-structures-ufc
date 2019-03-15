@@ -1,0 +1,12 @@
+*.pdf
+*.exe
+*.out
+*.tex
+*_minted*/
+*.o
+TAGS
+*.a
+*.pyc
+lib/
+src/sort/data/
+api_docs/
