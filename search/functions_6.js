@@ -1,12 +1,21 @@
 var searchData=
 [
-  ['matrix_5fcolumns',['matrix_columns',['../matrix_8h.html#af028bebbaf3e81266df491ac1bf59d4f',1,'matrix.h']]],
-  ['matrix_5fcreate',['matrix_create',['../matrix_8h.html#a3801c1b53468c230c67b336a7a8ba963',1,'matrix.h']]],
-  ['matrix_5ffree',['matrix_free',['../matrix_8h.html#a998650feec406b9df658940151adb7f9',1,'matrix.h']]],
-  ['matrix_5fget',['matrix_get',['../matrix_8h.html#ab3851bfe3e7bbf3fa46416f67b844646',1,'matrix.h']]],
-  ['matrix_5flines',['matrix_lines',['../matrix_8h.html#a4530f65c79ca4168db00553f7d9340fb',1,'matrix.h']]],
-  ['matrix_5fmax',['matrix_max',['../matrix-utils_8h.html#a57857540fa7c33edad5c2c5aba7e6a58',1,'matrix-utils.h']]],
-  ['matrix_5fprint',['matrix_print',['../matrix-utils_8h.html#a3768f4937226fa592c8c6f4ad270117a',1,'matrix-utils.h']]],
-  ['matrix_5fset',['matrix_set',['../matrix_8h.html#a18eb45e990da5a033d6a4476e6a636a7',1,'matrix.h']]],
-  ['mergesort',['mergesort',['../sort_8h.html#aeb8e4a806b70e15d0ec7cc1f5559bb85',1,'sort.h']]]
+  ['point_5fcopy',['point_copy',['../point_8h.html#a6864133d6b60f25f80117a1204f25729',1,'point.h']]],
+  ['point_5fcreate',['point_create',['../point_8h.html#a4514300a0ed1093687685eb7b51d7659',1,'point.h']]],
+  ['point_5fdistance',['point_distance',['../point_8h.html#a51d2d9b21a6e81990c6924f4d9673f6e',1,'point.h']]],
+  ['point_5ffree',['point_free',['../point_8h.html#ad3a9de742ccb9e2a23606f3e77c03661',1,'point.h']]],
+  ['point_5fget',['point_get',['../point_8h.html#ae57ed0034ce7cead609f14a9fd91c5bb',1,'point.h']]],
+  ['point_5fget_5fx',['point_get_x',['../point_8h.html#aee015511bf7eda3fe4945f766e1a25a9',1,'point.h']]],
+  ['point_5fget_5fy',['point_get_y',['../point_8h.html#afed4e1f309044be54e1cf1069880594c',1,'point.h']]],
+  ['point_5fset',['point_set',['../point_8h.html#ac75e76c80d6701e87786c54768cb176a',1,'point.h']]],
+  ['pqueue_5fcreate',['pqueue_create',['../pqueue_8h.html#a5fa30ae87b96e5d6510d251d5cd54041',1,'pqueue.h']]],
+  ['pqueue_5fextract_5fmax',['pqueue_extract_max',['../pqueue_8h.html#a805dd3a406affe9173ce9ef08068958a',1,'pqueue.h']]],
+  ['pqueue_5ffree',['pqueue_free',['../pqueue_8h.html#ae5aa2e15af1dfd90ba2b5cd419a813ee',1,'pqueue.h']]],
+  ['pqueue_5fincrease_5fkeys',['pqueue_increase_keys',['../pqueue_8h.html#adf20106f653af15928f42af640349411',1,'pqueue.h']]],
+  ['pqueue_5finsert',['pqueue_insert',['../pqueue_8h.html#a8ea1460465b80d51cf7e886acdb6d569',1,'pqueue.h']]],
+  ['pqueue_5fmaximum',['pqueue_maximum',['../pqueue_8h.html#a7d9a70dad1ccfea5339cc2375fecfea0',1,'pqueue.h']]],
+  ['pqueue_5fprint',['pqueue_print',['../pqueue_8h.html#a273dd3b97c7798210404bf0a3942f7c2',1,'pqueue.h']]],
+  ['pqueue_5fprintln',['pqueue_println',['../pqueue_8h.html#a58f95ca0e9a45edcc43e97222d4f9a6a',1,'pqueue.h']]],
+  ['print_5fascii_5ftree',['print_ascii_tree',['../ascii-tree_8h.html#acdb411dc439f84cde1f64419a2f93b96',1,'ascii-tree.h']]],
+  ['print_5fvector',['print_vector',['../sort_8h.html#a4807ef31f766a7b8e854bc1c7a88de8e',1,'sort.h']]]
 ];

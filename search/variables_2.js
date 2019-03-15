@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['ira',['ira',['../structStudent.html#a9ad7fad73034be69f6ec910c4e3bea86',1,'Student']]]
+  ['next',['next',['../structlist__node.html#a0b99ca890dbfe832a8475f4bbd72338c',1,'list_node']]]
 ];

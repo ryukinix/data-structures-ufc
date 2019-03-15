@@ -12,9 +12,5 @@ var searchData=
   ['stack_5fprintln',['stack_println',['../stack_8h.html#a9b97a736186fe62f48ab28fd0fbf0a47',1,'stack.h']]],
   ['stack_5fpush',['stack_push',['../stack_8h.html#a1f96f21f1f30bf535fd0577c1862724e',1,'stack.h']]],
   ['stack_5ftop',['stack_top',['../stack_8h.html#a6b0b7ae5b8748bc8e7b9ed8d275670fd',1,'stack.h']]],
-  ['student',['Student',['../structStudent.html',1,'']]],
-  ['student_2eh',['student.h',['../student_8h.html',1,'']]],
-  ['student_5fnew',['student_new',['../student_8h.html#a41067154a3c99acbf4c50af72ddf9599',1,'student.h']]],
-  ['student_5fprint',['student_print',['../student_8h.html#a18d1e5d5987d422a8925cec7d1f39c3e',1,'student.h']]],
   ['swap',['swap',['../sort_8h.html#a7b887f8c60c6e8d3748e30071baeb646',1,'sort.h']]]
 ];

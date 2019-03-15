@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['heapsort',['heapsort',['../sort_8h.html#ad14faf1fe7d2c09689a0196cccbf9383',1,'sort.h']]]
+  ['insertionsort',['insertionsort',['../sort_8h.html#a6cbc559ab4b492514c588fea4282d54b',1,'sort.h']]]
 ];
