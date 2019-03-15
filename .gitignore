@@ -9,3 +9,4 @@ TAGS
 *.pyc
 lib/
 src/sort/data/
+api_docs/

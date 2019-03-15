@@ -49,4 +49,7 @@ $(LIBDIR)/$(HEADER): $(SRCDIR)/$(HEADER)
 	echo "#include <math.h>" >> $@
 	$(CC) -CC -E -Isrc/ "$<" >> $@
 
-.PHONY: clean
+docs:
+	doxygen doxygen.cfg
+
+.PHONY: clean docs
