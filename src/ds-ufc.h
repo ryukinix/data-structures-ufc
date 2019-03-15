@@ -13,9 +13,6 @@
 #ifndef DS_UFC_H
 #define DS_UFC_H
 
-#include "tad/circle/circle.h"
-#include "tad/matrix/matrix.h"
-#include "tad/point/point.h"
 #include "console/console.h"
 #include "list/circular/list-circular.h"
 #include "list/double/list-double.h"
