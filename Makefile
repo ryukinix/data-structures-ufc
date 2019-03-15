@@ -39,7 +39,7 @@ $(LIBPATH).so: $(LIB_OBJECTS)
 	gcc -o $@ -shared $(LIB_OBJECTS)
 
 
-header: $(LIBDIR)/$(HEADER)
+header: mkdir-$(LIBDIR) $(LIBDIR)/$(HEADER)
 
 $(LIBDIR)/$(HEADER): $(SRCDIR)/$(HEADER)
 	rm -rf $@
@@ -51,5 +51,8 @@ $(LIBDIR)/$(HEADER): $(SRCDIR)/$(HEADER)
 
 docs:
 	doxygen doxygen.cfg
+
+open-docs: docs
+	cd api_docs/html/ && python -m http.server 8000
 
 .PHONY: clean docs

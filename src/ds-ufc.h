@@ -14,6 +14,9 @@
 #define DS_UFC_H
 
 #include "console/console.h"
+#include "circle/circle.h"
+#include "point/point.h"
+#include "matrix/matrix.h"
 #include "list/circular/list-circular.h"
 #include "list/double/list-double.h"
 #include "list/single/list.h"
