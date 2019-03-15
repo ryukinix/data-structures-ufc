@@ -14,7 +14,7 @@ POINTER_VECTOR_STRUCT_DYNAMIC = pointer-vector-struct-dynamic
 POINTER_VECTOR_STRUCT_STATIC = pointer-vector-struct-static
 VECTOR_STRUCT_STATIC = vector-struct-static
 VECTOR_STRUCT_DYNAMIC = vector-struct-dynamic
-INCLUDE = -I../
+INCLUDE = -I../../../src
 
 
 # all binary files

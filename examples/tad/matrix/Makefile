@@ -1,25 +1,34 @@
-CC = gcc
-CFLAGS = -g -pedantic -Wall -Wextra
-LDFLAGS = -lm
-MATRIX_POINTER = matrix-pointer
-MATRIX_VECTOR = matrix-vector
-MATRIX_UTILS = matrix-utils
-TARGETS = $(MATRIX_POINTER).o $(MATRIX_VECTOR).o $(MATRIX_UTILS).o
-INCLUDE = -I../../
+ifeq ($(OS),Windows_NT)
+	EXTENSION := exe
+else
+	EXTENSION := out
+endif
 
-all: compile
+CC= gcc
+CFLAGS = -L./../../../lib -I././../../../src -pedantic -g -Wall -Wextra
+LDFLAGS = -lds-ufc -lm -static
+TARGET = main
+
+all: generate-binary
 	@echo > /dev/null
 
-compile: $(TARGETS)
+deps:
+	@+$(MAKE) --no-print-directory -C ../../../
 
-$(MATRIX_POINTER:=.o): $(MATRIX_POINTER).c
-$(MATRIX_VECTOR:=.o): $(MATRIX_VECTOR).c
-$(MATRIX_UTILS:=.o): $(MATRIX_UTILS).c
+$(TARGET).o: $(TARGET).c
+	$(CC) $(CFLAGS) -c -o $(TARGET).o $(TARGET).c
 
-$(TARGETS):
-	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $? $(LDFLAGS)
+$(TARGET:=.$(EXTENSION)): $(TARGET).c
+	$(CC) $(CFLAGS) $(TARGET).o -o $@ $(LDFLAGS)
+
+compile: $(TARGET).o
+
+generate-binary: deps compile $(TARGET:=.$(EXTENSION))
 
 clean:
-	rm -fv *.o
+	rm -rfv *.$(EXTENSION) *.o
 
-.PHONY: all clean compile
+run: generate-binary
+	./$(TARGET).$(EXTENSION)
+
+.PHONY: clean

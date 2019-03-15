@@ -1,66 +1,54 @@
 /**
- * ============================================================================
- *
- *                      Copyright 2017 Manoel Vilela
- *
- *         Author: Manoel Vilela
- *        Contact: manoel_vilela@engineer.com
- *   Organization: UFC
- *
- * ============================================================================
+ * Copyright 2017 Manoel Vilela
+ * UFC
  */
 
-#include <stdlib.h>
+#include <stdio.h>
 #include "circle.h"
-#include "utils/check_alloc.h"
+#include "point.h"
 
-struct circle {
-    Point* center; /**< the center point of circle */
-    float radius; /**< the radius size of the circle */
-};
+/**
+ * @brief check if the external point `p` is inside of circle `c`
+ *
+ * To this be true, the distance of the point from the center
+ * should be lesser than the size of radius.
+ *
+ * @param c a pointer to Circle structure
+ * @param p a pointer to a Point to check if inside of the Circle
+ */
+int point_inside(Circle *c, Point *p) {
+    float d = distance(&c->center, p);
+    return (d < c->r);
+}
 
-
-Circle* circle_create(Point *center, float radius) {
-    Circle* c = (Circle *) malloc(sizeof(Circle));
-    check_alloc(c);
-    c->center = center;
-    c->radius = radius;
+/**
+ * @brief create a new Circle structure based on its parameters
+ *
+ * @param center a Point structure which represents the center of the circle
+ * @param r the radio of the circle;
+ */
+Circle new_circle(Point center, float r) {
+    Circle c;
+    c.center = center;
+    c.r = r;
     return c;
 }
 
-void circle_free(Circle *c) {
-    free(c->center);
-    free(c);
-}
 
-void circle_set_center(Circle *c, Point *center) {
-    c->center = center;
-}
+/**
+ * @brief read a new Circle from stdin
+ *
+ * @return a new circle structure
+ */
+Circle read_circle() {
+    float r;
+    Point center;
+    printf(":: Reading a circle\n");
+    puts("=> Circle.center");
+    center = read_point();
+    puts("=> Circle.r");
+    printf("Type the size of radius: ");
+    scanf("%f", &r);
 
-void circle_set_radius(Circle *c, float radius) {
-    c->radius = radius;
-}
-
-void circle_set(Circle *c, Point *center, float radius) {
-    circle_set_center(c, center);
-    circle_set_radius(c, radius);
-}
-
-
-float circle_get_radius(Circle *c) {
-    return c->radius;
-}
-
-Point* circle_get_center(Circle *c) {
-    return c->center;
-}
-
-void circle_get(Circle *c, Point *center, float *radius) {
-    *radius = c->radius;
-    point_copy(c->center, center);
-}
-
-int circle_point_inside(Circle *c, Point *point) {
-    float distance_from_center = point_distance(c->center, point);
-    return (distance_from_center < c->radius);
+    return new_circle(center, r);
 }

@@ -7,7 +7,7 @@ LIBDIR = lib
 HEADER = ds-ufc.h
 CFLAGS = $(DEBUG) -pedantic $(WARN) -std=c99 -fPIC
 SOURCES = $(shell find $(SRCDIR) -iname '*.c')
-BLACKLIST = "(list-iter|main|test).c|avl|*.-static*.|vector-struct|matrix-"
+BLACKLIST = "(list-iter|main|test).c|avl|*.-static.c|matrix-vector"
 LIB_SOURCES = $(shell echo $(SOURCES) | tr ' ' '\n' | grep -E -v $(BLACKLIST))
 LIB_OBJECTS = $(shell echo $(LIB_SOURCES) | tr ' ' '\n' | sed "s/\.c/\.o/")
 INCLUDE=-I./$(SRCDIR)

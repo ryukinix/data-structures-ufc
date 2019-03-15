@@ -4,7 +4,7 @@ LDFLAGS = -lm
 TARGET = point
 OBJ = $(TARGET).o
 SRC = $(TARGET).c
-INCLUDE = -I../../
+INCLUDE = -I../
 
 all: compile
 	@echo > /dev/null

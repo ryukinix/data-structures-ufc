@@ -1,20 +1,27 @@
-CC = gcc
-CFLAGS = -g -pedantic -Wall -Wextra
-LDFLAGS = -lm
-TARGET = circle
-OBJ = $(TARGET).o
-SRC = $(TARGET).c
-INCLUDE = -I../../
+ifeq ($(OS),Windows_NT)
+	EXTENSION := exe
+else
+	EXTENSION := out
+endif
+
+CC=gcc
+CFLAGS=-Wall -Wextra -g
+LDFLAGS=-lm
+SOURCES=circle.c main.c point.c
+TARGET=main.$(EXTENSION)
+INCLUDE=-I../../../src
 
 all: compile
-	@echo > /dev/null
 
-compile: $(OBJ)
+$(TARGET): $(SOURCES)
+	$(CC) $(INCLUDE) $(CFLAGS) $(SOURCES) -o $(TARGET) $(LDFLAGS)
 
-%.o: %.c
-	$(CC) $(INCLUDE) -c $(CFLAGS) -o $@ $? $(LDFLAGS)
+compile: $(TARGET)
+
+run: compile
+	./$(TARGET)
 
 clean:
-	rm -fv *.o
+	rm -fv $(TARGET) || del $(TARGET)
 
-.PHONY: clean all compile
+.PHONY: compile run all clean
