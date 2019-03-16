@@ -93,14 +93,14 @@ int pqueue_extract_max(PQueue *pq) {
 }
 
 void pqueue_print(PQueue *pq) {
-    printf("[");
+    printf("<PQUEUE: [");
     for (int i = 0; i < pq->size; i++) {
         printf("%d", pq->heap[i]);
         if (i + 1 < pq->size) {
             printf(", ");
         }
     }
-    printf("]");
+    printf("]>");
 }
 
 void pqueue_println(PQueue *pq) {

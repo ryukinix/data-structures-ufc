@@ -63,7 +63,7 @@ int queue_remove(Queue *q) {
 
 
 void queue_print(Queue *q) {
-    printf("[");
+    printf("<QUEUE: [");
     for(int i = 0; i < q->size; i++) {
         int k = (q->start+i) % QUEUE_STATIC_MAX;
         printf("%d", q->v[k]);
@@ -71,7 +71,7 @@ void queue_print(Queue *q) {
             printf(", ");
         }
     }
-    printf("]");
+    printf("]>");
 }
 
 
