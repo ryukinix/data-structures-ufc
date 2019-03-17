@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['list_5fnode',['list_node',['../structlist__node.html',1,'']]]
+  ['binarynode',['BinaryNode',['../structBinaryNode.html',1,'']]]
 ];

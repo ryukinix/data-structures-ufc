@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['radius',['radius',['../structCircle.html#a47644132ec8bec0f3a4e8d0e15bcd5d3',1,'Circle']]],
   ['random_5fvector',['random_vector',['../sort_8h.html#ac5ef701117286701dc23ca197cc41cf1',1,'sort.h']]],
-  ['right',['right',['../structnode.html#a875f75abfe22103500535b179828e4e3',1,'node']]]
+  ['right',['right',['../structBinaryNode.html#a11cbe267369e724ad56e51c824f0614d',1,'BinaryNode']]]
 ];

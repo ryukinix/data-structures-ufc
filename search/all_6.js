@@ -1,7 +1,7 @@
 var searchData=
 [
-  ['left',['left',['../structnode.html#a3ce38490a651bfda86d88ff955e96abc',1,'node']]],
-  ['list',['List',['../list_8h.html#a8fe5e8f49adc9c46636c3046bb781364',1,'list.h']]],
+  ['left',['left',['../structBinaryNode.html#a23e0b6673d81d1135092969c19c97f9e',1,'BinaryNode']]],
+  ['list',['List',['../list_8h.html#a99e20082d0eddef1840f9f37978efd28',1,'list.h']]],
   ['list_2dcircular_2eh',['list-circular.h',['../list-circular_8h.html',1,'']]],
   ['list_2ddouble_2eh',['list-double.h',['../list-double_8h.html',1,'']]],
   ['list_2eh',['list.h',['../list_8h.html',1,'']]],
@@ -39,7 +39,6 @@ var searchData=
   ['list_5flast',['list_last',['../list_8h.html#a915fe1e58c573a63cdde45d78b449ddd',1,'list.h']]],
   ['list_5flength',['list_length',['../list_8h.html#aae4dd92efc67fe2ef7260a98eae8b351',1,'list.h']]],
   ['list_5fless_5fthan',['list_less_than',['../list_8h.html#a2e3b88f8a8d7351053aaaefec21aeafc',1,'list.h']]],
-  ['list_5fnode',['list_node',['../structlist__node.html',1,'']]],
   ['list_5fperfect',['list_perfect',['../list_8h.html#af8671c8f81fdcb3db4bd5ed9500199da',1,'list.h']]],
   ['list_5fpop_5fhead',['list_pop_head',['../list_8h.html#ac44329361fd97c02d4d709a6e14c067e',1,'list.h']]],
   ['list_5fpop_5flast',['list_pop_last',['../list_8h.html#afcd97bebd012deddf21570fdfdada306',1,'list.h']]],
@@ -52,6 +51,7 @@ var searchData=
   ['list_5fsearch',['list_search',['../list_8h.html#a250f0f1384d99bf8d9cf0f2af122b9ac',1,'list.h']]],
   ['list_5fsum',['list_sum',['../list_8h.html#a723facec42e6f5e8251d9c706b9b6871',1,'list.h']]],
   ['list_5ftail',['list_tail',['../list_8h.html#a57a877b9a0103dc6f9292cc159769d1f',1,'list.h']]],
-  ['listcircular',['ListCircular',['../list-circular_8h.html#aa54c7649b19cfd1ed0c96d93b1fe6be0',1,'list-circular.h']]],
-  ['listdouble',['ListDouble',['../list-double_8h.html#aed3f4700257afe2d4b3d70d33521d1cd',1,'list-double.h']]]
+  ['listcircular',['ListCircular',['../structListCircular.html',1,'ListCircular'],['../list-circular_8h.html#a7f523b90443d668c8d8d4cf84b54f02c',1,'ListCircular():&#160;list-circular.h']]],
+  ['listdouble',['ListDouble',['../structListDouble.html',1,'ListDouble'],['../list-double_8h.html#aee3a9358a248532a78b05c0761295c67',1,'ListDouble():&#160;list-double.h']]],
+  ['listnode',['ListNode',['../structListNode.html',1,'']]]
 ];

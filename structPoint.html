@@ -4,7 +4,7 @@
 <meta http-equiv="Content-Type" content="text/xhtml;charset=UTF-8"/>
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.8.6"/>
-<title>Data Structures UFC: list_node Struct Reference</title>
+<title>Data Structures UFC: Point Struct Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -85,48 +85,53 @@ var searchBox = new SearchBox("searchBox", "search",false,'Search');
   <div class="summary">
 <a href="#pub-attribs">Data Fields</a>  </div>
   <div class="headertitle">
-<div class="title">list_node Struct Reference</div>  </div>
+<div class="title">Point Struct Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
 
-<p><code>#include &lt;<a class="el" href="list_8h_source.html">list.h</a>&gt;</code></p>
+<p>struct <a class="el" href="structPoint.html" title="struct Point as 2D space pointer. ">Point</a> as 2D space pointer.  
+ <a href="structPoint.html#details">More...</a></p>
+
+<p><code>#include &lt;<a class="el" href="point_8h_source.html">point.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-attribs"></a>
 Data Fields</h2></td></tr>
-<tr class="memitem:aca9f3ace923ae0fcf0d53f17aff7c0fc"><td class="memItemLeft" align="right" valign="top">int&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlist__node.html#aca9f3ace923ae0fcf0d53f17aff7c0fc">data</a></td></tr>
-<tr class="separator:aca9f3ace923ae0fcf0d53f17aff7c0fc"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0b99ca890dbfe832a8475f4bbd72338c"><td class="memItemLeft" align="right" valign="top">struct <a class="el" href="structlist__node.html">list_node</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structlist__node.html#a0b99ca890dbfe832a8475f4bbd72338c">next</a></td></tr>
-<tr class="separator:a0b99ca890dbfe832a8475f4bbd72338c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a05dfe2dfbde813ad234b514f30e662f1"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPoint.html#a05dfe2dfbde813ad234b514f30e662f1">x</a></td></tr>
+<tr class="separator:a05dfe2dfbde813ad234b514f30e662f1"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6101960c8d2d4e8ea1d32c9234bbeb8d"><td class="memItemLeft" align="right" valign="top">float&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structPoint.html#a6101960c8d2d4e8ea1d32c9234bbeb8d">y</a></td></tr>
+<tr class="separator:a6101960c8d2d4e8ea1d32c9234bbeb8d"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
-<div class="textblock"><p>Shared struct definition because we have multiple source files which need to know how the internal struct is implemented </p>
+<div class="textblock"><p>struct <a class="el" href="structPoint.html" title="struct Point as 2D space pointer. ">Point</a> as 2D space pointer. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a class="anchor" id="aca9f3ace923ae0fcf0d53f17aff7c0fc"></a>
+<a class="anchor" id="a05dfe2dfbde813ad234b514f30e662f1"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">int list_node::data</td>
+          <td class="memname">float Point::x</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>x horizontal point on 2D plane </p>
 
 </div>
 </div>
-<a class="anchor" id="a0b99ca890dbfe832a8475f4bbd72338c"></a>
+<a class="anchor" id="a6101960c8d2d4e8ea1d32c9234bbeb8d"></a>
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">struct <a class="el" href="structlist__node.html">list_node</a>* list_node::next</td>
+          <td class="memname">float Point::y</td>
         </tr>
       </table>
 </div><div class="memdoc">
+<p>y vertical point on 2D plane </p>
 
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>src/list/single/<a class="el" href="list_8h_source.html">list.h</a></li>
+<li>src/point/<a class="el" href="point_8h_source.html">point.h</a></li>
 </ul>
 </div><!-- contents -->
 <!-- start footer part -->

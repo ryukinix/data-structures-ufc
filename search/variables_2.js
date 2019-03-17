@@ -1,4 +1,4 @@
 var searchData=
 [
-  ['next',['next',['../structlist__node.html#a0b99ca890dbfe832a8475f4bbd72338c',1,'list_node']]]
+  ['heap',['heap',['../structPQueue.html#aa967068eda502e148bba0e56437282b4',1,'PQueue']]]
 ];

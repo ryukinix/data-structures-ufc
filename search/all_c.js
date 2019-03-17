@@ -1,5 +1,6 @@
 var searchData=
 [
+  ['size',['size',['../structPQueue.html#a87efd2ac42013a3caf82d2fb3d8b94ae',1,'PQueue']]],
   ['sort_2eh',['sort.h',['../sort_8h.html',1,'']]],
   ['stack',['Stack',['../stack_8h.html#aa7883e8bf747b9dedec990b539df2cc0',1,'stack.h']]],
   ['stack_2eh',['stack.h',['../stack_8h.html',1,'']]],

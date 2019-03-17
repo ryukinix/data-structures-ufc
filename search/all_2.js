@@ -1,8 +1,9 @@
 var searchData=
 [
+  ['center',['center',['../structCircle.html#a7e71a329a498a6f9d7e03a54a5f9bf13',1,'Circle']]],
   ['check_5falloc_2eh',['check_alloc.h',['../check__alloc_8h.html',1,'']]],
   ['check_5fsorted',['check_sorted',['../sort_8h.html#ac4fdaea4ac1098ac703a5373c61feef2',1,'sort.h']]],
-  ['circle',['Circle',['../circle_8h.html#a29d6a06c9447d252ac09831c398a33ee',1,'circle.h']]],
+  ['circle',['Circle',['../structCircle.html',1,'Circle'],['../circle_8h.html#aba98f5b247b9d2dd064a85bd5d176563',1,'Circle():&#160;circle.h']]],
   ['circle_2eh',['circle.h',['../circle_8h.html',1,'']]],
   ['circle_5fcreate',['circle_create',['../circle_8h.html#a00345252c9eb306ee62fa3ab56c2b1db',1,'circle.h']]],
   ['circle_5ffree',['circle_free',['../circle_8h.html#acb11cf1b6406ddd75d9b7dbb535a36e8',1,'circle.h']]],
