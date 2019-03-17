@@ -14,6 +14,7 @@ INCLUDE=-I./$(SRCDIR)
 LIBPATH = $(LIBDIR)/$(LIBNAME)
 INCLUDE_TARGET = /usr/local/include
 LIB_TARGET = /usr/local/lib
+SUBSYSTEMS = $(shell find src -iname "Makefile" -exec dirname '{}' \;)
 
 all: compile static shared header
 
@@ -55,6 +56,11 @@ $(LIBDIR)/$(HEADER): $(SRCDIR)/$(HEADER)
 	echo "#include <stdlib.h>" >> $@
 	echo "#include <math.h>" >> $@
 	$(CC) -CC -E -Isrc/ "$<" >> $@
+
+test: all
+	for s in $(SUBSYSTEMS); do \
+		make -C $$s test; \
+	done
 
 docs:
 	doxygen doxygen.cfg
