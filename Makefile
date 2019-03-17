@@ -12,8 +12,15 @@ LIB_SOURCES = $(shell echo $(SOURCES) | tr ' ' '\n' | grep -E -v $(BLACKLIST))
 LIB_OBJECTS = $(shell echo $(LIB_SOURCES) | tr ' ' '\n' | sed "s/\.c/\.o/")
 INCLUDE=-I./$(SRCDIR)
 LIBPATH = $(LIBDIR)/$(LIBNAME)
+INCLUDE_TARGET = /usr/local/include
+LIB_TARGET = /usr/local/lib
 
 all: compile static shared header
+
+install: all
+	cp -f $(LIBDIR)/ds-ufc.h $(INCLUDE_TARGET)
+	cp -f $(LIBDIR)/libds-ufc.a $(LIBDIR)/libds-ufc.so $(LIB_TARGET)
+
 
 mkdir-%:
 	@mkdir -p "$*"
