@@ -14,12 +14,6 @@
 #include "circle.h"
 #include "utils/check_alloc.h"
 
-struct circle {
-    Point* center; /**< the center point of circle */
-    float radius; /**< the radius size of the circle */
-};
-
-
 Circle* circle_create(Point *center, float radius) {
     Circle* c = (Circle *) malloc(sizeof(Circle));
     check_alloc(c);

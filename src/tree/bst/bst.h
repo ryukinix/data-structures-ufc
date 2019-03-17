@@ -23,7 +23,7 @@
 #include "tree/binary-tree.h"
 
 /* Binary Search Tree DataType Definition */
-typedef struct node BSTree;
+typedef struct BinaryNode BSTree;
 
 #define BST_EMPTY (BSTree*) 0
 

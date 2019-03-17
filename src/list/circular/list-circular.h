@@ -12,9 +12,18 @@
 
 #ifndef LIST_CIRCULAR_H
 #define LIST_CIRCULAR_H
+/**
+ * @brief A List circular data structure.
+ * The last *next pointer points to the first.
+ */
+struct ListCircular {
+    int data;
+    struct ListCircular *next;
+};
+
 
 /** List circular alias */
-typedef struct listCircular ListCircular;
+typedef struct ListCircular ListCircular;
 
 #define EMPTY_LIST_CIRCULAR (ListCircular*) 0
 

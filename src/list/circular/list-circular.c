@@ -14,12 +14,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct listCircular {
-    int data;
-    struct listCircular *next;
-};
-
-
 ListCircular* list_circular__new_node(int data) {
     ListCircular* node = (ListCircular*) malloc(sizeof(ListCircular));
     node->data = data;

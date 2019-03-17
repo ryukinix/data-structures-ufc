@@ -17,13 +17,13 @@
  * Shared struct definition because we have multiple source files
  * which need to know how the internal struct is implemented
  */
-struct list_node {
+struct ListNode {
     int data;
-    struct list_node *next;
+    struct ListNode *next;
 };
 
 /** Public type List for Singly Linked Lists */
-typedef struct list_node List;
+typedef struct ListNode List;
 
 #define EMPTY_LIST (List*) 0
 

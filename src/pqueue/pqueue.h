@@ -17,7 +17,19 @@
 
 #define HEAP_EMPTY_CELL -1
 
-typedef struct pqueue_t PQueue;
+/**
+ * @brief Priority Queue Data Structure.
+ * Like a normal queue about push/pop logic,
+ *  but each individual now heave a weight. A inner
+ * heap implementation it's provided.
+ */
+struct PQueue {
+    int heap[PQUEUE_SIZE]; /**< inner heap for weights */
+    int size;              /**< the current size of PQueue */
+};
+
+
+typedef struct PQueue PQueue;
 
 PQueue* pqueue_create();
 

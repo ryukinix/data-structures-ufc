@@ -20,7 +20,13 @@
  * Has the fields hidden by struct circle
  * as (Point* center) and (float radius)
  */
-typedef struct circle Circle;
+struct Circle {
+    Point* center; /**< the center point of circle */
+    float radius; /**< the radius size of the circle */
+};
+
+
+typedef struct Circle Circle;
 
 /**
  * @brief allocate a new circle on memory based on its parameters

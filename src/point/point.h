@@ -14,9 +14,15 @@
 #define POINT_H
 
 /**
- * @brief struct Point as 2D space pointer
+ * @brief struct Point as 2D space pointer.
  */
-typedef struct point Point;
+struct Point {
+    float x; /**< x horizontal point on 2D plane */
+    float y; /**< y vertical point on 2D plane */
+};
+
+
+typedef struct Point Point;
 
 /**
  * @brief create a new Point and set x an y
