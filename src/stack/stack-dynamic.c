@@ -41,11 +41,14 @@ int stack_pop(Stack *s) {
 }
 
 void stack_print(Stack* s) {
+    printf("<STACK: ");
     list_print(s->list);
+    printf(">");
 }
 
 void stack_println(Stack* s) {
-    list_println(s->list);
+    stack_print(s);
+    printf("\n");
 }
 
 void stack_free(Stack* s) {

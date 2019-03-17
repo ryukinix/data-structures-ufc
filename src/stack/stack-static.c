@@ -40,14 +40,14 @@ int stack_pop(Stack* s) {
 }
 
 void stack_print(Stack* s) {
-    printf("[");
+    printf("<STACK: [");
     for(int i = 0; i < s->n; i++) {
         printf("%d", s->v[i]);
         if (i + 1 < s->n) {
             printf(", ");
         }
     }
-    printf("]");
+    printf("]>");
 }
 
 void stack_println(Stack* s) {

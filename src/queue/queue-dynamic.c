@@ -63,12 +63,15 @@ int queue_remove(Queue *q) {
 
 
 void queue_print(Queue *q) {
+    printf("<QUEUE: ");
     list_print(q->start);
+    printf(">");
 }
 
 
 void queue_println(Queue *q) {
-    list_println(q->start);
+    queue_print(q);
+    printf("\n");
 }
 
 
