@@ -7,6 +7,9 @@
   <a href="https://github.com/nikku/works-on-my-machine">
      <img alt="ci-done" src="https://cdn.rawgit.com/nikku/works-on-my-machine/v0.2.0/badge.svg" />
   </a>
+  <a href="https://travis-ci.org/ryukinix/data-structures-ufc">
+     <img alt="travis" src="https://travis-ci.org/ryukinix/data-structures-ufc.svg?branch=master" />
+  </a>
 #+END_HTML
 
 * Descrição
