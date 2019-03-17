@@ -15,11 +15,6 @@
 #include "list-double.h"
 #include "utils/check_alloc.h"
 
-struct listDouble {
-    int data;
-    struct listDouble *next;
-    struct listDouble *prev;
-};
 
 ListDouble* list_double__new_node(int data) {
     ListDouble* node = (ListDouble*) malloc(sizeof(ListDouble));

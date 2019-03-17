@@ -14,11 +14,6 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-struct pqueue_t {
-    int heap[PQUEUE_SIZE];
-    int size;
-};
-
 void swap_values(int *e1, int *e2) {
     int temp = *e1;
     *e1 = *e2;

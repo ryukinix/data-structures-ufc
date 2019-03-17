@@ -15,11 +15,6 @@
 #include "point.h"
 #include "utils/check_alloc.h"
 
-struct point {
-    float x;
-    float y;
-};
-
 
 Point* point_create(float x, float y) {
     Point* p = (Point *) malloc(sizeof(Point));

@@ -20,12 +20,12 @@
 #define TypeFormat "%d"
 #endif
 
-struct node {
+struct BinaryNode {
     Type value;
-    struct node* left;
-    struct node* right;
+    struct BinaryNode* left;
+    struct BinaryNode* right;
 };
 
-typedef struct node BinaryTree;
+typedef struct BinaryNode BinaryTree;
 
 #endif

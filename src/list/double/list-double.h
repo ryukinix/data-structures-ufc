@@ -13,7 +13,16 @@
 #ifndef LIST_DOUBLE_H
 #define LIST_DOUBLE_H
 
-typedef struct listDouble ListDouble;
+/**
+ * @brief Linked List with double pointers.
+ */
+struct ListDouble {
+    int data;
+    struct ListDouble *next;
+    struct ListDouble *prev;
+};
+
+typedef struct ListDouble ListDouble;
 
 #define EMPTY_LIST_DOUBLE (ListDouble*) 0
 
