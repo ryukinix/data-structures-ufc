@@ -33,8 +33,11 @@ deps:
 $(MAIN_BINARY): $(TARGETS)
 	$(CC) $(INCLUDE) $(CFLAGS) -o $@ $(OBJS) $(LDFLAGS)
 
-test: deps $(TARGETS) $(MAIN_BINARY)
+main: deps $(TARGETS) $(MAIN_BINARY)
 	./$(MAIN_BINARY)
+
+test:
+	@echo "Test manually with: make main"
 
 clean:
 	rm -fv *.o *.$(EXTENSION) *.a
