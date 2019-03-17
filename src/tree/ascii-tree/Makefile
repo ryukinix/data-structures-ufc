@@ -8,7 +8,7 @@ CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
 CFLAGS = $(DEBUG) -pedantic $(WARN) -std=c99
-LDFLAGS = -L../bst/ -lm -lbst
+LDFLAGS = -L../bst/ -lbst -lm
 ASCII_TREE = ascii-tree
 TEST_TARGET = test
 INCLUDE = -I../../
