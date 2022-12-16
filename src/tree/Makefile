@@ -8,7 +8,8 @@ CC = gcc
 WARN = -Wall -Wextra
 DEBUG = -g
 override CFLAGS += $(DEBUG) -pedantic $(WARN) -std=c99
-LDFLAGS = -L./ascii-tree/ -L./bst -lm -lascii-tree -lbst
+LDFLAGS = -lm -L./ascii-tree/ -L./bst/ -lbst -lascii-tree
+LDFLAGS = -L./ascii-tree/ -L./bst/ -B static -lbst -lascii-tree -B dynamic -lm
 MAIN = main
 INCLUDE = -I../
 
